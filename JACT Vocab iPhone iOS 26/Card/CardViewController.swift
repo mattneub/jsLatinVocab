@@ -32,5 +32,36 @@ final class CardViewController: UIViewController {
         part.text = term.part
         lesson.text = term.lesson
         section.text = term.section
+        // two labels are tappable to navigate
+        do {
+            let tapper = MyTapGestureRecognizer(target: self, action: #selector(tappedLabel))
+            lesson.addGestureRecognizer(tapper)
+            lesson.isUserInteractionEnabled = true
+        }
+        do {
+            let tapper = MyTapGestureRecognizer(target: self, action: #selector(tappedLabel))
+            section.addGestureRecognizer(tapper)
+            section.isUserInteractionEnabled = true
+        }
+    }
+
+    @objc func tappedLabel(_ tapper: UITapGestureRecognizer) {
+        guard let label = tapper.view as? UILabel else {
+            return
+        }
+        let tappedLabel: TappedLabel = switch label {
+        case lesson: .lesson
+        case section: .section
+        default: .lesson // shouldn't happen
+        }
+        Task {
+            await processor?.receive(.tappedLabel(tappedLabel, currentTerm: term.index))
+        }
     }
 }
+
+enum TappedLabel {
+    case lesson
+    case section
+}
+

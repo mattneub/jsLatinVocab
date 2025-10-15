@@ -12,7 +12,7 @@ final class RootCoordinator: RootCoordinatorType {
     weak var rootViewController: UIViewController?
 
     /// Place where processors are rooted so that they don't vanish in a puff of smoke.
-    var rootProcessor: (any Processor<RootAction, RootState, Void>)?
+    var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()

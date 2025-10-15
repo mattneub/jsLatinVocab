@@ -6,7 +6,7 @@ final class RootProcessor: Processor {
     weak var coordinator: (any RootCoordinatorType)?
 
     /// Reference to the presenter, set by the coordinator at module creation time.
-    weak var presenter: (any ReceiverPresenter<Void, RootState>)?
+    weak var presenter: (any ReceiverPresenter<RootEffect, RootState>)?
 
     /// State to be presented by the presenter.
     var state = RootState() // TODO: it may be that this won't be needed and we'll use effect instead
@@ -15,8 +15,30 @@ final class RootProcessor: Processor {
         switch action {
         case .initialInterface:
             state.terms = prepareTerms()
-            state.initialTerm = state.terms[0] // TODO: eventually this can come from persistence
+            let initialIndex = 0 // TODO: eventually this can come from persistence
             await presenter?.present(state)
+            await presenter?.receive(.navigateTo(index: initialIndex, animated: false))
+        case .tappedLabel(let label, let currentTermIndex): // navigate by category
+            // convert label tapped to Term property to be consulted
+            let getter: KeyPath<Term, String> = switch label {
+            case .lesson: \.lesson
+            case .section: \.lessonSection
+            }
+            let currentValue = state.terms[currentTermIndex][keyPath: getter]
+            // first, try terms _after_ current term
+            if let index = state.terms[(currentTermIndex + 1)...].firstIndex(where: {
+                $0[keyPath: getter] != currentValue
+            }) {
+                await presenter?.receive(.navigateTo(index: index, animated: true))
+                return
+            }
+            // if that didn't work, try terms _before_ current term
+            if let index = state.terms[..<currentTermIndex].firstIndex(where: {
+                $0[keyPath: getter] != currentValue
+            }) {
+                await presenter?.receive(.navigateTo(index: index, animated: true))
+                return
+            }
         }
     }
 
@@ -24,34 +46,28 @@ final class RootProcessor: Processor {
     /// them, and return them.
     /// - Returns: The array of Terms, ready for display in the interface.
     func prepareTerms() -> [Term] {
-        guard let path = services.bundle.path(forResource: "JactVocabUnicode", ofType: "txt") else {
+        guard let path = services.bundle.path(forResource: "JactVocabUnicode", ofType: "txt"),
+              let vocab = try? String(contentsOfFile: path, encoding: .utf8) else {
             return []
         }
-        guard let vocab = try? String(contentsOfFile: path, encoding: .utf8) else {
-            return []
-        }
-        var terms = [Term]()
-        let lines = vocab.components(separatedBy: "\n") // last one can be blank
-        for (index, line) in lines.enumerated() {
-            if line.count < 5 {
-                break // ignore bogus empty lines
-            }
-            let term = Term(tabbedString: line, index: index)
-            terms.append(term)
-        }
-        // sort into book order
+        // we're going to sort into book order
         let sortFunctions = SwiftSortDescriptor<Term>.combine([
             SwiftSortDescriptor<Term>.sortFunction { $0.lessonSection },
             SwiftSortDescriptor<Term>.sortFunction { $0.beta },
             SwiftSortDescriptor<Term>.sortFunction { $0.indexOrig },
         ])
-        terms.sort(by: sortFunctions)
-        // renumber in current order
-        var renumberedTerms = [Term]()
-        for (index, var term) in terms.enumerated() {
-            term.index = index
-            renumberedTerms.append(term)
-        }
-        return renumberedTerms
+        let terms = vocab.components(separatedBy: "\n")
+            .filter { $0.count > 5 } // remove "blank" lines
+            .enumerated() // use index within unsorted list as original index
+            .map { index, line -> Term in
+                Term(tabbedString: line, index: index)
+            }.sorted(by: sortFunctions)
+            .enumerated() // use index within sorted list as index
+            .map { index, term in
+                var term = term
+                term.index = index
+                return term
+            }
+        return terms
     }
 }

@@ -61,9 +61,6 @@
                     <color key="textColor" systemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="66" appends="YES" id="67"/>
-                    </connections>
                 </label>
                 <label tag="1" contentMode="scaleToFill" text="Label" textAlignment="right" lineBreakMode="clip" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12" customClass="BoundedLabel" customModule="Jact" customModuleProvider="target">
                     <rect key="frame" x="40" y="227" width="47" height="42"/>
@@ -77,9 +74,6 @@
                     <color key="textColor" systemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="61" appends="YES" id="62"/>
-                    </connections>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="DJM-Gg-o6a"/>
@@ -109,16 +103,6 @@
             </constraints>
             <point key="canvasLocation" x="124" y="155"/>
         </view>
-        <tapGestureRecognizer id="61">
-            <connections>
-                <action selector="trampoline:" destination="-1" id="Syq-sM-hFa"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="66">
-            <connections>
-                <action selector="trampoline:" destination="-1" id="iho-Oc-nRs"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="papyrusNewLargeCropped.jpg" width="554.4000244140625" height="357.83999633789062"/>

@@ -1,14 +1,15 @@
 @testable import Jact
 import Testing
 import UIKit
+import WaitWhile
 
 struct CardViewControllerTests {
     @Test("initialize plus view did load sets the Term, populates the interface")
-    func initializePlusViewDidLoad() {
+    func initializePlusViewDidLoad() throws {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
-            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 1
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         let subject = CardViewController(term: term)
         #expect(subject.term.indexOrig == 1)
@@ -18,5 +19,49 @@ struct CardViewControllerTests {
         #expect(subject.part.text == "part")
         #expect(subject.lesson.text == "lesson")
         #expect(subject.section.text == "section")
+        do {
+            let tapper = try #require(subject.lesson.gestureRecognizers?.first as? MyTapGestureRecognizer)
+            #expect(tapper.target === subject)
+            #expect(tapper.action == #selector(subject.tappedLabel))
+        }
+        do {
+            let tapper = try #require(subject.section.gestureRecognizers?.first as? MyTapGestureRecognizer)
+            #expect(tapper.target === subject)
+            #expect(tapper.action == #selector(subject.tappedLabel))
+        }
+    }
+
+    @Test("tappedLabel: translates label into enum, sends tappedLabel with enum and term index")
+    func tappedLabelLesson() async throws {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
+        )
+        let subject = CardViewController(term: term)
+        let processor = MockReceiver<RootAction>()
+        subject.processor = processor
+        subject.loadViewIfNeeded()
+        let tapper = try #require(subject.lesson.gestureRecognizers?.first as? UITapGestureRecognizer)
+        subject.tappedLabel(tapper)
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived.last == .tappedLabel(.lesson, currentTerm: 1))
+    }
+
+    @Test("tappedLabel: translates other label into enum, sends tappedLabel with enum and term index")
+    func tappedLabelSection() async throws {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
+        )
+        let subject = CardViewController(term: term)
+        let processor = MockReceiver<RootAction>()
+        subject.processor = processor
+        subject.loadViewIfNeeded()
+        let tapper = try #require(subject.section.gestureRecognizers?.first as? UITapGestureRecognizer)
+        subject.tappedLabel(tapper)
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived.last == .tappedLabel(.section, currentTerm: 1))
     }
 }

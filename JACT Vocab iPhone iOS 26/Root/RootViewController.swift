@@ -25,7 +25,7 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     )
 
     /// Our data source delegate object.
-    lazy var pageViewControllerDatasource: PageViewControllerDatasource<RootAction> = .init(
+    lazy var pageViewControllerDatasource: PageViewControllerDatasource = .init(
         pageViewController: pageViewController,
         processor: processor
     )
@@ -96,11 +96,11 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     }
 
     func present(_ state: RootState) async {
-        guard let term = state.initialTerm else {
-            return
-        }
         pageViewControllerDatasource.data = state.terms
-        pageViewControllerDatasource.createInitialInterface(term: term)
+    }
+
+    func receive(_ effect: RootEffect) async {
+        await pageViewControllerDatasource.receive(effect)
     }
 
     @objc func toggleEnglish() {}

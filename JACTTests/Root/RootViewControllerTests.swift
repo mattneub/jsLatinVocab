@@ -83,20 +83,18 @@ struct RootViewControllerTests {
         #expect(processor.thingsReceived.first == .initialInterface)
     }
 
-    @Test("present: sets datasource terms, calls datasource create initial interface")
+    @Test("present: sets datasource terms")
     func present() async {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
-            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 1
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
-        let state = RootState(initialTerm: term, terms: [term])
+        let state = RootState(terms: [term])
         let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
         subject.pageViewControllerDatasource = datasource
         await subject.present(state)
         #expect(datasource.data == [term])
-        #expect(datasource.methodsCalled == ["createInitialInterface(term:)"])
-        #expect(datasource.term == term)
     }
 
     @Test("positionForBar: is .bottom")
