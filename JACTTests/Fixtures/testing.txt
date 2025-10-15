@@ -1,0 +1,5 @@
+a	b	3	b	part
+hey	ho	3	b	part
+hey	ho2	3	b	part
+i	j	1	a	part
+zim	zam	1	b	part
