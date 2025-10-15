@@ -25,7 +25,7 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     )
 
     /// Our data source delegate object.
-    lazy var pageViewControllerDatasource: PageViewControllerDatasource = .init(
+    lazy var datasource: any PageViewControllerDatasourceType<RootAction, RootEffect, Term> = RootDatasource(
         pageViewController: pageViewController,
         processor: processor
     )
@@ -68,8 +68,8 @@ final class RootViewController: UIViewController, ReceiverPresenter {
                 pageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ])
             pageViewController.didMove(toParent: self) // dance
-            pageViewController.dataSource = pageViewControllerDatasource
-            pageViewController.delegate = pageViewControllerDatasource
+            pageViewController.dataSource = datasource
+            pageViewController.delegate = datasource
         }
 
         // Toolbar.
@@ -96,11 +96,11 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     }
 
     func present(_ state: RootState) async {
-        pageViewControllerDatasource.data = state.terms
+        datasource.data = state.terms
     }
 
     func receive(_ effect: RootEffect) async {
-        await pageViewControllerDatasource.receive(effect)
+        await datasource.receive(effect)
     }
 
     @objc func toggleEnglish() {}

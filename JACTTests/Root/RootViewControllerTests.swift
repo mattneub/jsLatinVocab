@@ -34,10 +34,10 @@ struct RootViewControllerTests {
         #expect(page.spineLocation.rawValue == UIPageViewController.SpineLocation.min.rawValue)
     }
 
-    @Test("pageViewControllerDatasource is correctly prepared")
-    func dataSource() {
+    @Test("datasource is correctly prepared")
+    func datasource() throws {
         let page = subject.pageViewController
-        let datasource = subject.pageViewControllerDatasource
+        let datasource = try #require(subject.datasource as? RootDatasource)
         #expect(datasource.processor === processor)
         #expect(datasource.pageViewController === page)
     }
@@ -51,8 +51,8 @@ struct RootViewControllerTests {
         #expect(subject.pageViewController.view.superview == subject.view)
         #expect(subject.pageViewController.view.translatesAutoresizingMaskIntoConstraints == false)
         #expect(subject.pageViewController.view.frame == subject.view.bounds)
-        #expect(subject.pageViewController.dataSource === subject.pageViewControllerDatasource)
-        #expect(subject.pageViewController.delegate === subject.pageViewControllerDatasource)
+        #expect(subject.pageViewController.dataSource === subject.datasource)
+        #expect(subject.pageViewController.delegate === subject.datasource)
         #expect(subject.toolbar.superview == subject.view)
         #expect(subject.toolbar.frame.height == 50)
         #expect(subject.toolbar.frame.width == subject.view.bounds.width)
@@ -83,7 +83,7 @@ struct RootViewControllerTests {
         #expect(processor.thingsReceived.first == .initialInterface)
     }
 
-    @Test("present: sets datasource terms")
+    @Test("present: sets datasource data")
     func present() async {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
@@ -91,15 +91,57 @@ struct RootViewControllerTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         let state = RootState(terms: [term])
-        let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
-        subject.pageViewControllerDatasource = datasource
+        let datasource = MockPageViewControllerDatasource(
+            pageViewController: UIPageViewController(),
+            processor: processor
+        )
+        subject.datasource = datasource
         await subject.present(state)
         #expect(datasource.data == [term])
+    }
+
+    @Test("receive: passes effect on to datasource")
+    func receive() async {
+        let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
+        subject.datasource = datasource
+        await subject.receive(.navigateTo(index: 1, animated: true))
+        #expect(datasource.thingsReceived == [.navigateTo(index: 1, animated: true)])
     }
 
     @Test("positionForBar: is .bottom")
     func position() {
         let result = subject.position(for: UIToolbar())
         #expect(result == .bottom)
+    }
+}
+
+fileprivate final class MockPageViewControllerDatasource: NSObject, PageViewControllerDatasourceType {
+    var thingsReceived = [RootEffect]()
+    var pageViewController: UIPageViewController?
+    var processor: (any Receiver<RootAction>)?
+
+    init(pageViewController: UIPageViewController, processor: (any Receiver<RootAction>)?) {
+        self.pageViewController = pageViewController
+        self.processor = processor
+    }
+
+    var data = [Term]()
+
+    func receive(_ effect: RootEffect) async {
+        thingsReceived.append(effect)
+    }
+
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
+        return nil
+    }
+
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController
+    ) -> UIViewController? {
+        return nil
     }
 }

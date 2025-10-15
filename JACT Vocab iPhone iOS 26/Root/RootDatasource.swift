@@ -2,7 +2,7 @@ import UIKit
 
 /// Class whose instance acts as the page view controller data source and delegate for the page
 /// view controller in the root view controller.
-class PageViewControllerDatasource: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     /// Reference to the page view controller, so we can talk to it from non-datasource non-delegate
     /// methods.
     weak var pageViewController: UIPageViewController?
@@ -22,6 +22,7 @@ class PageViewControllerDatasource: NSObject, UIPageViewControllerDataSource, UI
     /// Our data.
     var data = [Term]()
 
+    /// The processor communicates with us by sending us an Effect.
     func receive(_ effect: RootEffect) async {
         switch effect {
         case .navigateTo(index: let index, animated: let animated):

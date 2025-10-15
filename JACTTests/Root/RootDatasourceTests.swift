@@ -2,11 +2,11 @@
 import Testing
 import UIKit
 
-struct PageViewControllerDatasourceTests {
+struct RootDatasourceTests {
     @Test("receive navigateTo: given term index, creates card view controller and puts it in page view controller")
-    func createInitialInterface() async throws {
+    func navigateTo() async throws {
         let pageViewController = UIPageViewController()
-        let subject = PageViewControllerDatasource(pageViewController: pageViewController, processor: nil)
+        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
@@ -34,7 +34,7 @@ struct PageViewControllerDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
         )
         let pageViewController = UIPageViewController()
-        let subject = PageViewControllerDatasource(pageViewController: pageViewController, processor: nil)
+        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         subject.data = [term1, term2]
         let processor = MockReceiver<RootAction>()
         subject.processor = processor
@@ -63,7 +63,7 @@ struct PageViewControllerDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
         )
         let pageViewController = UIPageViewController()
-        let subject = PageViewControllerDatasource(pageViewController: pageViewController, processor: nil)
+        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         subject.data = [term1, term2]
         let processor = MockReceiver<RootAction>()
         subject.processor = processor
