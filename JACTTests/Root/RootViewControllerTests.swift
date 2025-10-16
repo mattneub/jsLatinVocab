@@ -108,6 +108,13 @@ struct RootViewControllerTests {
         #expect(datasource.thingsReceived == [.navigateTo(index: 1, animated: true)])
     }
 
+    @Test("toggleEnglish: sends toggleEnglish")
+    func toggleEnglish() async {
+        subject.toggleEnglish()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.toggleEnglish])
+    }
+
     @Test("positionForBar: is .bottom")
     func position() {
         let result = subject.position(for: UIToolbar())

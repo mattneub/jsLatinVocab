@@ -1,7 +1,7 @@
 import UIKit
 
 /// View controller that presents its view as a "card" in the page view controller.
-final class CardViewController: UIViewController {
+class CardViewController: UIViewController {
     /// Reference to the processor, so that we can inform it of taps on labels (to sort).
     weak var processor: (any Receiver<RootAction>)?
 
@@ -16,7 +16,7 @@ final class CardViewController: UIViewController {
     @IBOutlet var lesson: UILabel!
     @IBOutlet var section: UILabel!
 
-    init(term: Term) {
+    required init(term: Term) {
         self.term = term
         super.init(nibName: "Card", bundle: nil)
     }
@@ -45,6 +45,30 @@ final class CardViewController: UIViewController {
         }
     }
 
+    /// Set the visibility of the English label. If we are actually in the window (and thus
+    /// visible to the user), do this with animation.
+    func setEnglishHidden(_ hidden: Bool) {
+        english?.layer.opacity = hidden ? 0 : 1
+        guard let english, view.window != nil else {
+            return
+        }
+        do {
+            let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+            animation.duration = 0.2
+            english.layer.add(animation, forKey: nil)
+        }
+        do {
+            let animation = CABasicAnimation(keyPath: #keyPath(CALayer.bounds))
+            animation.duration = 0.2
+            let tiny = CGRect.zero
+            let big = english.layer.bounds
+            animation.fromValue = hidden ? big : tiny
+            animation.toValue = hidden ? tiny : big
+            english.layer.add(animation, forKey: nil)
+        }
+    }
+
+    /// The user tapped either of the two tappable labels.
     @objc func tappedLabel(_ tapper: UITapGestureRecognizer) {
         guard let label = tapper.view as? UILabel else {
             return

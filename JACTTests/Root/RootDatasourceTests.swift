@@ -3,22 +3,48 @@ import Testing
 import UIKit
 
 struct RootDatasourceTests {
+    var subject: RootDatasource!
+    let pageViewController = UIPageViewController()
+    let processor = MockReceiver<RootAction>()
+
+    init() {
+        subject = RootDatasource(pageViewController: pageViewController, processor: processor)
+        subject.cardClass = MockCardViewController.self
+    }
+
+    @Test("receive englishHidden: sets englishHidden, calls card setEnglishHidden")
+    func englishHidden() async throws {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let card = MockCardViewController(term: term)
+        pageViewController.setViewControllers([card], direction: .forward, animated: false)
+        await subject.receive(.englishHidden(true))
+        #expect(subject.englishHidden == true)
+        #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+        #expect(card.hidden == true)
+        await subject.receive(.englishHidden(false))
+        #expect(subject.englishHidden == false)
+        #expect(card.methodsCalled == ["setEnglishHidden(_:)", "setEnglishHidden(_:)"])
+        #expect(card.hidden == false)
+    }
+
     @Test("receive navigateTo: given term index, creates card view controller and puts it in page view controller")
     func navigateTo() async throws {
-        let pageViewController = UIPageViewController()
-        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         subject.data = [term]
-        let processor = MockReceiver<RootAction>()
-        subject.processor = processor
         await subject.receive(.navigateTo(index: 0, animated: false))
-        let card = try #require(pageViewController.viewControllers?.first as? CardViewController)
+        let card = try #require(pageViewController.viewControllers?.first as? MockCardViewController)
         #expect(card.term == term)
         #expect(card.processor === processor)
+        #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+        #expect(card.hidden == false)
     }
 
     @Test("viewControllerBefore: returns correct view controller")
@@ -33,16 +59,14 @@ struct RootDatasourceTests {
             section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
         )
-        let pageViewController = UIPageViewController()
-        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         subject.data = [term1, term2]
-        let processor = MockReceiver<RootAction>()
-        subject.processor = processor
         do {
             let result = subject.pageViewController(pageViewController, viewControllerBefore: CardViewController(term: term2))
-            let card = try #require(result as? CardViewController)
+            let card = try #require(result as? MockCardViewController)
             #expect(card.term == term1)
             #expect(card.processor === processor)
+            #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+            #expect(card.hidden == false)
         }
         do {
             let result = subject.pageViewController(pageViewController, viewControllerBefore: CardViewController(term: term1))
@@ -62,20 +86,28 @@ struct RootDatasourceTests {
             section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
         )
-        let pageViewController = UIPageViewController()
-        let subject = RootDatasource(pageViewController: pageViewController, processor: nil)
         subject.data = [term1, term2]
-        let processor = MockReceiver<RootAction>()
-        subject.processor = processor
         do {
             let result = subject.pageViewController(pageViewController, viewControllerAfter: CardViewController(term: term1))
-            let card = try #require(result as? CardViewController)
+            let card = try #require(result as? MockCardViewController)
             #expect(card.term == term2)
             #expect(card.processor === processor)
+            #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+            #expect(card.hidden == false)
         }
         do {
             let result = subject.pageViewController(pageViewController, viewControllerAfter: CardViewController(term: term2))
             #expect(result == nil)
         }
+    }
+}
+
+final class MockCardViewController: CardViewController {
+    var methodsCalled = [String]()
+    var hidden: Bool?
+
+    override func setEnglishHidden(_ hidden: Bool) {
+        methodsCalled.append(#function)
+        self.hidden = hidden
     }
 }

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardController" customModule="Jact" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewController" customModule="Jact" customModuleProvider="target">
             <connections>
                 <outlet property="english" destination="7" id="vKs-3t-ocZ"/>
                 <outlet property="latin" destination="4" id="cov-Db-939"/>

@@ -2,4 +2,5 @@
 enum RootAction: Equatable {
     case initialInterface
     case tappedLabel(TappedLabel, currentTerm: Int)
+    case toggleEnglish
 }

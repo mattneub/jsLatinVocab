@@ -6,16 +6,19 @@ struct RootProcessorTests {
     let subject = RootProcessor()
     let presenter = MockReceiverPresenter<RootEffect, RootState>()
     let bundle = MockBundle()
+    let persistence = MockPersistence()
 
     init() {
         subject.presenter = presenter
         services.bundle = bundle
+        services.persistence = persistence
     }
 
     @Test("initialInterface: fetches string file from bundle, creates and sorts Terms, sets state, presents, navigates")
     func initialInterface() async {
         let path = Bundle(for: MockBundle.self).path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
         bundle.pathToReturn = path
+        persistence.hiddenToReturn = true
         await subject.receive(.initialInterface)
         let terms = subject.state.terms
         // terms are in order by lessonSection
@@ -29,6 +32,9 @@ struct RootProcessorTests {
         #expect(terms.map { $0.index } == [0, 1, 2, 3, 4])
         // and it has been presented
         #expect(presenter.statesPresented.last == subject.state)
+        // and we pass persistence english hidden to presenter
+        #expect(persistence.methodsCalled == ["isEnglishHidden()"])
+        #expect(presenter.thingsReceived.first == .englishHidden(true))
         // and we navigate
         #expect(presenter.thingsReceived.last == .navigateTo(index: 0, animated: false))
     }
@@ -56,6 +62,21 @@ struct RootProcessorTests {
         #expect(presenter.thingsReceived.last == .navigateTo(index: 2, animated: true))
         await subject.receive(.tappedLabel(.section, currentTerm: 2))
         #expect(presenter.thingsReceived.last == .navigateTo(index: 0, animated: true))
+    }
+
+    @Test("toggleEnglish: toggle english hidden in persistence, passes new value to presenter")
+    func toggleEnglish() async {
+        persistence.hiddenToReturn = false
+        await subject.receive(.toggleEnglish)
+        #expect(persistence.methodsCalled == ["isEnglishHidden()", "setEnglishHidden(_:)"])
+        #expect(persistence.hidden == true)
+        #expect(presenter.thingsReceived.last == .englishHidden(true))
+        persistence.hiddenToReturn = true
+        persistence.methodsCalled = []
+        await subject.receive(.toggleEnglish)
+        #expect(persistence.methodsCalled == ["isEnglishHidden()", "setEnglishHidden(_:)"])
+        #expect(persistence.hidden == false)
+        #expect(presenter.thingsReceived.last == .englishHidden(false))
     }
 }
 

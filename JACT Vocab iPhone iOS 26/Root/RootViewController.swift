@@ -103,7 +103,13 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         await datasource.receive(effect)
     }
 
-    @objc func toggleEnglish() {}
+    /// The user has tapped the hider button (key image).
+    @objc func toggleEnglish() {
+        Task {
+            await processor?.receive(.toggleEnglish)
+        }
+    }
+
     @objc func showLessonList() {}
     @objc func showAllTermsList() {}
     @objc func showInfo() {}

@@ -10,10 +10,14 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     /// Reference to the processor, so we can send actions and/or configure card controllers to send actions.
     weak var processor: (any Receiver<RootAction>)?
 
+    /// Type of the card view controller that we will use as the child of the page view controller.
+    /// This is so that a test can inject a mock version.
+    var cardClass: CardViewController.Type = CardViewController.self
+
     /// Initializer.
     /// - Parameters:
     ///   - pageViewController: Our page view controller.
-    ///   - processor: Out processor.
+    ///   - processor: Our processor.
     init(pageViewController: UIPageViewController, processor: (any Receiver<RootAction>)?) {
         self.pageViewController = pageViewController
         self.processor = processor
@@ -22,9 +26,17 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     /// Our data.
     var data = [Term]()
 
+    /// Current state of whether the English label is hidden or not. This too is part of our
+    /// data, because we need to know it in order to navigate to a new card when the user taps
+    /// (i.e. as part of our role as data source).
+    var englishHidden = false
+
     /// The processor communicates with us by sending us an Effect.
     func receive(_ effect: RootEffect) async {
         switch effect {
+        case .englishHidden(let hidden):
+            self.englishHidden = hidden
+            (pageViewController?.viewControllers?.first as? CardViewController)?.setEnglishHidden(hidden)
         case .navigateTo(index: let index, animated: let animated):
             navigateTo(index: index, animated: animated)
         }
@@ -36,8 +48,10 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
             return
         }
         let term = data[index]
-        let card = CardViewController(term: term)
+        let card = cardClass.init(term: term)
+        card.loadViewIfNeeded()
         card.processor = processor
+        card.setEnglishHidden(englishHidden)
         pageViewController?.setViewControllers([card], direction: .forward, animated: animated)
     }
 
@@ -55,8 +69,10 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         if index < 0 {
             return nil
         }
-        let card = CardViewController(term: data[index])
+        let card = cardClass.init(term: data[index])
+        card.loadViewIfNeeded()
         card.processor = processor
+        card.setEnglishHidden(englishHidden)
         return card
     }
 
@@ -74,8 +90,10 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         if index >= data.count {
             return nil
         }
-        let card = CardViewController(term: data[index])
+        let card = cardClass.init(term: data[index])
+        card.loadViewIfNeeded()
         card.processor = processor
+        card.setEnglishHidden(englishHidden)
         return card
     }
 }

@@ -17,6 +17,8 @@ final class RootProcessor: Processor {
             state.terms = prepareTerms()
             let initialIndex = 0 // TODO: eventually this can come from persistence
             await presenter?.present(state)
+            let englishHidden = services.persistence.isEnglishHidden()
+            await presenter?.receive(.englishHidden(englishHidden))
             await presenter?.receive(.navigateTo(index: initialIndex, animated: false))
         case .tappedLabel(let label, let currentTermIndex): // navigate by category
             // convert label tapped to Term property to be consulted
@@ -39,6 +41,10 @@ final class RootProcessor: Processor {
                 await presenter?.receive(.navigateTo(index: index, animated: true))
                 return
             }
+        case .toggleEnglish:
+            let hidden = !services.persistence.isEnglishHidden()
+            services.persistence.setEnglishHidden(hidden)
+            await presenter?.receive(.englishHidden(hidden))
         }
     }
 

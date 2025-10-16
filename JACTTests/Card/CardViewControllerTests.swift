@@ -31,6 +31,22 @@ struct CardViewControllerTests {
         }
     }
 
+    @Test("setEnglishHidden: set opacity of english label")
+    func setEnglishHidden() {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
+        )
+        let subject = CardViewController(term: term)
+        subject.loadViewIfNeeded()
+        #expect(subject.english.layer.opacity == 1)
+        subject.setEnglishHidden(true)
+        #expect(subject.english.layer.opacity == 0)
+        subject.setEnglishHidden(false)
+        #expect(subject.english.layer.opacity == 1)
+    }
+
     @Test("tappedLabel: translates label into enum, sends tappedLabel with enum and term index")
     func tappedLabelLesson() async throws {
         let term = Term(
