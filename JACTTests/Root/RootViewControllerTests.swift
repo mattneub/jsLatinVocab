@@ -108,6 +108,13 @@ struct RootViewControllerTests {
         #expect(datasource.thingsReceived == [.navigateTo(index: 1, animated: true)])
     }
 
+    @Test("showInfo: sends showInfo")
+    func showInfo() async {
+        subject.showInfo()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.showInfo])
+    }
+
     @Test("toggleEnglish: sends toggleEnglish")
     func toggleEnglish() async {
         subject.toggleEnglish()

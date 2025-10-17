@@ -3,6 +3,8 @@ import UIKit
 /// Public face of the root coordinator, so we can mock it.
 protocol RootCoordinatorType: AnyObject {
     func createInterface(window: UIWindow)
+    func showInfo()
+    func dismiss()
 }
 
 /// The root coordinator. This is object that assembles modules and performs transitions between
@@ -13,6 +15,7 @@ final class RootCoordinator: RootCoordinatorType {
 
     /// Place where processors are rooted so that they don't vanish in a puff of smoke.
     var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
+    var infoProcessor: (any Processor<InfoAction, InfoState, Void>)?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()
@@ -23,6 +26,23 @@ final class RootCoordinator: RootCoordinatorType {
         rootViewController.processor = processor
         processor.coordinator = self
         window.rootViewController = rootViewController
-        window.backgroundColor = .white
+        window.backgroundColor = .systemBackground
+    }
+
+    func showInfo() {
+        let infoController = InfoViewController()
+        let processor = InfoProcessor()
+        self.infoProcessor = processor
+        processor.coordinator = self
+        infoController.processor = processor
+        processor.presenter = infoController
+        let navigationController = UINavigationController(rootViewController: infoController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .flipHorizontal
+        rootViewController?.present(navigationController, animated: unlessTesting(true))
+    }
+
+    func dismiss() {
+        rootViewController?.dismiss(animated: unlessTesting(true))
     }
 }

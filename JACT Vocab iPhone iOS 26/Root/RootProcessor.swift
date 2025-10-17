@@ -20,6 +20,8 @@ final class RootProcessor: Processor {
             let englishHidden = services.persistence.isEnglishHidden()
             await presenter?.receive(.englishHidden(englishHidden))
             await presenter?.receive(.navigateTo(index: initialIndex, animated: false))
+        case .showInfo:
+            coordinator?.showInfo()
         case .tappedLabel(let label, let currentTermIndex): // navigate by category
             // convert label tapped to Term property to be consulted
             let getter: KeyPath<Term, String> = switch label {

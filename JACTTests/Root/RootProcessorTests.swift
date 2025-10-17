@@ -4,11 +4,13 @@ import Foundation
 
 struct RootProcessorTests {
     let subject = RootProcessor()
+    let coordinator = MockRootCoordinator()
     let presenter = MockReceiverPresenter<RootEffect, RootState>()
     let bundle = MockBundle()
     let persistence = MockPersistence()
 
     init() {
+        subject.coordinator = coordinator
         subject.presenter = presenter
         services.bundle = bundle
         services.persistence = persistence
@@ -37,6 +39,12 @@ struct RootProcessorTests {
         #expect(presenter.thingsReceived.first == .englishHidden(true))
         // and we navigate
         #expect(presenter.thingsReceived.last == .navigateTo(index: 0, animated: false))
+    }
+
+    @Test("showInfo: calls coordinator showInfo")
+    func showInfo() async {
+        await subject.receive(.showInfo)
+        #expect(coordinator.methodsCalled == ["showInfo()"])
     }
 
     @Test("tappedLabel: correctly sends navigate to correct index")
