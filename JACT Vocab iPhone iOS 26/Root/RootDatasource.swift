@@ -37,13 +37,13 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         case .englishHidden(let hidden):
             self.englishHidden = hidden
             (pageViewController?.viewControllers?.first as? CardViewController)?.setEnglishHidden(hidden)
-        case .navigateTo(index: let index, animated: let animated):
-            navigateTo(index: index, animated: animated)
+        case .navigateTo(index: let index, style: let animated):
+            navigateTo(index: index, style: animated)
         }
     }
 
     /// Navigate to the given Terms index, animated or not.
-    func navigateTo(index: Int, animated: Bool) {
+    func navigateTo(index: Int, style: NavigationStyle) {
         guard data.indices.contains(index) else {
             return
         }
@@ -52,7 +52,20 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         card.loadViewIfNeeded()
         card.processor = processor
         card.setEnglishHidden(englishHidden)
-        pageViewController?.setViewControllers([card], direction: .forward, animated: animated)
+        let (animate, direction): (Bool, UIPageViewController.NavigationDirection) = {
+            switch style {
+            case .noAnimation: return (false, .forward)
+            case .forward: return (true, .forward)
+            case .appropriate:
+                if let currentCard = pageViewController?.viewControllers?.first as? CardViewController {
+                    if index < currentCard.term.index {
+                        return (true, .reverse)
+                    }
+                }
+                return (true, .forward)
+            }
+        }()
+        pageViewController?.setViewControllers([card], direction: direction, animated: animate)
     }
 
     func pageViewController(

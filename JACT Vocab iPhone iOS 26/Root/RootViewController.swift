@@ -114,7 +114,12 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         }
     }
 
-    @objc func showLessonList() {}
+    @objc func showLessonList() {
+        Task {
+            await processor?.receive(.showLessonList)
+        }
+    }
+
     @objc func showAllTermsList() {}
 
     @objc func showInfo() {

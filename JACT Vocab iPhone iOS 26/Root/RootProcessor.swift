@@ -19,9 +19,11 @@ final class RootProcessor: Processor {
             await presenter?.present(state)
             let englishHidden = services.persistence.isEnglishHidden()
             await presenter?.receive(.englishHidden(englishHidden))
-            await presenter?.receive(.navigateTo(index: initialIndex, animated: false))
+            await presenter?.receive(.navigateTo(index: initialIndex, style: .noAnimation))
         case .showInfo:
             coordinator?.showInfo()
+        case .showLessonList:
+            coordinator?.showLessonList(terms: state.terms)
         case .tappedLabel(let label, let currentTermIndex): // navigate by category
             // convert label tapped to Term property to be consulted
             let getter: KeyPath<Term, String> = switch label {
@@ -33,14 +35,14 @@ final class RootProcessor: Processor {
             if let index = state.terms[(currentTermIndex + 1)...].firstIndex(where: {
                 $0[keyPath: getter] != currentValue
             }) {
-                await presenter?.receive(.navigateTo(index: index, animated: true))
+                await presenter?.receive(.navigateTo(index: index, style: .forward))
                 return
             }
             // if that didn't work, try terms _before_ current term
             if let index = state.terms[..<currentTermIndex].firstIndex(where: {
                 $0[keyPath: getter] != currentValue
             }) {
-                await presenter?.receive(.navigateTo(index: index, animated: true))
+                await presenter?.receive(.navigateTo(index: index, style: .forward))
                 return
             }
         case .toggleEnglish:
@@ -77,5 +79,11 @@ final class RootProcessor: Processor {
                 return term
             }
         return terms
+    }
+}
+
+extension RootProcessor: LessonListDelegate {
+    func navigateTo(index: Int) async {
+        await presenter?.receive(.navigateTo(index: index, style: .appropriate))
     }
 }

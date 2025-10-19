@@ -4,7 +4,8 @@ import UIKit
 protocol RootCoordinatorType: AnyObject {
     func createInterface(window: UIWindow)
     func showInfo()
-    func dismiss()
+    func showLessonList(terms: [Term])
+    func dismiss() async
 }
 
 /// The root coordinator. This is object that assembles modules and performs transitions between
@@ -16,6 +17,7 @@ final class RootCoordinator: RootCoordinatorType {
     /// Place where processors are rooted so that they don't vanish in a puff of smoke.
     var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
     var infoProcessor: (any Processor<InfoAction, InfoState, Void>)?
+    var lessonListProcessor: (any Processor<LessonListAction, LessonListState, Void>)?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()
@@ -42,7 +44,25 @@ final class RootCoordinator: RootCoordinatorType {
         rootViewController?.present(navigationController, animated: unlessTesting(true))
     }
 
-    func dismiss() {
-        rootViewController?.dismiss(animated: unlessTesting(true))
+    func showLessonList(terms: [Term]) {
+        let viewController = LessonListViewController()
+        let processor = LessonListProcessor()
+        self.lessonListProcessor = processor
+        processor.coordinator = self
+        viewController.processor = processor
+        processor.presenter = viewController
+        processor.state.terms = terms
+        processor.delegate = rootProcessor as? LessonListDelegate
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        rootViewController?.present(navigationController, animated: unlessTesting(true))
+    }
+
+    func dismiss() async {
+        await withCheckedContinuation { continuation in
+            rootViewController?.dismiss(animated: unlessTesting(true)) {
+                continuation.resume(returning: ())
+            }
+        }
     }
 }

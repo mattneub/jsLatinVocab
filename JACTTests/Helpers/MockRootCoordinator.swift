@@ -4,6 +4,7 @@ import UIKit
 final class MockRootCoordinator: RootCoordinatorType {
     var methodsCalled = [String]()
     var window: UIWindow?
+    var terms = [Term]()
 
     func createInterface(window: UIWindow) {
         methodsCalled.append(#function)
@@ -16,5 +17,10 @@ final class MockRootCoordinator: RootCoordinatorType {
 
     func dismiss() {
         methodsCalled.append(#function)
+    }
+
+    func showLessonList(terms: [Jact.Term]) {
+        methodsCalled.append(#function)
+        self.terms = terms
     }
 }

@@ -13,7 +13,7 @@ final class InfoProcessor: Processor {
     func receive(_ action: InfoAction) async {
         switch action {
         case .done:
-            coordinator?.dismiss()
+            await coordinator?.dismiss()
         case .initialInterface:
             if let path = services.bundle.path(forResource: "jactVocabHelp", ofType: "html"),
                let content = try? String(contentsOfFile: path, encoding: .utf8) {

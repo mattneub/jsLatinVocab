@@ -36,6 +36,36 @@ struct RootCoordinatorTests {
         #expect(navigationController.modalTransitionStyle == .flipHorizontal)
     }
 
+    @Test("showLessonList: configures lesson list module, configures state, sets delegate, presents navigation controller")
+    func showLessonList() async throws {
+        let subject = RootCoordinator()
+        subject.rootProcessor = RootProcessor()
+        let viewController = UIViewController()
+        makeWindow(viewController: viewController)
+        subject.rootViewController = viewController
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
+        )
+        subject.showLessonList(terms: [term1, term2])
+        let processor = try #require(subject.lessonListProcessor as? LessonListProcessor)
+        let lessonListController = try #require(processor.presenter as? LessonListViewController)
+        #expect(processor.coordinator === subject)
+        #expect(processor.state.terms == [term1, term2])
+        #expect(processor.delegate === subject.rootProcessor)
+        #expect(lessonListController.processor === processor)
+        await #while(viewController.presentedViewController == nil)
+        let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
+        #expect(navigationController.viewControllers.first === lessonListController)
+        #expect(navigationController.modalPresentationStyle == .fullScreen)
+    }
+
     @Test("dismiss: dismisses from root view controller")
     func dismiss() async throws {
         let subject = RootCoordinator()
@@ -46,7 +76,7 @@ struct RootCoordinatorTests {
         viewController.present(viewController2, animated: false)
         await #while(viewController.presentedViewController == nil)
         #expect(viewController.presentedViewController === viewController2)
-        subject.dismiss()
+        await subject.dismiss()
         await #while(viewController.presentedViewController != nil)
         #expect(viewController.presentedViewController == nil)
     }

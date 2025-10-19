@@ -104,8 +104,8 @@ struct RootViewControllerTests {
     func receive() async {
         let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
         subject.datasource = datasource
-        await subject.receive(.navigateTo(index: 1, animated: true))
-        #expect(datasource.thingsReceived == [.navigateTo(index: 1, animated: true)])
+        await subject.receive(.navigateTo(index: 1, style: .forward))
+        #expect(datasource.thingsReceived == [.navigateTo(index: 1, style: .forward)])
     }
 
     @Test("showInfo: sends showInfo")
@@ -113,6 +113,13 @@ struct RootViewControllerTests {
         subject.showInfo()
         await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showInfo])
+    }
+
+    @Test("showLessonList: sends showLessonList")
+    func showLessonList() async {
+        subject.showLessonList()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.showLessonList])
     }
 
     @Test("toggleEnglish: sends toggleEnglish")

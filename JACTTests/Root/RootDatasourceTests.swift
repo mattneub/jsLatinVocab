@@ -4,7 +4,7 @@ import UIKit
 
 struct RootDatasourceTests {
     var subject: RootDatasource!
-    let pageViewController = UIPageViewController()
+    let pageViewController = MockPageViewController()
     let processor = MockReceiver<RootAction>()
 
     init() {
@@ -39,12 +39,46 @@ struct RootDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         subject.data = [term]
-        await subject.receive(.navigateTo(index: 0, animated: false))
+        await subject.receive(.navigateTo(index: 0, style: .noAnimation))
         let card = try #require(pageViewController.viewControllers?.first as? MockCardViewController)
         #expect(card.term == term)
         #expect(card.processor === processor)
         #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
         #expect(card.hidden == false)
+    }
+
+    @Test("receive navigateTo: style correctly determines setViewControllers parameters")
+    func navigateToStyle() async throws {
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 0
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
+        )
+        subject.data = [term1, term2]
+        await subject.receive(.navigateTo(index: 0, style: .noAnimation))
+        #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
+        #expect(pageViewController.direction == .forward)
+        #expect(pageViewController.animated == false)
+        pageViewController.methodsCalled = []
+        await subject.receive(.navigateTo(index: 0, style: .forward))
+        #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
+        #expect(pageViewController.direction == .forward)
+        #expect(pageViewController.animated == true)
+        pageViewController.methodsCalled = []
+        await subject.receive(.navigateTo(index: 1, style: .appropriate))
+        #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
+        #expect(pageViewController.direction == .forward)
+        #expect(pageViewController.animated == true)
+        pageViewController.methodsCalled = []
+        await subject.receive(.navigateTo(index: 0, style: .appropriate))
+        #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
+        #expect(pageViewController.direction == .reverse)
+        #expect(pageViewController.animated == true)
     }
 
     @Test("viewControllerBefore: returns correct view controller")
