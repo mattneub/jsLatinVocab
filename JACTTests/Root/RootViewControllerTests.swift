@@ -122,6 +122,13 @@ struct RootViewControllerTests {
         #expect(processor.thingsReceived == [.showLessonList])
     }
 
+    @Test("showLessonListDrill: sends showLessonListDrill")
+    func showLessonListDrill() async {
+        subject.showLessonListDrill()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.showLessonListDrill])
+    }
+
     @Test("showAllTermsList: sends showAllTerms")
     func showAllTermsList() async {
         subject.showAllTermsList()

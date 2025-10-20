@@ -26,6 +26,8 @@ final class RootProcessor: Processor {
             coordinator?.showInfo()
         case .showLessonList:
             coordinator?.showLessonList(terms: state.terms)
+        case .showLessonListDrill:
+            coordinator?.showLessonListDrill(terms: state.terms)
         case .tappedLabel(let label, let currentTermIndex): // navigate by category
             // convert label tapped to Term property to be consulted
             let getter: KeyPath<Term, String> = switch label {

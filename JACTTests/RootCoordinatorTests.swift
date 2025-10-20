@@ -66,6 +66,35 @@ struct RootCoordinatorTests {
         #expect(navigationController.modalPresentationStyle == .fullScreen)
     }
 
+    @Test("showLessonListDrill: configures lesson list drill module, configures state, presents navigation controller")
+    func showLessonListDrill() async throws {
+        let subject = RootCoordinator()
+        subject.rootProcessor = RootProcessor()
+        let viewController = UIViewController()
+        makeWindow(viewController: viewController)
+        subject.rootViewController = viewController
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
+        )
+        subject.showLessonListDrill(terms: [term1, term2])
+        let processor = try #require(subject.lessonListDrillProcessor as? LessonListDrillProcessor)
+        let lessonListDrillController = try #require(processor.presenter as? LessonListDrillViewController)
+        #expect(processor.coordinator === subject)
+        #expect(processor.state.terms == [term1, term2])
+        #expect(lessonListDrillController.processor === processor)
+        await #while(viewController.presentedViewController == nil)
+        let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
+        #expect(navigationController.viewControllers.first === lessonListDrillController)
+        #expect(navigationController.modalPresentationStyle == .fullScreen)
+    }
+
     @Test("showAllTerms: configures all terms module, configures state, sets delegate, presents navigation controller")
     func showAllTerms() async throws {
         let subject = RootCoordinator()

@@ -6,6 +6,7 @@ protocol RootCoordinatorType: AnyObject {
     func showAllTerms(terms: [Term])
     func showInfo()
     func showLessonList(terms: [Term])
+    func showLessonListDrill(terms: [Term])
     func dismiss() async
 }
 
@@ -19,6 +20,7 @@ final class RootCoordinator: RootCoordinatorType {
     var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
     var infoProcessor: (any Processor<InfoAction, InfoState, Void>)?
     var lessonListProcessor: (any Processor<LessonListAction, LessonListState, Void>)?
+    var lessonListDrillProcessor: (any Processor<LessonListDrillAction, LessonListDrillState, LessonListDrillEffect>)?
     var allTermsProcessor: (any Processor<AllTermsAction, AllTermsState, Void>)?
 
     func createInterface(window: UIWindow) {
@@ -55,6 +57,19 @@ final class RootCoordinator: RootCoordinatorType {
         processor.presenter = viewController
         processor.state.terms = terms
         processor.delegate = rootProcessor as? LessonListDelegate
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        rootViewController?.present(navigationController, animated: unlessTesting(true))
+    }
+
+    func showLessonListDrill(terms: [Term]) {
+        let viewController = LessonListDrillViewController()
+        let processor = LessonListDrillProcessor()
+        self.lessonListDrillProcessor = processor
+        processor.coordinator = self
+        viewController.processor = processor
+        processor.presenter = viewController
+        processor.state.terms = terms
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         rootViewController?.present(navigationController, animated: unlessTesting(true))

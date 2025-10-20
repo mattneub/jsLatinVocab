@@ -1,0 +1,3 @@
+enum LessonListDrillEffect {
+    case clear
+}

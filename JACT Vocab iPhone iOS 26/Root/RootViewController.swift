@@ -128,7 +128,11 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         }
     }
 
-    @objc func showLessonListDrill() {}
+    @objc func showLessonListDrill() {
+        Task {
+            await processor?.receive(.showLessonListDrill)
+        }
+    }
 }
 
 extension RootViewController: UIToolbarDelegate {

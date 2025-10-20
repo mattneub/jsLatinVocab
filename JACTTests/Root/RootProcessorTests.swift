@@ -65,6 +65,24 @@ struct RootProcessorTests {
         #expect(coordinator.terms == [term1, term2])
     }
 
+    @Test("showLessonListDrill: calls coordinator showLessonListDrill with terms")
+    func showLessonListDrill() async {
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
+        )
+        subject.state.terms = [term1, term2]
+        await subject.receive(.showLessonListDrill)
+        #expect(coordinator.methodsCalled == ["showLessonListDrill(terms:)"])
+        #expect(coordinator.terms == [term1, term2])
+    }
+
     @Test("tappedLabel: correctly sends navigate to correct index")
     func tappedLabel() async {
         let path = Bundle(for: MockBundle.self).path(forResource: "dataSorted", ofType: "txt")! // see Fixtures
