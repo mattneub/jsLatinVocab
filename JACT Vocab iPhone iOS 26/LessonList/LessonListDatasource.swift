@@ -177,7 +177,9 @@ final class LessonListDatasource: NSObject, LessonListDatasourceType {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Task {
-            try? await Task.sleep(for: .seconds(0.1))
+            try? await unlessTesting {
+                try? await Task.sleep(for: .seconds(0.1))
+            }
             collectionView.deselectItem(at: indexPath, animated: true)
             if let lessonSection = datasource.itemIdentifier(for: indexPath) {
                 await processor?.receive(.selectedLessonSection(lessonSection))

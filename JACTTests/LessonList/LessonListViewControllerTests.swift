@@ -6,7 +6,7 @@ import WaitWhile
 struct LessonListViewControllerTests {
     let subject = LessonListViewController()
     let processor = MockReceiver<LessonListAction>()
-    let datasource = MockDatasource()
+    fileprivate let datasource = MockDatasource()
 
     init() {
         subject.processor = processor
@@ -53,7 +53,7 @@ struct LessonListViewControllerTests {
     }
 }
 
-final class MockDatasource: NSObject, @MainActor LessonListDatasourceType {
+private final class MockDatasource: NSObject, @MainActor LessonListDatasourceType {
     typealias State = LessonListState
 
     var methodsCalled = [String]()

@@ -5,10 +5,6 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     /// Reference to the processor, set by the coordinator at module creation time.
     weak var processor: (any Receiver<RootAction>)?
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-
     /// Background image view. This may not be seen, but is present just in case.
     lazy var imageView = UIImageView(image: UIImage(named: "papyrusNewLargeCropped")).applying {
         $0.contentMode = .scaleToFill
@@ -120,7 +116,11 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         }
     }
 
-    @objc func showAllTermsList() {}
+    @objc func showAllTermsList() {
+        Task {
+            await processor?.receive(.showAllTerms)
+        }
+    }
 
     @objc func showInfo() {
         Task {

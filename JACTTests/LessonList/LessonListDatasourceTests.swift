@@ -1,15 +1,17 @@
 @testable import Jact
 import Testing
 import UIKit
+import WaitWhile
 
 struct LessonListDatasourceTests {
     let layout = UICollectionViewFlowLayout()
     var collectionView: UICollectionView!
     let subject: LessonListDatasource!
+    let processor = MockReceiver<LessonListAction>()
 
     init() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        subject = LessonListDatasource(collectionView: collectionView, processor: nil)
+        subject = LessonListDatasource(collectionView: collectionView, processor: processor)
     }
 
     @Test("initialize: creates and configures data source, configures flow layout")
@@ -81,4 +83,23 @@ struct LessonListDatasourceTests {
         #expect(configuration.text == "1")
         #expect(header.backgroundColor == .black)
     }
+
+    @Test("didSelectItem: deselects item, sends .selectedLessonSection")
+    func didSelectItem() async throws {
+        makeWindow(view: collectionView)
+        let string1 = "zebra\tenglish zebra\t2\ta\tpart"
+        let string2 = "yak\tenglish yak\t1\tb\tpart"
+        let string3 = "aardvark\tenglish aardvark\t1\tc\tpart"
+        let string4 = "aardvark\tenglish aardvark\t1\tb\tpart"
+        let terms = [string1, string2, string3, string4].enumerated().map { Term(tabbedString: $0.1, index: $0.0)}
+        await subject.present(.init(terms: terms))
+        collectionView.selectItem(at: .init(row: 0, section: 0), animated: false, scrollPosition: [])
+        #expect(collectionView.indexPathsForSelectedItems?.first == IndexPath(item: 0, section: 0))
+        // that was prep, this is the test
+        subject.collectionView(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        await #while(collectionView.indexPathsForSelectedItems?.first == IndexPath(item: 0, section: 0))
+        #expect(collectionView.indexPathsForSelectedItems?.first == nil)
+        #expect(processor.thingsReceived.first == .selectedLessonSection("1b"))
+    }
+
 }

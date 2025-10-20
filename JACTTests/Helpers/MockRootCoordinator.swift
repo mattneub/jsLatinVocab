@@ -23,4 +23,10 @@ final class MockRootCoordinator: RootCoordinatorType {
         methodsCalled.append(#function)
         self.terms = terms
     }
+
+    func showAllTerms(terms: [Jact.Term]) {
+        methodsCalled.append(#function)
+        self.terms = terms
+    }
+
 }

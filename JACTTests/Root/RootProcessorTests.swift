@@ -110,5 +110,22 @@ struct RootProcessorTests {
         await subject.navigateTo(index: 4)
         #expect(presenter.thingsReceived.last == .navigateTo(index: 4, style: .appropriate))
     }
+
+    @Test("termChosen: sends navigateTo for the corresponding term's index")
+    func termChosen() async {
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
+        )
+        subject.state.terms = [term1, term2]
+        await subject.termChosen(indexOrig: 2)
+        #expect(presenter.thingsReceived == [.navigateTo(index: 1, style: .appropriate)])
+    }
 }
 

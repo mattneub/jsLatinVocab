@@ -10,10 +10,6 @@ final class InfoViewController: UIViewController, ReceiverPresenter {
         $0.navigationDelegate = self
     }
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

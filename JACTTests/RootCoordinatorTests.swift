@@ -66,6 +66,36 @@ struct RootCoordinatorTests {
         #expect(navigationController.modalPresentationStyle == .fullScreen)
     }
 
+    @Test("showAllTerms: configures all terms module, configures state, sets delegate, presents navigation controller")
+    func showAllTerms() async throws {
+        let subject = RootCoordinator()
+        subject.rootProcessor = RootProcessor()
+        let viewController = UIViewController()
+        makeWindow(viewController: viewController)
+        subject.rootViewController = viewController
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let term2 = Term(
+            latin: "latin2", latinFirstWord: "", beta: "", english: "english2", lesson: "lesson2",
+            section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
+        )
+        subject.showAllTerms(terms: [term1, term2])
+        let processor = try #require(subject.allTermsProcessor as? AllTermsProcessor)
+        let allTermsController = try #require(processor.presenter as? AllTermsViewController)
+        #expect(processor.coordinator === subject)
+        #expect(processor.state.terms == [term1, term2])
+        #expect(processor.delegate === subject.rootProcessor)
+        #expect(allTermsController.processor === processor)
+        await #while(viewController.presentedViewController == nil)
+        let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
+        #expect(navigationController.viewControllers.first === allTermsController)
+        #expect(navigationController.modalPresentationStyle == .fullScreen)
+    }
+
     @Test("dismiss: dismisses from root view controller")
     func dismiss() async throws {
         let subject = RootCoordinator()

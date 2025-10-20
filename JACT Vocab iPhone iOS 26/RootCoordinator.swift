@@ -3,6 +3,7 @@ import UIKit
 /// Public face of the root coordinator, so we can mock it.
 protocol RootCoordinatorType: AnyObject {
     func createInterface(window: UIWindow)
+    func showAllTerms(terms: [Term])
     func showInfo()
     func showLessonList(terms: [Term])
     func dismiss() async
@@ -18,6 +19,7 @@ final class RootCoordinator: RootCoordinatorType {
     var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
     var infoProcessor: (any Processor<InfoAction, InfoState, Void>)?
     var lessonListProcessor: (any Processor<LessonListAction, LessonListState, Void>)?
+    var allTermsProcessor: (any Processor<AllTermsAction, AllTermsState, Void>)?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()
@@ -53,6 +55,20 @@ final class RootCoordinator: RootCoordinatorType {
         processor.presenter = viewController
         processor.state.terms = terms
         processor.delegate = rootProcessor as? LessonListDelegate
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        rootViewController?.present(navigationController, animated: unlessTesting(true))
+    }
+
+    func showAllTerms(terms: [Term]) {
+        let viewController = AllTermsViewController()
+        let processor = AllTermsProcessor()
+        self.allTermsProcessor = processor
+        processor.coordinator = self
+        viewController.processor = processor
+        processor.presenter = viewController
+        processor.state.terms = terms
+        processor.delegate = rootProcessor as? AllTermsDelegate
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         rootViewController?.present(navigationController, animated: unlessTesting(true))

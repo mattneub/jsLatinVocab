@@ -250,7 +250,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphoneNOT;
 				PRODUCT_MODULE_NAME = Jact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -284,7 +284,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphoneNOT;
 				PRODUCT_MODULE_NAME = Jact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

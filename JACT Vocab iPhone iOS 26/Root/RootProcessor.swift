@@ -20,6 +20,8 @@ final class RootProcessor: Processor {
             let englishHidden = services.persistence.isEnglishHidden()
             await presenter?.receive(.englishHidden(englishHidden))
             await presenter?.receive(.navigateTo(index: initialIndex, style: .noAnimation))
+        case .showAllTerms:
+            coordinator?.showAllTerms(terms: state.terms)
         case .showInfo:
             coordinator?.showInfo()
         case .showLessonList:
@@ -85,5 +87,13 @@ final class RootProcessor: Processor {
 extension RootProcessor: LessonListDelegate {
     func navigateTo(index: Int) async {
         await presenter?.receive(.navigateTo(index: index, style: .appropriate))
+    }
+}
+
+extension RootProcessor: AllTermsDelegate {
+    func termChosen(indexOrig: Int) async {
+        if let index = state.terms.firstIndex(where: { $0.indexOrig == indexOrig }) {
+            await presenter?.receive(.navigateTo(index: index, style: .appropriate))
+        }
     }
 }

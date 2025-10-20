@@ -12,10 +12,6 @@ class LessonListViewController: UICollectionViewController, UINavigationControll
         processor: processor
     )
 
-    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-        return .landscape
-    }
-    
     init() {
         let layout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout:layout)
