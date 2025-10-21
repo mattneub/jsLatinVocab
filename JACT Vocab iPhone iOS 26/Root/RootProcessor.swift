@@ -95,8 +95,13 @@ extension RootProcessor: LessonListDelegate {
 extension RootProcessor: AllTermsDelegate {
     func termChosen(indexOrig: Int) async {
         if let index = state.terms.firstIndex(where: { $0.indexOrig == indexOrig }) {
-            await presenter?.receive(.navigateTo(index: index, style: .appropriate))
+            await presenter?.receive(.navigateTo(index: index, style: .noAnimation))
         }
+        // rotate; then dismiss
         await presenter?.receive(.restoreLandscapeOrientation) // see footnote on root view controller
+        try? await unlessTesting {
+            try? await Task.sleep(for: .seconds(0.2)) // let the rotation proceed
+        }
+        await coordinator?.dismiss()
     }
 }

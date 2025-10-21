@@ -143,7 +143,8 @@ struct RootProcessorTests {
         )
         subject.state.terms = [term1, term2]
         await subject.termChosen(indexOrig: 2)
-        #expect(presenter.thingsReceived == [.navigateTo(index: 1, style: .appropriate), .restoreLandscapeOrientation])
+        #expect(presenter.thingsReceived == [.navigateTo(index: 1, style: .noAnimation), .restoreLandscapeOrientation])
+        #expect(coordinator.methodsCalled == ["dismiss()"])
     }
 
     @Test("termChosen: if no index orig match, sends just restore")
@@ -161,6 +162,7 @@ struct RootProcessorTests {
         subject.state.terms = [term1, term2]
         await subject.termChosen(indexOrig: 3)
         #expect(presenter.thingsReceived == [.restoreLandscapeOrientation])
+        #expect(coordinator.methodsCalled == ["dismiss()"])
     }
 }
 

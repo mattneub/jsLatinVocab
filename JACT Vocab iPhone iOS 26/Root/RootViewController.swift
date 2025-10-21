@@ -182,14 +182,14 @@ extension RootViewController: UIPageViewControllerDelegate {
  We then need, obviously, to set the root view controller back to landscape only on dismissal of
  the all terms view controller. However, there's another bug! If the root view controller's page
  view controller then navigates, the page view controller somehow gets the idea, _after_
- navigating, that it is portrait only.
+ navigating, that it is portrait only. It rotates to portrait and gets stuck there.
 
- Therefore we do a delicate piece of timing. If the all terms view controller was simply dismissed,
- we send a delegate message to the root processor which resets the root view controller to landscape,
- and the user might see the root view controller briefly in portrait but it rotates nicely to
- landscape. But if the root is navigating the page view controller, the command to reset the
- root view controller to landscape comes _after the navigation ends_. Again, the user might see the
- root view in portrait, but it will then rotate nicely to landscape.
+ Therefore we do a delicate sleight-of-hand. If the user tapped a word to navigate to, we navigate
+ to it _first_, before dismissing; the change in the interface happens behind the scenes.
+ The page view controller may think we are in portrait, but that's fine because we _are_ in portrait!
+ (If the user tapped the Cancel button, we skip that step, obviously.)
+ We then force rotation back to landscape, and as the rotation gets underway, we dismiss.
+ This gives a really nice combined rotate-and-dismiss animation.
 
  The alternative, of course, is to strip out the ability of the all terms view controller to
  appear in portrait in the first place; and I could have done that. But this seems an acceptable

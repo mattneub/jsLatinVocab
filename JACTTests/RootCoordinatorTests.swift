@@ -128,7 +128,8 @@ struct RootCoordinatorTests {
         #expect(navigationController.viewControllers.first === allTermsController)
         #expect(navigationController.modalPresentationStyle == .overFullScreen)
         #expect(navigationController.delegate === allTermsController)
-        #expect(viewController.interfaceOrientations == [.landscape, .portrait])
+        await #while(viewController.interfaceOrientations == [.landscape])
+        #expect(viewController.interfaceOrientations == [.portrait])
     }
 
     @Test("dismiss: dismisses from root view controller")

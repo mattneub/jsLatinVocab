@@ -14,10 +14,9 @@ struct AllTermsProcessorTests {
         subject.delegate = delegate
     }
 
-    @Test("cancel: calls coordinator dismiss, calls delegate termChosen with value -1")
+    @Test("cancel: calls  delegate termChosen with value -1")
     func cancel() async {
         await subject.receive(.cancel)
-        #expect(coordinator.methodsCalled == ["dismiss()"])
         #expect(delegate.methodsCalled == ["termChosen(indexOrig:)"])
         #expect(delegate.indexOrig == -1)
     }
@@ -29,10 +28,9 @@ struct AllTermsProcessorTests {
         #expect(presenter.statesPresented == [subject.state])
     }
 
-    @Test("termChosen: call coordinator dismiss, calls delegate termChosen")
+    @Test("termChosen: calls delegate termChosen with given index orig")
     func termChosen() async {
         await subject.receive(.termChosen(666))
-        #expect(coordinator.methodsCalled == ["dismiss()"])
         #expect(delegate.methodsCalled == ["termChosen(indexOrig:)"])
         #expect(delegate.indexOrig == 666)
     }

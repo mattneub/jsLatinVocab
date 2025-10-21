@@ -90,8 +90,10 @@ final class RootCoordinator: RootCoordinatorType {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .overFullScreen
         navigationController.delegate = viewController
-        (rootViewController as? RootViewController)?.interfaceOrientations = [.landscape, .portrait]
-        rootViewController?.present(navigationController, animated: unlessTesting(true))
+        // present; then rotate!
+        rootViewController?.present(navigationController, animated: unlessTesting(true)) { [self] in
+            (rootViewController as? RootViewController)?.interfaceOrientations = [.portrait]
+        }
     }
 
     func dismiss() async {

@@ -17,17 +17,19 @@ final class AllTermsProcessor: Processor {
     func receive(_ action: AllTermsAction) async {
         switch action {
         case .cancel:
-            await coordinator?.dismiss()
             await delegate?.termChosen(indexOrig: -1) // no term
         case .initialInterface:
             await presenter?.present(state)
         case .termChosen(let indexOrig):
-            await coordinator?.dismiss()
             await delegate?.termChosen(indexOrig: indexOrig)
         }
     }
 }
 
 protocol AllTermsDelegate: AnyObject {
+    /// The user has asked to dismiss the all terms view controller, either by choosing an
+    /// actual term (whose `indexOrig` is the argument) or by tapping the Cancel button
+    /// (in which case `indexOrig` is a negative number). It is up to the delegate to respond,
+    /// _including the dismissal of the presented view controller_.
     func termChosen(indexOrig: Int) async
 }
