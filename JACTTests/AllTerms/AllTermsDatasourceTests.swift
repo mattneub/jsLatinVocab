@@ -18,10 +18,7 @@ struct AllTermsDatasourceTests {
         #expect(tableView.dataSource === datasource)
         #expect(tableView.delegate === subject)
         #expect(tableView.rowHeight == 50)
-        #expect(tableView.sectionHeaderHeight == 30)
-        #expect(tableView.sectionIndexBackgroundColor == .clear)
-        #expect(tableView.sectionIndexColor == .black)
-        #expect(tableView.sectionIndexTrackingBackgroundColor == .clear)
+        #expect(tableView.sectionHeaderHeight == 26)
         #expect(tableView.sectionHeaderTopPadding == 0)
         #expect(tableView.topEdgeEffect.style == .hard)
     }
@@ -79,9 +76,7 @@ struct AllTermsDatasourceTests {
         let content = try #require(header.contentConfiguration as? UIListContentConfiguration)
         #expect(content.text == "A")
         #expect(content.textProperties.color == .darkGray)
-        #expect(content.directionalLayoutMargins == .zero)
-        let background = try #require(header.backgroundConfiguration)
-        #expect(background.backgroundColor == UIColor.myGolden.withAlphaComponent(1))
+        #expect(content.directionalLayoutMargins == .init(top: 2.0, leading: 0.0, bottom: 2.0, trailing: 0.0))
     }
 
     @Test("didSelectRow: deselects row, sends .termChosen")

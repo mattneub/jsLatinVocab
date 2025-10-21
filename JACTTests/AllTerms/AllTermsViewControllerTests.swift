@@ -17,6 +17,7 @@ struct AllTermsViewControllerTests {
     func initialize() {
         #expect(subject.tableView.style == .plain)
         #expect(subject.tableView.backgroundColor == .myGolden.withAlphaComponent(1))
+        #expect(subject.tableView.sectionIndexColor == .black)
     }
 
     @Test("viewDidLoad: configures left bar button item, sends initialInterface")

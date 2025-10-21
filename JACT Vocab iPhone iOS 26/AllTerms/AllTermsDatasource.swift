@@ -32,12 +32,9 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
         tableView.dataSource = datasource
         tableView.delegate = self
         tableView.rowHeight = 50
-        tableView.sectionHeaderHeight = 30
-        tableView.sectionIndexBackgroundColor = .clear
-        tableView.sectionIndexColor = .black
-        tableView.sectionIndexTrackingBackgroundColor = .clear
+        tableView.sectionHeaderHeight = 26 // causes a gap as headers approach each other, but whatever
         tableView.sectionHeaderTopPadding = 0
-        tableView.topEdgeEffect.style = .hard
+        tableView.topEdgeEffect.style = .hard // otherwise pinned headers look bad
     }
 
     func present(_ state: AllTermsState) async {
@@ -46,14 +43,13 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
 
     var data = [Term]()
 
-    /// Type of the diffable data source.
-    typealias Datasource = MyIndexedDatasource<String, Int>
-
     /// Retain the diffable data source.
-    var datasource: Datasource!
+    var datasource: AllTermsIndexedDatasource!
 
-    func createDataSource(tableView: UITableView) -> Datasource {
-        let datasource = Datasource(tableView: tableView) { [unowned self] tableView, indexPath, identifier in
+    func createDataSource(tableView: UITableView) -> AllTermsIndexedDatasource {
+        let datasource = AllTermsIndexedDatasource(
+            tableView: tableView
+        ) { [unowned self] tableView, indexPath, identifier in
             return cellProvider(tableView, indexPath, identifier)
         }
         return datasource
@@ -115,11 +111,9 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
         view.contentConfiguration = UIListContentConfiguration.header().configured {
             $0.text = datasource.sectionIdentifier(for: section)
             $0.textProperties.color = .darkGray
-            $0.directionalLayoutMargins = .zero
+            $0.directionalLayoutMargins = .init(top: 2, leading: 0, bottom: 2, trailing: 0)
         }
-        view.backgroundConfiguration = .listHeader().configured {
-            $0.backgroundColor = UIColor.myGolden.withAlphaComponent(1)
-        }
+        // Background is simply the default background, picking up the table view background color.
         return view
     }
 

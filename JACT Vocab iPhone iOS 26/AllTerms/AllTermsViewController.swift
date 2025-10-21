@@ -14,7 +14,8 @@ final class AllTermsViewController: UITableViewController, ReceiverPresenter {
 
     init() {
         super.init(style: .plain)
-        tableView.backgroundColor = .myGolden.withAlphaComponent(1)
+        tableView.backgroundColor = .myGolden.withAlphaComponent(1) // picked up by nav bar and headers
+        tableView.sectionIndexColor = .black
     }
 
     required init(coder: NSCoder) {
