@@ -44,6 +44,12 @@ struct AllTermsViewControllerTests {
         await #while (processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.last == .cancel)
     }
+
+    @Test("navigation controller supported orientations is all three")
+    func supported() {
+        let result = subject.navigationControllerSupportedInterfaceOrientations(UINavigationController())
+        #expect(result == [.landscape, .portrait])
+    }
 }
 
 private final class MockDatasource: NSObject, @MainActor AllTermsDatasourceType {

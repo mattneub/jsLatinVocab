@@ -31,6 +31,17 @@ struct CardViewControllerTests {
         }
     }
 
+    @Test("supported orientations is correct")
+    func supported() {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
+        )
+        let subject = CardViewController(term: term)
+        #expect(subject.supportedInterfaceOrientations == .landscape)
+    }
+
     @Test("setEnglishHidden: set opacity of english label")
     func setEnglishHidden() {
         let term = Term(

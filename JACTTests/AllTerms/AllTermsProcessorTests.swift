@@ -14,10 +14,12 @@ struct AllTermsProcessorTests {
         subject.delegate = delegate
     }
 
-    @Test("cancel: calls coordinator dismiss")
+    @Test("cancel: calls coordinator dismiss, calls delegate termChosen with value -1")
     func cancel() async {
         await subject.receive(.cancel)
         #expect(coordinator.methodsCalled == ["dismiss()"])
+        #expect(delegate.methodsCalled == ["termChosen(indexOrig:)"])
+        #expect(delegate.indexOrig == -1)
     }
 
     @Test("initialInterface: presents the current state")

@@ -43,5 +43,19 @@ final class AllTermsViewController: UITableViewController, ReceiverPresenter {
             await processor?.receive(.cancel)
         }
     }
+}
 
+extension AllTermsViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientationMask {
+        [.portrait, .landscape]
+    }
+
+    // Unfortunately this is having no effect: we are not automatically rotating to portrait.
+    func navigationControllerPreferredInterfaceOrientationForPresentation(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientation {
+        .portrait
+    }
 }

@@ -25,6 +25,8 @@ class CardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { .landscape }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         latin.text = term.latin

@@ -49,6 +49,12 @@ struct InfoControllerTests {
         #expect(webView.baseUrl == URL(string: "http://www.example.com")!)
     }
 
+    @Test("navigation controller supported orientations is all three")
+    func supported() {
+        let result = subject.navigationControllerSupportedInterfaceOrientations(UINavigationController())
+        #expect(result == [.landscape])
+    }
+
     // no delegate tests, not worth it; can just test in running app
 }
 

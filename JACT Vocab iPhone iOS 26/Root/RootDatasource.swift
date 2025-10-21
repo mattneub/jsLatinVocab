@@ -38,12 +38,13 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
             self.englishHidden = hidden
             (pageViewController?.viewControllers?.first as? CardViewController)?.setEnglishHidden(hidden)
         case .navigateTo(index: let index, style: let animated):
-            navigateTo(index: index, style: animated)
+            await navigateTo(index: index, style: animated)
+        case .restoreLandscapeOrientation: break // handled by root view controller
         }
     }
 
     /// Navigate to the given Terms index, animated or not.
-    func navigateTo(index: Int, style: NavigationStyle) {
+    func navigateTo(index: Int, style: NavigationStyle) async {
         guard data.indices.contains(index) else {
             return
         }
@@ -65,7 +66,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
                 return (true, .forward)
             }
         }()
-        pageViewController?.setViewControllers([card], direction: direction, animated: animate)
+        await pageViewController?.setViewControllers([card], direction: direction, animated: animate)
     }
 
     func pageViewController(

@@ -18,6 +18,7 @@ final class AllTermsProcessor: Processor {
         switch action {
         case .cancel:
             await coordinator?.dismiss()
+            await delegate?.termChosen(indexOrig: -1) // no term
         case .initialInterface:
             await presenter?.present(state)
         case .termChosen(let indexOrig):

@@ -1,7 +1,7 @@
 import UIKit
 
 /// View controller that displays a list of lessons for the user to choose one.
-class LessonListDrillViewController: UICollectionViewController, UINavigationControllerDelegate, ReceiverPresenter {
+class LessonListDrillViewController: UICollectionViewController, ReceiverPresenter {
 
     /// Reference to the processor, set by the coordinator at module creation time.
     weak var processor: (any Receiver<LessonListDrillAction>)?
@@ -62,5 +62,13 @@ class LessonListDrillViewController: UICollectionViewController, UINavigationCon
     }
 
     @objc func drill() {}
-
 }
+
+extension LessonListDrillViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientationMask {
+        [.landscape]
+    }
+}
+

@@ -5,6 +5,16 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     /// Reference to the processor, set by the coordinator at module creation time.
     weak var processor: (any Receiver<RootAction>)?
 
+    var interfaceOrientations: UIInterfaceOrientationMask = [.landscape] { // see footnote
+        didSet {
+            if interfaceOrientations != oldValue {
+                setNeedsUpdateOfSupportedInterfaceOrientations()
+            }
+        }
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { interfaceOrientations }
+
     /// Background image view. This may not be seen, but is present just in case.
     lazy var imageView = UIImageView(image: UIImage(named: "papyrusNewLargeCropped")).applying {
         $0.contentMode = .scaleToFill
@@ -22,7 +32,12 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         transitionStyle: .pageCurl,
         navigationOrientation: .horizontal,
         options: [.spineLocation: UIPageViewController.SpineLocation.min.rawValue]
-    )
+    ).applying {
+        // probably helps nothing, but what the heck
+        $0.delegate = self
+        // a page view controller should always contain _some_ view controller
+        $0.setViewControllers([UIViewController()], direction: .forward, animated: false, completion: nil)
+    }
 
     /// Our data source delegate object.
     lazy var datasource: any PageViewControllerDatasourceType<RootAction, RootEffect, Term> = RootDatasource(
@@ -100,7 +115,12 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     }
 
     func receive(_ effect: RootEffect) async {
-        await datasource.receive(effect)
+        switch effect {
+        case .restoreLandscapeOrientation:
+            interfaceOrientations = [.landscape]
+        default:
+            await datasource.receive(effect)
+        }
     }
 
     /// The user has tapped the hider button (key image).
@@ -140,3 +160,38 @@ extension RootViewController: UIToolbarDelegate {
         return .bottom
     }
 }
+
+extension RootViewController: UIPageViewControllerDelegate {
+    func pageViewControllerSupportedInterfaceOrientations(
+        _ pageViewController: UIPageViewController
+    ) -> UIInterfaceOrientationMask {
+        [.landscape]
+    }
+}
+
+/*
+ Footnote: In iOS 26 there's a bug where, if we use normal forced rotation for the all terms view
+ controller presentation, both the presented and presenting views _jump_ their views into position
+ on presentation/dismissal, presumably in obedience to the safe area.
+
+ However, if we allow these views to _rotate_ naturally, this position change _animates_ nicely
+ as part of the rotation. Therefore, the all terms view controller is presented over full screen
+ and the root view controller _changes_ from landscape only to landscape and portrait. The user can
+ thus rotate after presentation to see more of the list at once.
+
+ We then need, obviously, to set the root view controller back to landscape only on dismissal of
+ the all terms view controller. However, there's another bug! If the root view controller's page
+ view controller then navigates, the page view controller somehow gets the idea, _after_
+ navigating, that it is portrait only.
+
+ Therefore we do a delicate piece of timing. If the all terms view controller was simply dismissed,
+ we send a delegate message to the root processor which resets the root view controller to landscape,
+ and the user might see the root view controller briefly in portrait but it rotates nicely to
+ landscape. But if the root is navigating the page view controller, the command to reset the
+ root view controller to landscape comes _after the navigation ends_. Again, the user might see the
+ root view in portrait, but it will then rotate nicely to landscape.
+
+ The alternative, of course, is to strip out the ability of the all terms view controller to
+ appear in portrait in the first place; and I could have done that. But this seems an acceptable
+ solution for now.
+ */

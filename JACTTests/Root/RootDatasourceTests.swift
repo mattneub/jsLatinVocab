@@ -20,7 +20,7 @@ struct RootDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         let card = MockCardViewController(term: term)
-        pageViewController.setViewControllers([card], direction: .forward, animated: false)
+        await pageViewController.setViewControllers([card], direction: .forward, animated: false)
         await subject.receive(.englishHidden(true))
         #expect(subject.englishHidden == true)
         #expect(card.methodsCalled == ["setEnglishHidden(_:)"])

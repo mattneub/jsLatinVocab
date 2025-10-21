@@ -36,15 +36,16 @@ final class RootCoordinator: RootCoordinatorType {
     }
 
     func showInfo() {
-        let infoController = InfoViewController()
+        let viewController = InfoViewController()
         let processor = InfoProcessor()
         self.infoProcessor = processor
         processor.coordinator = self
-        infoController.processor = processor
-        processor.presenter = infoController
-        let navigationController = UINavigationController(rootViewController: infoController)
+        viewController.processor = processor
+        processor.presenter = viewController
+        let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.modalTransitionStyle = .flipHorizontal
+        navigationController.delegate = viewController
         rootViewController?.present(navigationController, animated: unlessTesting(true))
     }
 
@@ -59,6 +60,7 @@ final class RootCoordinator: RootCoordinatorType {
         processor.delegate = rootProcessor as? LessonListDelegate
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
+        navigationController.delegate = viewController
         rootViewController?.present(navigationController, animated: unlessTesting(true))
     }
 
@@ -72,6 +74,7 @@ final class RootCoordinator: RootCoordinatorType {
         processor.state.terms = terms
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
+        navigationController.delegate = viewController
         rootViewController?.present(navigationController, animated: unlessTesting(true))
     }
 
@@ -85,7 +88,9 @@ final class RootCoordinator: RootCoordinatorType {
         processor.state.terms = terms
         processor.delegate = rootProcessor as? AllTermsDelegate
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.delegate = viewController
+        (rootViewController as? RootViewController)?.interfaceOrientations = [.landscape, .portrait]
         rootViewController?.present(navigationController, animated: unlessTesting(true))
     }
 

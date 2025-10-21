@@ -97,5 +97,6 @@ extension RootProcessor: AllTermsDelegate {
         if let index = state.terms.firstIndex(where: { $0.indexOrig == indexOrig }) {
             await presenter?.receive(.navigateTo(index: index, style: .appropriate))
         }
+        await presenter?.receive(.restoreLandscapeOrientation) // see footnote on root view controller
     }
 }

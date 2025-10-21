@@ -10,7 +10,6 @@ struct RootViewControllerTests {
     init() {
         subject.processor = processor
     }
-
     @Test("image view is correctly prepared")
     func imageView() {
         let imageView = subject.imageView
@@ -32,6 +31,8 @@ struct RootViewControllerTests {
         #expect(page.transitionStyle == .pageCurl)
         #expect(page.navigationOrientation == .horizontal)
         #expect(page.spineLocation.rawValue == UIPageViewController.SpineLocation.min.rawValue)
+        #expect(page.delegate === subject)
+        #expect(page.viewControllers?.count == 1)
     }
 
     @Test("datasource is correctly prepared")
@@ -108,6 +109,13 @@ struct RootViewControllerTests {
         #expect(datasource.thingsReceived == [.navigateTo(index: 1, style: .forward)])
     }
 
+    @Test("receive restore: sets interface orientations")
+    func restore() async {
+        subject.interfaceOrientations = .portrait
+        await subject.receive(.restoreLandscapeOrientation)
+        #expect(subject.interfaceOrientations == .landscape)
+    }
+
     @Test("showInfo: sends showInfo")
     func showInfo() async {
         subject.showInfo()
@@ -147,6 +155,12 @@ struct RootViewControllerTests {
     func position() {
         let result = subject.position(for: UIToolbar())
         #expect(result == .bottom)
+    }
+
+    @Test("page view controller supported orientations is landscape")
+    func supported() {
+        let result = subject.pageViewControllerSupportedInterfaceOrientations(UIPageViewController())
+        #expect(result == [.landscape])
     }
 }
 

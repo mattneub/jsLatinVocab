@@ -34,6 +34,7 @@ struct RootCoordinatorTests {
         #expect(navigationController.viewControllers.first === infoController)
         #expect(navigationController.modalPresentationStyle == .fullScreen)
         #expect(navigationController.modalTransitionStyle == .flipHorizontal)
+        #expect(navigationController.delegate === infoController)
     }
 
     @Test("showLessonList: configures lesson list module, configures state, sets delegate, presents navigation controller")
@@ -64,6 +65,7 @@ struct RootCoordinatorTests {
         let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
         #expect(navigationController.viewControllers.first === lessonListController)
         #expect(navigationController.modalPresentationStyle == .fullScreen)
+        #expect(navigationController.delegate === lessonListController)
     }
 
     @Test("showLessonListDrill: configures lesson list drill module, configures state, presents navigation controller")
@@ -93,13 +95,14 @@ struct RootCoordinatorTests {
         let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
         #expect(navigationController.viewControllers.first === lessonListDrillController)
         #expect(navigationController.modalPresentationStyle == .fullScreen)
+        #expect(navigationController.delegate === lessonListDrillController)
     }
 
     @Test("showAllTerms: configures all terms module, configures state, sets delegate, presents navigation controller")
     func showAllTerms() async throws {
         let subject = RootCoordinator()
         subject.rootProcessor = RootProcessor()
-        let viewController = UIViewController()
+        let viewController = RootViewController()
         makeWindow(viewController: viewController)
         subject.rootViewController = viewController
         let term1 = Term(
@@ -112,6 +115,7 @@ struct RootCoordinatorTests {
             section: "section2", sectionFirstWord: "", lessonSection: "", part: "part2",
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 3
         )
+        #expect(viewController.interfaceOrientations == [.landscape])
         subject.showAllTerms(terms: [term1, term2])
         let processor = try #require(subject.allTermsProcessor as? AllTermsProcessor)
         let allTermsController = try #require(processor.presenter as? AllTermsViewController)
@@ -122,7 +126,9 @@ struct RootCoordinatorTests {
         await #while(viewController.presentedViewController == nil)
         let navigationController = try #require(viewController.presentedViewController as? UINavigationController)
         #expect(navigationController.viewControllers.first === allTermsController)
-        #expect(navigationController.modalPresentationStyle == .fullScreen)
+        #expect(navigationController.modalPresentationStyle == .overFullScreen)
+        #expect(navigationController.delegate === allTermsController)
+        #expect(viewController.interfaceOrientations == [.landscape, .portrait])
     }
 
     @Test("dismiss: dismisses from root view controller")

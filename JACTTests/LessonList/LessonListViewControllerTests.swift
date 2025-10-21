@@ -51,6 +51,12 @@ struct LessonListViewControllerTests {
         await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .cancel)
     }
+
+    @Test("navigation controller supported orientations is all three")
+    func supported() {
+        let result = subject.navigationControllerSupportedInterfaceOrientations(UINavigationController())
+        #expect(result == [.landscape])
+    }
 }
 
 private final class MockDatasource: NSObject, @MainActor LessonListDatasourceType {

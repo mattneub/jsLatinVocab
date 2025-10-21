@@ -12,5 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         return true
     }
+
+    /// Allow rotation to portrait (for all terms view controller), only _after_ launch.
+    func application(
+        _ application: UIApplication,
+        supportedInterfaceOrientationsFor window: UIWindow?
+    ) -> UIInterfaceOrientationMask {
+        [.landscape, .portrait] // allow app to rotate to portrait, but only _after_ launch has finished
+    }
 }
 

@@ -85,3 +85,12 @@ extension InfoViewController: WKNavigationDelegate, MFMailComposeViewControllerD
         }
     }
 }
+
+extension InfoViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientationMask {
+        [.landscape]
+    }
+}
+
