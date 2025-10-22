@@ -7,6 +7,7 @@ protocol RootCoordinatorType: AnyObject {
     func showInfo()
     func showLessonList(terms: [Term])
     func showLessonListDrill(terms: [Term])
+    func showDrill(terms: [Term])
     func dismiss() async
 }
 
@@ -22,6 +23,7 @@ final class RootCoordinator: RootCoordinatorType {
     var lessonListProcessor: (any Processor<LessonListAction, LessonListState, Void>)?
     var lessonListDrillProcessor: (any Processor<LessonListDrillAction, LessonListDrillState, LessonListDrillEffect>)?
     var allTermsProcessor: (any Processor<AllTermsAction, AllTermsState, Void>)?
+    var drillProcessor: (any Processor<DrillAction, DrillState, DrillEffect>)?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()
@@ -94,6 +96,18 @@ final class RootCoordinator: RootCoordinatorType {
         rootViewController?.present(navigationController, animated: unlessTesting(true)) { [self] in
             (rootViewController as? RootViewController)?.interfaceOrientations = [.portrait]
         }
+    }
+
+    func showDrill(terms: [Term]) {
+        let viewController = DrillViewController()
+        let processor = DrillProcessor()
+        self.drillProcessor = processor
+        processor.coordinator = self
+        viewController.processor = processor
+        processor.presenter = viewController
+        processor.state.terms = terms
+        viewController.modalPresentationStyle = .overFullScreen
+        rootViewController?.presentedViewController?.present(viewController, animated: unlessTesting(true))
     }
 
     func dismiss() async {

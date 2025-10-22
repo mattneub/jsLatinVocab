@@ -61,7 +61,11 @@ class LessonListDrillViewController: UICollectionViewController, ReceiverPresent
         }
     }
 
-    @objc func drill() {}
+    @objc func drill() {
+        Task {
+            await datasource.receive(.drill)
+        }
+    }
 }
 
 extension LessonListDrillViewController: UINavigationControllerDelegate {

@@ -77,6 +77,20 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
         switch effect {
         case .clear:
             collectionView?.selectItem(at: nil, animated: true, scrollPosition: [])
+        case .drill:
+            guard let selectedItems = collectionView?.indexPathsForSelectedItems else {
+                return
+            }
+            var sectionsToDrill = [LessonSection]()
+            for indexPath in selectedItems {
+                guard let lesson = datasource.sectionIdentifier(for: indexPath.section),
+                      var section = datasource.itemIdentifier(for: indexPath) else {
+                    return
+                }
+                section.removeFirst(lesson.count)
+                sectionsToDrill.append(.init(lesson: lesson, section: section))
+            }
+            await processor?.receive(.drill(sectionsToDrill))
         }
     }
 

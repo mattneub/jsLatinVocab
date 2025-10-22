@@ -19,6 +19,14 @@ final class LessonListDrillProcessor: Processor {
             await presenter?.present(state) // State has been configured by the coordinator.
         case .clear:
             await presenter?.receive(.clear)
+        case .drill(let lessonSections):
+            var terms = [Term]()
+            for lessonSection in lessonSections {
+                terms.append(contentsOf: state.terms.filter {
+                    $0.lesson == lessonSection.lesson && $0.sectionFirstWord == lessonSection.section
+                })
+            }
+            coordinator?.showDrill(terms: terms)
         }
     }
 }

@@ -2,7 +2,8 @@ import UIKit
 
 /// View controller that presents its view as a "card" in the page view controller.
 class CardViewController: UIViewController {
-    /// Reference to the processor, so that we can inform it of taps on labels (to sort).
+
+    /// Reference to the processor, so that we can inform it of taps on labels.
     weak var processor: (any Receiver<RootAction>)?
 
     /// The Term with which we were initialized. We need to hold this because (1) we cannot

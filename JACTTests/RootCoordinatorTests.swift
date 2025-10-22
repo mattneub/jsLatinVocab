@@ -132,6 +132,29 @@ struct RootCoordinatorTests {
         #expect(viewController.interfaceOrientations == [.portrait])
     }
 
+    @Test("showDrill: constructs drill module, configures state, presents on existing presented")
+    func showDrill() async throws {
+        let string1 = "latin1\tenglish\t2\ta\tpart"
+        let string2 = "latin2\tenglish\t1\tb\tpart"
+        let string3 = "latin3\tenglish\t1\tb another word\tpart"
+        let string4 = "latin4\tenglish\t1\tc\tpart"
+        let terms = [string1, string2, string3, string4].map { Term(tabbedString: $0, index: 0)}
+        let subject = RootCoordinator()
+        let viewController = UIViewController()
+        makeWindow(viewController: viewController)
+        subject.rootViewController = viewController
+        viewController.present(UIViewController(), animated: false)
+        subject.showDrill(terms: terms)
+        let processor = try #require(subject.drillProcessor as? DrillProcessor)
+        #expect(processor.state.terms == terms)
+        let drillController = try #require(processor.presenter as? DrillViewController)
+        #expect(processor.coordinator === subject)
+        #expect(drillController.processor === processor)
+        await #while(viewController.presentedViewController?.presentedViewController == nil)
+        #expect(drillController.modalPresentationStyle == .overFullScreen)
+        #expect(viewController.presentedViewController?.presentedViewController === drillController)
+    }
+
     @Test("dismiss: dismisses from root view controller")
     func dismiss() async throws {
         let subject = RootCoordinator()

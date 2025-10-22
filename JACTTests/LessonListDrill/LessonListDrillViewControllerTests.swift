@@ -71,6 +71,13 @@ struct LessonListDrillViewControllerTests {
         #expect(processor.thingsReceived.first == .clear)
     }
 
+    @Test("drill: sends drill to datasource")
+    func drill() async {
+        subject.drill()
+        await #while(datasource.thingsReceived.isEmpty)
+        #expect(datasource.thingsReceived.first == .drill)
+    }
+
     @Test("navigation controller supported orientations is all three")
     func supported() {
         let result = subject.navigationControllerSupportedInterfaceOrientations(UINavigationController())

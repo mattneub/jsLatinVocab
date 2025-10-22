@@ -58,6 +58,26 @@ struct LessonListDrillDatasourceTests {
         #expect(collectionView.indexPathsForSelectedItems == [])
     }
 
+    @Test("drill: based on selection, constructs lesson-section terms from datasource, sends .drill")
+    func drill() async throws {
+        makeWindow(view: collectionView)
+        let string1 = "latin\tenglish\t2\ta\tpart"
+        let string2 = "latin\tenglish\t1\tb\tpart"
+        let string3 = "latin\tenglish\t1\tb another word\tpart"
+        let string4 = "latin\tenglish\t1\tc\tpart"
+        let terms = [string1, string2, string3, string4].map { Term(tabbedString: $0, index: 0)}
+        await subject.present(.init(terms: terms))
+        collectionView.allowsMultipleSelection = true
+        collectionView.selectItem(at: IndexPath(item: 1, section: 0), animated: false, scrollPosition: [])
+        collectionView.selectItem(at: IndexPath(item: 0, section: 1), animated: false, scrollPosition: [])
+        // that was prologue, this is the test
+        await subject.receive(.drill)
+        #expect(processor.thingsReceived == [.drill([
+            .init(lesson: "1", section: "c"),
+            .init(lesson: "2", section: "a"),
+        ])])
+    }
+
     @Test("cells are correctly configured")
     func cells() async throws {
         makeWindow(view: collectionView)

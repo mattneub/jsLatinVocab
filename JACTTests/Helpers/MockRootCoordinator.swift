@@ -34,4 +34,9 @@ final class MockRootCoordinator: RootCoordinatorType {
         self.terms = terms
     }
 
+    func showDrill(terms: [Jact.Term]) {
+        methodsCalled.append(#function)
+        self.terms = terms
+    }
+
 }
