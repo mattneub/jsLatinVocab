@@ -1,6 +1,7 @@
 @testable import Jact
 import Testing
 import UIKit
+import WaitWhile
 
 struct RootDatasourceTests {
     var subject: RootDatasource!
@@ -46,7 +47,7 @@ struct RootDatasourceTests {
         #expect(card.term == term)
     }
 
-    @Test("receive navigateTo: given term index, creates card view controller and puts it in page view controller")
+    @Test("receive navigateTo: given term index, creates card view controller and puts it in pvc, sends navigated")
     func navigateTo() async throws {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
@@ -60,6 +61,7 @@ struct RootDatasourceTests {
         #expect(card.processor === processor)
         #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
         #expect(card.hidden == false)
+        #expect(processor.thingsReceived == [.navigated(indexOrig: 1)])
     }
 
     @Test("receive navigateTo: style correctly determines setViewControllers parameters")
@@ -148,5 +150,25 @@ struct RootDatasourceTests {
             let result = subject.pageViewController(pageViewController, viewControllerAfter: CardViewController(term: term2))
             #expect(result == nil)
         }
+    }
+
+    @Test("page view controller supported orientations is landscape")
+    func supported() {
+        let result = subject.pageViewControllerSupportedInterfaceOrientations(UIPageViewController())
+        #expect(result == [.landscape])
+    }
+
+    @Test("didFinishAnimating: sends navigated")
+    func didFinishAnimating() async {
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let card = MockCardViewController(term: term1)
+        await pageViewController.setViewControllers([card], direction: .forward, animated: false)
+        subject.pageViewController(pageViewController, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: true)
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.navigated(indexOrig: 1)])
     }
 }

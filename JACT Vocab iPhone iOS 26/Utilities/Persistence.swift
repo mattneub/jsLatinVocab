@@ -10,6 +10,8 @@ struct Defaults {
 protocol PersistenceType {
     func setEnglishHidden(_ hidden: Bool)
     func isEnglishHidden() -> Bool
+    func setCurrentTermIndex(_ index: Int)
+    func currentTermIndex() -> Int?
 }
 
 /// Object that communicates with user defaults.
@@ -20,5 +22,13 @@ struct Persistence: PersistenceType {
 
     func isEnglishHidden() -> Bool {
         services.userDefaults.bool(forKey: Defaults.englishHiddenKey)
+    }
+
+    func setCurrentTermIndex(_ index: Int) {
+        services.userDefaults.set(index, forKey: Defaults.indexOfCurrentTermKey)
+    }
+
+    func currentTermIndex() -> Int? {
+        services.userDefaults.object(forKey: Defaults.indexOfCurrentTermKey) as? Int
     }
 }

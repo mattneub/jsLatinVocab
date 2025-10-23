@@ -30,4 +30,30 @@ struct PersistenceTests {
         #expect(defaults.methodsCalled == ["bool(forKey:)"])
         #expect(value2 == true)
     }
+
+    @Test("setCurrentTermIndex sets int for given key")
+    func setCurrentTermIndex() throws {
+        subject.setCurrentTermIndex(999)
+        #expect(defaults.methodsCalled == ["set(_:forKey:)"])
+        let value = try #require(defaults.thingsSet["indexOfCurrentTerm"] as? Int)
+        #expect(value == 999)
+    }
+
+    @Test("currentTermIndex returns optional int")
+    func currentTermIndex() throws {
+        defaults.thingsToReturn = [:]
+        let value = subject.currentTermIndex()
+        #expect(defaults.methodsCalled == ["object(forKey:)"])
+        #expect(value == nil)
+        defaults.methodsCalled = []
+        defaults.thingsToReturn = ["indexOfCurrentTerm": "bad value"]
+        let value2 = subject.currentTermIndex()
+        #expect(defaults.methodsCalled == ["object(forKey:)"])
+        #expect(value2 == nil)
+        defaults.methodsCalled = []
+        defaults.thingsToReturn = ["indexOfCurrentTerm": 999]
+        let value3 = subject.currentTermIndex()
+        #expect(defaults.methodsCalled == ["object(forKey:)"])
+        #expect(value3 == 999)
+    }
 }

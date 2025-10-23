@@ -48,7 +48,6 @@ struct DrillViewControllerTests {
         #expect(page.transitionStyle == .pageCurl)
         #expect(page.navigationOrientation == .horizontal)
         #expect(page.spineLocation.rawValue == UIPageViewController.SpineLocation.min.rawValue)
-        #expect(page.delegate === subject)
         #expect(page.viewControllers?.count == 1)
     }
 
@@ -193,12 +192,6 @@ struct DrillViewControllerTests {
     func position() {
         let result = subject.position(for: UIToolbar())
         #expect(result == .bottom)
-    }
-
-    @Test("page view controller supported orientations is landscape")
-    func supported() {
-        let result = subject.pageViewControllerSupportedInterfaceOrientations(UIPageViewController())
-        #expect(result == [.landscape])
     }
 }
 

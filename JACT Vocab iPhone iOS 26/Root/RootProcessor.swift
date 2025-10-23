@@ -15,11 +15,18 @@ final class RootProcessor: Processor {
         switch action {
         case .initialInterface:
             state.terms = prepareTerms()
-            let initialIndex = 0 // TODO: eventually this can come from persistence
+            var initialIndex = 0
+            if let indexOrig = services.persistence.currentTermIndex() {
+                if let index = state.terms.firstIndex(where: { $0.indexOrig == indexOrig }) {
+                    initialIndex = index
+                }
+            }
             await presenter?.present(state)
             let englishHidden = services.persistence.isEnglishHidden()
             await presenter?.receive(.englishHidden(englishHidden))
             await presenter?.receive(.navigateTo(index: initialIndex, style: .noAnimation))
+        case .navigated(let indexOrig):
+            services.persistence.setCurrentTermIndex(indexOrig)
         case .showAllTerms:
             coordinator?.showAllTerms(terms: state.terms)
         case .showInfo:

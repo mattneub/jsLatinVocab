@@ -67,6 +67,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
             }
         }()
         await pageViewController?.setViewControllers([card], direction: direction, animated: animate)
+        await processor?.receive(.navigated(indexOrig: term.indexOrig))
     }
 
     func pageViewController(
@@ -109,5 +110,24 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         card.processor = processor
         card.setEnglishHidden(englishHidden)
         return card
+    }
+
+    func pageViewControllerSupportedInterfaceOrientations(
+        _ pageViewController: UIPageViewController
+    ) -> UIInterfaceOrientationMask {
+        [.landscape]
+    }
+
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        if let card = pageViewController.viewControllers?.first as? CardViewController {
+            Task {
+                await processor?.receive(.navigated(indexOrig: card.term.indexOrig))
+            }
+        }
     }
 }

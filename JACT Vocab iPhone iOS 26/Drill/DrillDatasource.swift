@@ -74,4 +74,10 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
     ) -> UIViewController? {
         return nil
     }
+
+    func pageViewControllerSupportedInterfaceOrientations(
+        _ pageViewController: UIPageViewController
+    ) -> UIInterfaceOrientationMask {
+        [.landscape]
+    }
 }

@@ -35,10 +35,28 @@ struct RootProcessorTests {
         // and it has been presented
         #expect(presenter.statesPresented.last == subject.state)
         // and we pass persistence english hidden to presenter
-        #expect(persistence.methodsCalled == ["isEnglishHidden()"])
+        #expect(persistence.methodsCalled == ["currentTermIndex()", "isEnglishHidden()"])
         #expect(presenter.thingsReceived.first == .englishHidden(true))
         // and we navigate
         #expect(presenter.thingsReceived.last == .navigateTo(index: 0, style: .noAnimation))
+    }
+
+    @Test("initialInterface: if it gets a current term index from persistence, it converts and uses it")
+    func initialInterfacePersistence() async {
+        let path = Bundle(for: MockBundle.self).path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
+        bundle.pathToReturn = path
+        persistence.hiddenToReturn = true
+        persistence.termIndexToReturn = 2
+        await subject.receive(.initialInterface)
+        let index = subject.state.terms.firstIndex(where: { $0.indexOrig == 2 })!
+        #expect(presenter.thingsReceived.last == .navigateTo(index: index, style: .noAnimation))
+    }
+
+    @Test("navigated: sets persistence current term index")
+    func navigated() async {
+        await subject.receive(.navigated(indexOrig: 999))
+        #expect(persistence.methodsCalled == ["setCurrentTermIndex(_:)"])
+        #expect(persistence.termIndex == 999)
     }
 
     @Test("showInfo: calls coordinator showInfo")

@@ -134,5 +134,11 @@ struct DrillDatasourceTests {
         let result = subject.pageViewController(pageViewController, viewControllerAfter: CardViewController(term: term1))
         #expect(result == nil)
     }
+
+    @Test("page view controller supported orientations is landscape")
+    func supported() {
+        let result = subject.pageViewControllerSupportedInterfaceOrientations(UIPageViewController())
+        #expect(result == [.landscape])
+    }
 }
 

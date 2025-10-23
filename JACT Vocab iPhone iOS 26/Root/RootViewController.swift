@@ -33,8 +33,6 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         navigationOrientation: .horizontal,
         options: [.spineLocation: UIPageViewController.SpineLocation.min.rawValue]
     ).applying {
-        // probably helps nothing, but what the heck
-        $0.delegate = self
         // a page view controller should always contain _some_ view controller
         $0.setViewControllers([UIViewController()], direction: .forward, animated: false, completion: nil)
     }
@@ -158,14 +156,6 @@ final class RootViewController: UIViewController, ReceiverPresenter {
 extension RootViewController: UIToolbarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .bottom
-    }
-}
-
-extension RootViewController: UIPageViewControllerDelegate {
-    func pageViewControllerSupportedInterfaceOrientations(
-        _ pageViewController: UIPageViewController
-    ) -> UIInterfaceOrientationMask {
-        [.landscape]
     }
 }
 

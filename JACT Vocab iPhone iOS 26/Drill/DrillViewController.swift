@@ -49,8 +49,6 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
         navigationOrientation: .horizontal,
         options: [.spineLocation: UIPageViewController.SpineLocation.min.rawValue]
     ).applying {
-        // probably helps nothing, but what the heck
-        $0.delegate = self
         // a page view controller should always contain _some_ view controller
         $0.setViewControllers([UIViewController()], direction: .forward, animated: false, completion: nil)
     }
@@ -204,10 +202,3 @@ extension DrillViewController: UIToolbarDelegate {
     }
 }
 
-extension DrillViewController: UIPageViewControllerDelegate {
-    func pageViewControllerSupportedInterfaceOrientations(
-        _ pageViewController: UIPageViewController
-    ) -> UIInterfaceOrientationMask {
-        [.landscape]
-    }
-}

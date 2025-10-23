@@ -18,6 +18,18 @@ final class MockUserDefaults: UserDefaultsType {
         }
         fatalError("thingsToReturn not prepared with Bool for key \(key)")
     }
-    
+
+    func set(_ value: Int, forKey key: String) {
+        methodsCalled.append(#function)
+        thingsSet[key] = value
+    }
+
+    func object(forKey key: String) -> Any? {
+        methodsCalled.append(#function)
+        if let value = thingsToReturn[key] {
+            return value
+        }
+        return "bad value"
+    }
 
 }

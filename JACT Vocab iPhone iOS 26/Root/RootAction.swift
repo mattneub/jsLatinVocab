@@ -1,6 +1,7 @@
 /// Actions sent by presenter to processor.
 enum RootAction: Equatable {
     case initialInterface
+    case navigated(indexOrig: Int)
     case showAllTerms
     case showInfo
     case showLessonList

@@ -31,7 +31,6 @@ struct RootViewControllerTests {
         #expect(page.transitionStyle == .pageCurl)
         #expect(page.navigationOrientation == .horizontal)
         #expect(page.spineLocation.rawValue == UIPageViewController.SpineLocation.min.rawValue)
-        #expect(page.delegate === subject)
         #expect(page.viewControllers?.count == 1)
     }
 
@@ -157,11 +156,6 @@ struct RootViewControllerTests {
         #expect(result == .bottom)
     }
 
-    @Test("page view controller supported orientations is landscape")
-    func supported() {
-        let result = subject.pageViewControllerSupportedInterfaceOrientations(UIPageViewController())
-        #expect(result == [.landscape])
-    }
 }
 
 fileprivate final class MockPageViewControllerDatasource: NSObject, PageViewControllerDatasourceType {
