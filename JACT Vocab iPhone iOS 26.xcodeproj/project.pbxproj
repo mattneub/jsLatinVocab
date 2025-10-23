@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5234792EAAF20400AC5199 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3F5234782EAAF20400AC5199 /* AppIcon.icon */; };
 		3FBE51F02E9FD8B800E33CDA /* WaitWhile in Frameworks */ = {isa = PBXBuildFile; productRef = 3FBE51EF2E9FD8B800E33CDA /* WaitWhile */; };
 		3FBE51F62E9FE5D200E33CDA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3FBE51F52E9FE5D200E33CDA /* SnapshotTesting */; };
 /* End PBXBuildFile section */
@@ -22,6 +23,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F5234782EAAF20400AC5199 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		3F57ABF72E9BF7DE004E4FBA /* JACT Vocab iPhone iOS 26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JACT Vocab iPhone iOS 26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9B4CC62E9ECB5F00691DC2 /* JACTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JACTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9B4CD32E9ECD5600691DC2 /* JACT Vocab iPhone iOS 26.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "JACT Vocab iPhone iOS 26.xctestplan"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				3F57ABF92E9BF7DE004E4FBA /* JACT Vocab iPhone iOS 26 */,
 				3F9B4CC72E9ECB5F00691DC2 /* JACTTests */,
 				3F57ABF82E9BF7DE004E4FBA /* Products */,
+				3F5234782EAAF20400AC5199 /* AppIcon.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5234792EAAF20400AC5199 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +246,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "JACT Vocab";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -250,7 +254,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphoneNOT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphone;
 				PRODUCT_MODULE_NAME = Jact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -276,7 +280,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "JACT Vocab";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -284,7 +288,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphoneNOT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jactvocabiphone;
 				PRODUCT_MODULE_NAME = Jact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
