@@ -1,3 +1,6 @@
 enum DrillEffect: Equatable {
-    case navigateTo(index: Int, style: NavigationStyle)
+    case done
+    case navigateTo(indexOrig: Int, style: NavigationStyle)
+    case progress(Float)
+    case showEnglish
 }

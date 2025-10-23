@@ -9,7 +9,7 @@ final class RootProcessor: Processor {
     weak var presenter: (any ReceiverPresenter<RootEffect, RootState>)?
 
     /// State to be presented by the presenter.
-    var state = RootState() // TODO: it may be that this won't be needed and we'll use effect instead
+    var state = RootState()
 
     func receive(_ action: RootAction) async {
         switch action {

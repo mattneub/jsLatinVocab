@@ -112,7 +112,10 @@ final class RootCoordinator: RootCoordinatorType {
 
     func dismiss() async {
         await withCheckedContinuation { continuation in
-            rootViewController?.dismiss(animated: unlessTesting(true)) {
+            // we only present to the level of 2, so this covers all bases:
+            // if there is just one level presented, this dismisses it, and if there are
+            // two levels presented, it dismisses the second level but keeps the first level
+            rootViewController?.presentedViewController?.dismiss(animated: unlessTesting(true)) {
                 continuation.resume(returning: ())
             }
         }

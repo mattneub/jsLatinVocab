@@ -169,4 +169,24 @@ struct RootCoordinatorTests {
         await #while(viewController.presentedViewController != nil)
         #expect(viewController.presentedViewController == nil)
     }
+
+    @Test("dismiss: if two levels of presentation, dismisses last level only")
+    func dismissTwoLevels() async throws {
+        let subject = RootCoordinator()
+        let viewController = UIViewController()
+        makeWindow(viewController: viewController)
+        subject.rootViewController = viewController
+        let viewController2 = UIViewController()
+        viewController.present(viewController2, animated: false)
+        await #while(viewController.presentedViewController == nil)
+        #expect(viewController.presentedViewController === viewController2)
+        let viewController3 = UIViewController()
+        viewController2.present(viewController3, animated: false)
+        await #while(viewController2.presentedViewController == nil)
+        #expect(viewController2.presentedViewController === viewController3)
+        await subject.dismiss()
+        await #while(viewController.presentedViewController?.presentedViewController != nil)
+        #expect(viewController.presentedViewController?.presentedViewController == nil)
+        #expect(viewController.presentedViewController === viewController2)
+    }
 }

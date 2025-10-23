@@ -144,10 +144,10 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
     }
 
     func populateToolbar2() {
-        let right = UIBarButtonItem(image: UIImage(named:"Checkmark"), style: .plain, target: self, action: #selector(right))
-        let wrong = UIBarButtonItem(image: UIImage(named:"cancel"), style: .plain, target: self, action: #selector(wrong))
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let wrong = UIBarButtonItem(image: UIImage(named:"cancel"), style: .plain, target: self, action: #selector(wrong))
+        let right = UIBarButtonItem(image: UIImage(named:"mycheckmark"), style: .plain, target: self, action: #selector(right))
         self.toolbar.setItems([cancel, spacer, wrong, spacer, right], animated:true)
     }
 
@@ -157,13 +157,45 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
     }
 
     func receive(_ effect: DrillEffect) async {
+        switch effect {
+        case .done:
+            modalTransitionStyle = .flipHorizontal
+            blackView.isHidden = true
+            prog.isHidden = true
+            toolbar.isHidden = true
+        case .navigateTo:
+            populateToolbar1()
+        case .progress(let amount):
+            prog.setProgress(amount, animated: true)
+        case .showEnglish:
+            populateToolbar2()
+        }
         await datasource.receive(effect)
     }
 
-    @objc func showEnglish() {}
-    @objc func cancel() {}
-    @objc func right() {}
-    @objc func wrong() {}
+    @objc func showEnglish() {
+        Task {
+            await processor?.receive(.showEnglish)
+        }
+    }
+
+    @objc func cancel() {
+        Task {
+            await processor?.receive(.cancel)
+        }
+    }
+
+    @objc func right() {
+        Task {
+            await processor?.receive(.right)
+        }
+    }
+
+    @objc func wrong() {
+        Task {
+            await processor?.receive(.wrong)
+        }
+    }
 }
 
 extension DrillViewController: UIToolbarDelegate {

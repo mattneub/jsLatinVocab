@@ -12,6 +12,15 @@ struct DrillDatasourceTests {
         subject.cardClass = MockCardViewController.self
     }
 
+    @Test("done: creates done view controller, navigates to it")
+    func done() async throws {
+        await subject.receive(.done)
+        #expect(pageViewController.viewControllers?.first is DoneViewController)
+        #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
+        #expect(pageViewController.direction == .forward)
+        #expect(pageViewController.animated == true)
+    }
+
     @Test("receive navigateTo: creates card of the correct class")
     func navigateToClass() async throws {
         let subject = DrillDatasource(pageViewController: pageViewController, processor: processor)
@@ -21,13 +30,13 @@ struct DrillDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         subject.data = [term]
-        await subject.receive(.navigateTo(index: 0, style: .noAnimation))
+        await subject.receive(.navigateTo(indexOrig: 1, style: .noAnimation))
         let card = try #require(pageViewController.viewControllers?.first as? DrillCardViewController)
         #expect(type(of: card) == DrillCardViewController.self)
         #expect(card.term == term)
     }
 
-    @Test("receive navigateTo: given term index, creates card view controller and puts it in page view controller")
+    @Test("receive navigateTo: given term indexOrig, creates card view controller and puts it in page view controller")
     func navigateTo() async throws {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
@@ -35,7 +44,7 @@ struct DrillDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
         )
         subject.data = [term]
-        await subject.receive(.navigateTo(index: 0, style: .noAnimation))
+        await subject.receive(.navigateTo(indexOrig: 1, style: .noAnimation))
         let card = try #require(pageViewController.viewControllers?.first as? MockCardViewController)
         #expect(card.term == term)
         #expect(card.processor == nil)
@@ -56,25 +65,40 @@ struct DrillDatasourceTests {
             partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 2, index: 1
         )
         subject.data = [term1, term2]
-        await subject.receive(.navigateTo(index: 0, style: .noAnimation))
+        await subject.receive(.navigateTo(indexOrig: 1, style: .noAnimation))
         #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
         #expect(pageViewController.direction == .forward)
         #expect(pageViewController.animated == false)
         pageViewController.methodsCalled = []
-        await subject.receive(.navigateTo(index: 0, style: .forward))
+        await subject.receive(.navigateTo(indexOrig: 1, style: .forward))
         #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
         #expect(pageViewController.direction == .forward)
         #expect(pageViewController.animated == true)
         pageViewController.methodsCalled = []
-        await subject.receive(.navigateTo(index: 1, style: .appropriate))
+        // we don't expect to get `.appropriate`, but if we did we would go forward without animation
+        await subject.receive(.navigateTo(indexOrig: 2, style: .appropriate))
         #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
         #expect(pageViewController.direction == .forward)
-        #expect(pageViewController.animated == true)
+        #expect(pageViewController.animated == false)
         pageViewController.methodsCalled = []
-        await subject.receive(.navigateTo(index: 0, style: .appropriate))
+        await subject.receive(.navigateTo(indexOrig: 1, style: .appropriate))
         #expect(pageViewController.methodsCalled == ["setViewControllers(_:direction:animated:completion:)"])
-        #expect(pageViewController.direction == .reverse)
-        #expect(pageViewController.animated == true)
+        #expect(pageViewController.direction == .forward)
+        #expect(pageViewController.animated == false)
+    }
+
+    @Test("showEnglish: calls card setEnglishHidden false")
+    func showEnglish() async {
+        let term1 = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let card = MockCardViewController(term: term1)
+        await pageViewController.setViewControllers([card], direction: .forward, animated: false)
+        await subject.receive(.showEnglish)
+        #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+        #expect(card.hidden == false)
     }
 
     @Test("viewControllerBefore: returns nil")

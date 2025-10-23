@@ -14,8 +14,4 @@ class BoundedLabel: UILabel {
     override func drawText(in rect: CGRect) {
         super.drawText(in: rect.insetBy(dx: 5, dy: 5).integral)
     }
-
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return gestureRecognizer.view == self // TODO: Not sure yet what this does.
-    }
 }

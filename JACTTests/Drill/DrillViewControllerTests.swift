@@ -106,12 +106,87 @@ struct DrillViewControllerTests {
         #expect(datasource.data == [term])
     }
 
-    @Test("receive: passes effect on to datasource")
-    func receive() async {
+    @Test("receive navigate: populates toolbar, passes effect to datasource")
+    func navigate() async throws {
         let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
         subject.datasource = datasource
-        await subject.receive(.navigateTo(index: 1, style: .forward))
-        #expect(datasource.thingsReceived == [.navigateTo(index: 1, style: .forward)])
+        subject.toolbar.setItems([], animated: false)
+        await subject.receive(.navigateTo(indexOrig: 0, style: .forward))
+        #expect(subject.toolbar.items?.count == 3)
+        let items = try #require(subject.toolbar.items)
+        #expect(items[0].target === subject)
+        #expect(items[0].action == #selector(subject.cancel))
+        #expect(items[2].image == UIImage(named: "arrowup"))
+        #expect(items[2].target === subject)
+        #expect(items[2].action == #selector(subject.showEnglish))
+        #expect(datasource.thingsReceived == [.navigateTo(indexOrig: 0, style: .forward)])
+    }
+
+    @Test("receive progress: sets progress, passes effect to datasource")
+    func progress() async throws {
+        let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
+        subject.datasource = datasource
+        await subject.receive(.progress(0.5))
+        #expect(subject.prog.progress == 0.5)
+        #expect(datasource.thingsReceived == [.progress(0.5)])
+    }
+
+    @Test("receive showEnglish: populates toolbar, passes effect to datasource")
+    func showEnglish() async throws {
+        let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
+        subject.datasource = datasource
+        await subject.receive(.showEnglish)
+        #expect(subject.toolbar.items?.count == 5)
+        let items = try #require(subject.toolbar.items)
+        #expect(items[0].target === subject)
+        #expect(items[0].action == #selector(subject.cancel))
+        #expect(items[2].image == UIImage(named: "cancel"))
+        #expect(items[2].target === subject)
+        #expect(items[2].action == #selector(subject.wrong))
+        #expect(items[4].image == UIImage(named: "mycheckmark"))
+        #expect(items[4].target === subject)
+        #expect(items[4].action == #selector(subject.right))
+        #expect(datasource.thingsReceived == [.showEnglish])
+    }
+
+    @Test("receive done: sets modal transition, hides interface, passes effect to datasource")
+    func done() async {
+        let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
+        subject.datasource = datasource
+        await subject.receive(.done)
+        #expect(subject.modalTransitionStyle == .flipHorizontal)
+        #expect(subject.blackView.isHidden == true)
+        #expect(subject.prog.isHidden == true)
+        #expect(subject.toolbar.isHidden == true)
+        #expect(datasource.thingsReceived == [.done])
+    }
+
+    @Test("showEnglish: sends showEnglish")
+    func showEnglishMethod() async {
+        subject.showEnglish()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.showEnglish])
+    }
+
+    @Test("cancel: sends cancel")
+    func cancelMethod() async {
+        subject.cancel()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.cancel])
+    }
+
+    @Test("right: sends right")
+    func rightMethod() async {
+        subject.right()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.right])
+    }
+
+    @Test("wrong: sends wrong")
+    func wrongMethod() async {
+        subject.wrong()
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.wrong])
     }
 
     @Test("positionForBar: is .bottom")

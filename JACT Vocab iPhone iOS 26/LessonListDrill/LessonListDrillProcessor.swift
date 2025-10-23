@@ -19,7 +19,9 @@ final class LessonListDrillProcessor: Processor {
             await presenter?.present(state) // State has been configured by the coordinator.
         case .clear:
             await presenter?.receive(.clear)
-        case .drill(let lessonSections):
+        case .drill:
+            await presenter?.receive(.drill)
+        case .drillUsing(let lessonSections):
             var terms = [Term]()
             for lessonSection in lessonSections {
                 terms.append(contentsOf: state.terms.filter {

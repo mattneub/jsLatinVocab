@@ -29,17 +29,25 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
     /// The processor communicates with us by sending us an Effect.
     func receive(_ effect: DrillEffect) async {
         switch effect {
-        case .navigateTo(index: let index, style: let style):
-            await navigateTo(index: index, style: style)
+        case .done:
+            let done = DoneViewController()
+            await pageViewController?.setViewControllers([done], direction: .forward, animated: true)
+        case .navigateTo(indexOrig: let indexOrig, style: let style):
+            await navigateTo(indexOrig: indexOrig, style: style)
+        case .progress: break
+        case .showEnglish:
+            guard let card = pageViewController?.viewControllers?.first as? CardViewController else {
+                return
+            }
+            card.setEnglishHidden(false)
         }
     }
 
     /// Navigate to the given Terms index, animated or not.
-    func navigateTo(index: Int, style: NavigationStyle) async {
-        guard data.indices.contains(index) else {
+    func navigateTo(indexOrig: Int, style: NavigationStyle) async {
+        guard let term = data.first(where: { $0.indexOrig == indexOrig }) else {
             return
         }
-        let term = data[index]
         let card = cardClass.init(term: term)
         card.loadViewIfNeeded()
         card.setEnglishHidden(true)
@@ -47,13 +55,7 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
             switch style {
             case .noAnimation: return (false, .forward)
             case .forward: return (true, .forward)
-            case .appropriate:
-                if let currentCard = pageViewController?.viewControllers?.first as? CardViewController {
-                    if index < currentCard.term.index {
-                        return (true, .reverse)
-                    }
-                }
-                return (true, .forward)
+            case .appropriate: return (false, .forward) // won't happen
             }
         }()
         await pageViewController?.setViewControllers([card], direction: direction, animated: animate)

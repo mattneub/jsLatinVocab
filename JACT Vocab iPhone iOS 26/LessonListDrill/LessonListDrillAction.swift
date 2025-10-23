@@ -2,7 +2,8 @@
 enum LessonListDrillAction: Equatable {
     case cancel
     case clear
-    case drill([LessonSection])
+    case drill // the _user_ has tapped the drill button
+    case drillUsing([LessonSection]) // the _datasource_ is providing the data to drill
     case initialData
 }
 

@@ -63,7 +63,7 @@ class LessonListDrillViewController: UICollectionViewController, ReceiverPresent
 
     @objc func drill() {
         Task {
-            await datasource.receive(.drill)
+            await processor?.receive(.drill)
         }
     }
 }

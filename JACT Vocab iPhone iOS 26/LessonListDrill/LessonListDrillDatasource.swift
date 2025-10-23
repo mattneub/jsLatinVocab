@@ -81,6 +81,9 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
             guard let selectedItems = collectionView?.indexPathsForSelectedItems else {
                 return
             }
+            guard !selectedItems.isEmpty else {
+                return
+            }
             var sectionsToDrill = [LessonSection]()
             for indexPath in selectedItems {
                 guard let lesson = datasource.sectionIdentifier(for: indexPath.section),
@@ -90,7 +93,7 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
                 section.removeFirst(lesson.count)
                 sectionsToDrill.append(.init(lesson: lesson, section: section))
             }
-            await processor?.receive(.drill(sectionsToDrill))
+            await processor?.receive(.drillUsing(sectionsToDrill))
         }
     }
 

@@ -71,11 +71,11 @@ struct LessonListDrillViewControllerTests {
         #expect(processor.thingsReceived.first == .clear)
     }
 
-    @Test("drill: sends drill to datasource")
+    @Test("drill: sends drill")
     func drill() async {
         subject.drill()
-        await #while(datasource.thingsReceived.isEmpty)
-        #expect(datasource.thingsReceived.first == .drill)
+        await #while(processor.thingsReceived.isEmpty)
+        #expect(processor.thingsReceived == [.drill])
     }
 
     @Test("navigation controller supported orientations is all three")
