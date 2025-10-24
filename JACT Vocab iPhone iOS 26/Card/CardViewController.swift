@@ -71,6 +71,26 @@ class CardViewController: UIViewController {
         }
     }
 
+    /// Set the visibility of the "extra" latin info. If we are actually in the window (and thus
+    /// visible to the user), do this with animation.
+    func setExtraShowing(_ show: Bool) {
+        latin.text = term.latin
+        if !show {
+            let whole = term.latin
+            let start = term.latinFirstWord
+            let suffix = whole.utf16.count == start.utf16.count ? "" : " …" // elision only if something is elided
+            latin.text = start + suffix
+        }
+        if view.window != nil { // we must be showing, animate in addition
+            UIView.transition(
+                with: self.latin,
+                duration: 0.2,
+                options: .transitionFlipFromLeft,
+                animations: {}
+            )
+        }
+    }
+
     /// The user tapped either of the two tappable labels.
     @objc func tappedLabel(_ tapper: UITapGestureRecognizer) {
         guard let label = tapper.view as? UILabel else {

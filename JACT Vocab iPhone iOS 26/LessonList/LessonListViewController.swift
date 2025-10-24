@@ -14,19 +14,19 @@ class LessonListViewController: UICollectionViewController, ReceiverPresenter {
 
     init() {
         let layout = UICollectionViewFlowLayout()
-        super.init(collectionViewLayout:layout)
+        super.init(collectionViewLayout: layout)
     }
     
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         self.navigationItem.leftBarButtonItem = cancelButton
-        
+
         collectionView.backgroundColor = .myGolden.withAlphaComponent(1)
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.topEdgeEffect.isHidden = true

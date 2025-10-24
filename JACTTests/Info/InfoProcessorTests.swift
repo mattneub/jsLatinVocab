@@ -26,7 +26,7 @@ struct InfoProcessorTests {
         bundle.pathToReturn = path
         await subject.receive(.initialInterface)
         #expect(bundle.methodsCalled == ["path(forResource:ofType:)"])
-        #expect(bundle.resource == "jactVocabHelp")
+        #expect(bundle.resource == "jsVocabHelp")
         #expect(bundle.type == "html")
         #expect(subject.state.content == "howdy\n")
         #expect(subject.state.url == URL(fileURLWithPath: path))

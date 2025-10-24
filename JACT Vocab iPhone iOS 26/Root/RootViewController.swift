@@ -98,12 +98,12 @@ final class RootViewController: UIViewController, ReceiverPresenter {
         // Populate toolbar.
         let spacer = UIBarButtonItem.fixedSpace().applying { $0.width = 30 }
         let hider = UIBarButtonItem(image: UIImage(named:"Key"), style: .plain, target: self, action: #selector(toggleEnglish))
-        //let bubbler = UIBarButtonItem(image: UIImage(named:"speechBubble"), style: .plain, target: self, action: #selector(toggleExtraInfo))
+        let bubbler = UIBarButtonItem(image: UIImage(named:"speechbubble"), style: .plain, target: self, action: #selector(toggleExtraInfo))
         let booker = UIBarButtonItem(image: UIImage(named:"folder"), style: .plain, target: self, action: #selector(showLessonList))
         let seeker = UIBarButtonItem(image: UIImage(named:"magnifier"), style: .plain, target: self, action: #selector(showAllTermsList))
         let bulb = UIBarButtonItem(image: UIImage(named:"bulb"), style: .plain, target: self, action: #selector(showLessonListDrill))
         let info = UIBarButtonItem(image: UIImage(named:"help"), style: .plain, target: self, action: #selector(showInfo))
-        let allItems = [hider, spacer, /* bubbler, spacer, */ booker, spacer, seeker, spacer, bulb, spacer, info]
+        let allItems = [hider, spacer, bubbler, spacer, booker, spacer, seeker, spacer, bulb, spacer, info]
         toolbar.setItems(allItems, animated: false)
         toolbar.delegate = self
     }
@@ -125,6 +125,12 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     @objc func toggleEnglish() {
         Task {
             await processor?.receive(.toggleEnglish)
+        }
+    }
+
+    @objc func toggleExtraInfo() {
+        Task {
+            await processor?.receive(.toggleExtra)
         }
     }
 

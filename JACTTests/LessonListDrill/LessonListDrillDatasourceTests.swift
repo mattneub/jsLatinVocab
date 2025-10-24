@@ -131,10 +131,27 @@ struct LessonListDrillDatasourceTests {
         await subject.present(.init(terms: terms))
         let header = try #require(collectionView.supplementaryView(
             forElementKind: UICollectionView.elementKindSectionHeader,
-            at: .init(item: 0, section: 0)
+            at: .init(item: 0, section: 1)
         ) as? UICollectionViewCell)
         let configuration = try #require(header.contentConfiguration as? LessonListHeaderContentConfiguration)
-        #expect(configuration.text == "1")
+        #expect(configuration.text == "2")
         #expect(header.backgroundColor == .black)
     }
+
+    @Test("sizeForItem: if section 0, width is 150; else, incoming size")
+    func sizeForItem() {
+        var result = subject.collectionView(collectionView, layout: layout, sizeForItemAt: IndexPath(item: 0, section: 0))
+        #expect(result.width == 150)
+        result = subject.collectionView(collectionView, layout: layout, sizeForItemAt: IndexPath(item: 0, section: 1))
+        #expect(result.width == 70)
+    }
+
+    @Test("sizeForHeader: if section 0, zero; else, incoming height")
+    func sizeForHeader() {
+        var result = subject.collectionView(collectionView, layout: layout, referenceSizeForHeaderInSection: 0)
+        #expect(result.height == 0)
+        result = subject.collectionView(collectionView, layout: layout, referenceSizeForHeaderInSection: 1)
+        #expect(result.height == 40)
+    }
+
 }

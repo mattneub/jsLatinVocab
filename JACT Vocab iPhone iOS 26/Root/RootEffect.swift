@@ -1,5 +1,6 @@
 enum RootEffect: Equatable {
     case englishHidden(Bool)
+    case extraShowing(Bool)
     case navigateTo(index: Int, style: NavigationStyle)
     case restoreLandscapeOrientation // see footnote on root view controller
 }

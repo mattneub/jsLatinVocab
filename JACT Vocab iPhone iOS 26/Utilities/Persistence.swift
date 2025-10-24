@@ -3,6 +3,7 @@ import Foundation
 /// Constants used as keys when communicating with user defaults.
 struct Defaults {
     static let englishHiddenKey = "englishHidden"
+    static let extraShowingKey = "extraShowing"
     static let indexOfCurrentTermKey = "indexOfCurrentTerm"
 }
 
@@ -10,6 +11,8 @@ struct Defaults {
 protocol PersistenceType {
     func setEnglishHidden(_ hidden: Bool)
     func isEnglishHidden() -> Bool
+    func setExtraShowing(_ showing: Bool)
+    func isExtraShowing() -> Bool
     func setCurrentTermIndex(_ index: Int)
     func currentTermIndex() -> Int?
 }
@@ -22,6 +25,14 @@ struct Persistence: PersistenceType {
 
     func isEnglishHidden() -> Bool {
         services.userDefaults.bool(forKey: Defaults.englishHiddenKey)
+    }
+
+    func setExtraShowing(_ showing: Bool) {
+        services.userDefaults.set(showing, forKey: Defaults.extraShowingKey)
+    }
+
+    func isExtraShowing() -> Bool {
+        services.userDefaults.bool(forKey: Defaults.extraShowingKey)
     }
 
     func setCurrentTermIndex(_ index: Int) {

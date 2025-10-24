@@ -8,4 +8,5 @@ enum RootAction: Equatable {
     case showLessonListDrill
     case tappedLabel(TappedLabel, currentTerm: Int)
     case toggleEnglish
+    case toggleExtra
 }

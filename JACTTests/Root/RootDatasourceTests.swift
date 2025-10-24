@@ -32,6 +32,25 @@ struct RootDatasourceTests {
         #expect(card.hidden == false)
     }
 
+    @Test("receive extraShowing: sets extraShowing, calls card setExtraShowing")
+    func extraShowing() async throws {
+        let term = Term(
+            latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
+            section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
+            partFirstWord: "", lessonSectionPartFirstWord: "", indexOrig: 1, index: 2
+        )
+        let card = MockCardViewController(term: term)
+        await pageViewController.setViewControllers([card], direction: .forward, animated: false)
+        await subject.receive(.extraShowing(true))
+        #expect(subject.extraShowing == true)
+        #expect(card.methodsCalled == ["setExtraShowing(_:)"])
+        #expect(card.showing == true)
+        await subject.receive(.extraShowing(false))
+        #expect(subject.extraShowing == false)
+        #expect(card.methodsCalled == ["setExtraShowing(_:)", "setExtraShowing(_:)"])
+        #expect(card.showing == false)
+    }
+
     @Test("receive navigateTo: creates card of the correct class")
     func navigateToClass() async throws {
         let subject = RootDatasource(pageViewController: pageViewController, processor: processor)
@@ -59,7 +78,7 @@ struct RootDatasourceTests {
         let card = try #require(pageViewController.viewControllers?.first as? MockCardViewController)
         #expect(card.term == term)
         #expect(card.processor === processor)
-        #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+        #expect(card.methodsCalled == ["setEnglishHidden(_:)", "setExtraShowing(_:)"])
         #expect(card.hidden == false)
         #expect(processor.thingsReceived == [.navigated(indexOrig: 1)])
     }
@@ -116,7 +135,7 @@ struct RootDatasourceTests {
             let card = try #require(result as? MockCardViewController)
             #expect(card.term == term1)
             #expect(card.processor === processor)
-            #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+            #expect(card.methodsCalled == ["setEnglishHidden(_:)", "setExtraShowing(_:)"])
             #expect(card.hidden == false)
         }
         do {
@@ -143,7 +162,7 @@ struct RootDatasourceTests {
             let card = try #require(result as? MockCardViewController)
             #expect(card.term == term2)
             #expect(card.processor === processor)
-            #expect(card.methodsCalled == ["setEnglishHidden(_:)"])
+            #expect(card.methodsCalled == ["setEnglishHidden(_:)", "setExtraShowing(_:)"])
             #expect(card.hidden == false)
         }
         do {

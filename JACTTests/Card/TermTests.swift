@@ -37,14 +37,19 @@ struct TermTests {
             #expect(subject.latinFirstWord == "τί") // handle greek question mark
         }
         do {
-            let string = "Ἀθηναῖος, ὁ\tAthenian\t2\tb\tnoun"
+            let string = "Cēlō\tI hide\t1\ta\tverb"
             let subject = Term(tabbedString: string, index: 7)
-            #expect(subject.beta == "αθηναιος") // lowercased, correctly decomposed
+            #expect(subject.beta == "celo") // lowercased, correctly decomposed
         }
         do {
             let string = "οὕτω(ς)\tthus, so, in this way\t2\td\tadverb"
             let subject = Term(tabbedString: string, index: 7)
             #expect(subject.beta == "ουτως") // removed parentheses
+        }
+        do {
+            let string = "Vivere\tlive\t2\td\tverb"
+            let subject = Term(tabbedString: string, index: 7)
+            #expect(subject.beta == "uiuere") // converted v to u
         }
     }
 }

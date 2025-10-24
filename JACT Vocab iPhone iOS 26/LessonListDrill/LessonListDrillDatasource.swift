@@ -199,33 +199,39 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
         view.contentConfiguration = LessonListHeaderContentConfiguration(text: text) // see LessonList module
         return view
     }
+}
 
-    /*
+extension LessonListDrillDatasource: UICollectionViewDelegateFlowLayout {
+
     // latin only, make "Introduction" cell wider
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout lay: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath)
-    -> CGSize {
-        var sz = (lay as! UICollectionViewFlowLayout).itemSize
-        if indexPath.section == 0 {
-            sz.width = 150
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        if var size = (layout as? UICollectionViewFlowLayout)?.itemSize {
+            if indexPath.section == 0 {
+                size.width = 150
+            }
+            return size
         }
-        return sz
+        return .zero // shouldn't happen
     }
 
     // latin only, suppress header for first section ("Introduction")
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout lay: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int)
-    -> CGSize {
-        var sz = (lay as! UICollectionViewFlowLayout).headerReferenceSize
-        if section == 0 {
-            sz.height = 0
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
+        if var size = (layout as? UICollectionViewFlowLayout)?.headerReferenceSize {
+            if section == 0 {
+                size.height = 0
+            }
+            return size
         }
-        return sz
+        return .zero // shouldn't happen
     }
-*/
-
 }

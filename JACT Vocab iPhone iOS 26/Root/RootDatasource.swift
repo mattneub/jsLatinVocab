@@ -31,12 +31,18 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     /// (i.e. as part of our role as data source).
     var englishHidden = false
 
+    /// Similar, for whether the Latin extra info is shown.
+    var extraShowing = false
+
     /// The processor communicates with us by sending us an Effect.
     func receive(_ effect: RootEffect) async {
         switch effect {
         case .englishHidden(let hidden):
             self.englishHidden = hidden
             (pageViewController?.viewControllers?.first as? CardViewController)?.setEnglishHidden(hidden)
+        case .extraShowing(let showing):
+            self.extraShowing = showing
+            (pageViewController?.viewControllers?.first as? CardViewController)?.setExtraShowing(showing)
         case .navigateTo(index: let index, style: let animated):
             await navigateTo(index: index, style: animated)
         case .restoreLandscapeOrientation: break // handled by root view controller
@@ -53,6 +59,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         card.loadViewIfNeeded()
         card.processor = processor
         card.setEnglishHidden(englishHidden)
+        card.setExtraShowing(extraShowing)
         let (animate, direction): (Bool, UIPageViewController.NavigationDirection) = {
             switch style {
             case .noAnimation: return (false, .forward)
@@ -88,6 +95,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         card.loadViewIfNeeded()
         card.processor = processor
         card.setEnglishHidden(englishHidden)
+        card.setExtraShowing(extraShowing)
         return card
     }
 
@@ -109,6 +117,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         card.loadViewIfNeeded()
         card.processor = processor
         card.setEnglishHidden(englishHidden)
+        card.setExtraShowing(extraShowing)
         return card
     }
 

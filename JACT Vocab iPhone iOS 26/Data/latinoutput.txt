@@ -1,0 +1,1129 @@
+﻿Eucliō	Euclio		Introduction	noun
+familia	household		Introduction	noun
+fīlia	daughter		Introduction	noun
+Phaedra	Phaedra		Introduction	noun
+serua	slave-woman		Introduction	noun
+Staphyla	Staphyla		Introduction	noun
+habitō	I dwell		Introduction	verb
+et	and; also, too, even		Introduction	other
+aula ae	pot	1	a	noun
+aurum ī	gold	1	a	noun
+coquus ī	cook	1	a	noun
+corōna ae	garland	1	a	noun
+ego	I	1	a	noun
+Lar Lar-	Lar (household god)	1	a	noun
+mē	me	1	a	noun
+scaena ae	stage	1	a	noun
+seruus ī	male slave	1	a	noun
+tē	you (s.)	1	a	noun
+tū	you (s.)	1	a	noun
+plēnus a um	full	1	a	adjective
+cēlō	I hide	1	a	verb
+clāmō	I shout	1	a	verb
+intrō	I enter	1	a	verb
+portō	I carry	1	a	verb
+habeō	I have	1	a	verb
+timeō	I am afraid of	1	a	verb
+ad (+ acc.)	to(wards); at	1	a	other
+autem	but	1	a	other
+cūr	why?	1	a	other
+deinde	next	1	a	other
+enim	for, because	1	a	other
+igitur	therefore	1	a	other
+in (+ acc.)	into, onto	1	a	other
+in (+ abl.)	in, on	1	a	other
+nam	for, because	1	a	other
+nōn	no(t)	1	a	other
+nunc	now	1	a	other
+quoque	also	1	a	other
+sed	but	1	a	other
+semper	always	1	a	other
+sī	if	1	a	other
+sub (+ abl.)	under, beneath	1	a	other
+cūra ae	care, worry, concern	1	b	noun
+deus ī	god	1	b	noun
+thēsaurus ī	treasure	1	b	noun
+unguentum ī	ointment	1	b	noun
+aedis aedis f	temple; pl. house	1	b	noun
+fūr fūris m	thief	1	b	noun
+honor honōris m	respect	1	b	noun
+senex senis m	old man	1	b	noun
+multus a um	much, many	1	b	adjective
+nullus a um	no, none	1	b	adjective
+amō 1	I love	1	b	verb
+cūrō 1	I look after, care for	1	b	verb
+dō 1	I give	1	b	verb
+explicō 1	I tell, explain	1	b	verb
+supplicō 1	I make prayers (to)	1	b	verb
+possideō 2	I have, hold, possess	1	b	verb
+uideō 2	I see	1	b	verb
+clam	secretly	1	b	other
+quārē	why?	1	b	other
+quod	because	1	b	other
+tamen	however, but	1	b	other
+tandem	at length	1	b	other
+aqua ae	water	1	c	noun
+dominus ī	master, lord	1	c	noun
+oculus ī	eye	1	c	noun
+uīcīnus ī	neighbour(ing)	1	c	noun
+ignis ignis m	fire	1	c	noun
+malus a um	bad, evil, wicked	1	c	adjective
+meus a um	my, mine (voc. mī)	1	c	adjective
+saluus a um	safe	1	c	adjective
+tuus a um	your(s)	1	c	adjective
+cōgitō 1	I ponder, reflect, consider	1	c	verb
+rogō 1	I ask	1	c	verb
+seruō 1	I save, keep	1	c	verb
+stō 1	I stand	1	c	verb
+uerberō 1	I flog, beat	1	c	verb
+uexō 1	I annoy, trouble, worry	1	c	verb
+maneō 2	I remain, wait	1	c	verb
+moneō 2	I advise, warn	1	c	verb
+taceō 2	I am silent	1	c	verb
+ē, ex (+ abl.)	out of, from	1	c	other
+neque	neither; and … not; nor	1	c	other
+numquam	never	1	c	other
+quid	what?	1	c	other
+statim	at once	1	c	other
+ut	how!	1	c	other
+miser misera um	miserable, unhappy, wretched	1	c	adjective
+eō	I go, come	1	c	verb
+exeō	I come, go out	1	c	verb
+abeō	I come, go away	1	c	verb
+adeō	I go, come to, approach	1	c	verb
+redeō	I return	1	c	verb
+fēmina ae	woman	1	d	noun
+pecūnia ae	money	1	d	noun
+puella ae	girl	1	d	noun
+fīlius ī	son	1	d	noun
+uir ī	man, husband	1	d	noun
+dīues dīuitis	rich (person)	1	d	noun
+frāter frātris	brother	1	d	noun
+pater patris	father	1	d	noun
+pauper pauperis	poor (person)	1	d	noun
+soror sorōris	sister	1	d	noun
+uxor uxōris	wife	1	d	noun
+magnus a um	great, large	1	d	adjective
+optimus a um	best, very good	1	d	adjective
+habeō 2	I hold, regard (have)	1	d (1a)	verb
+iubeō 2 iuss-	I order, command, tell	1	d	verb
+ualē	goodbye!	1	d	verb
+ā, ab (+ abl.)	away from	1	d	other
+ita	so, thus; yes	1	d	other
+nec	and … not, neither; nor	1	d	other
+nimis	too much (of) (+ gen.)	1	d	other
+-que	and	1	d	other
+satis	enough (of) (+ gen.)	1	d	other
+tum	then	1	d	other
+ut	as, when (how!)	1	d (1c)	other
+nōmen nōminis n	name	1	d	noun
+domum	to home	1	d	noun
+domī	at home	1	d	noun
+pulcher pulchra um	beautiful	1	d	adjective
+dūcō 3 dūx- duct-	I lead	1	d	verb
+domum dūcō	I take home, marry	1	d	verb
+dīcō 3 dīx- dict-	I speak, say	1	d	verb
+audiō 4	I hear, listen to	1	d	verb
+nūptiae ārum	marriage-rites	1	e	noun
+animus ī	mind, spirit, heart	1	e	noun
+cōnsilium ī	plan; advice, judgement	1	e	noun
+dōs dōtis f	dowry	1	e	noun
+homo hominis	man, fellow	1	e	noun
+bonus a um	good; brave; fit; honest	1	e	adjective
+irrīdeō 2	I laugh at, mock	1	e	verb
+saluē	welcome!	1	e	verb
+poscō 3	I demand	1	e	verb
+prōmittō 3 promīs- promiss-	I promise	1	e	verb
+bene	well; thoroughly; rightly	1	e	other
+hodiē	today	1	e	other
+-ne	?	1	e	other
+occidī	I’m done for!	1	e	other
+periī	I’m lost!	1	e	other
+quasi	as if, like	1	e	other
+quid cōnsilī	what (of) plan?	1	e	other
+quō	(to) where	1	e	other
+sēcum	with/to himself/herself	1	e	other
+ubi	where (at)?	1	e	other
+facinus facinoris	deed; crime; endeavour	1	e	noun
+onus oneris	load, burden	1	e	noun
+faciō 3/4 fēc- fact-	I make, do	1	e	verb
+ferō 3 tul- lāt-	I bear, lead	1	e	verb
+uolō	I wish, want	1	e	verb
+cēna ae	dinner	1	f	noun
+turba ae	crowd, mob	1	f	noun
+cīuis cīuis	citizen	1	f	noun
+nihil (nīl)	nothing	1	f	noun
+āmittō 3 āmīs- āmiss-	I lose	1	f	verb
+auferō auferre 3 abstul- ablāt-	I take away	1	f	verb
+coquō 3	I cook	1	f	verb
+mittō 3 mīs- miss-	I send	1	f	verb
+dormiō 4	I sleep	1	f	verb
+inueniō 4	I find	1	f	verb
+sciō 4	I know	1	f	verb
+fugiō 3/4	I escape, run off, flee	1	f	verb
+habeō negōtium	I conduct business	1	f	verb
+ineō inīre	I enter, go in	1	f	verb
+apud (+ acc.)	at the house of, in the hands of, in the works of	1	f	other
+aut	or	1	f	other
+quid negōtī	what (of) business, problem, trouble?	1	f	other
+ubi	when? (where (at)?)	1	f (1e)	other
+audāx audācis	brave, bold, resolute	1	f	adjective
+facilis e	easy	1	f	adjective
+ingēns ingentis	huge, large, lavish	1	f	adjective
+omnis e	all, every	1	f	adjective
+trīstis e	sad, gloomy, unhappy	1	f	adjective
+audācia ae	boldness, cockiness	1	g	noun
+continentia ae	self-control, restraint	1	g	noun
+fānum ī	shrine	1	g	noun
+iuuenis iuuenis	young man	1	g	noun
+uirtūs uirtūtis f	manliness, courage, goodness	1	g	noun
+aequus a um	fair, balanced, equal	1	g	adjective
+summus a um	highest, top of	1	g	adjective
+age	come!	1	g	verb
+crēdō 3 crēdid- crēdit-	I believe (+ dat.); I entrust x (acc.) to y (dat.)	1	g	verb
+ostendō 3	I show, reveal	1	g	verb
+reddō 3 reddid- reddit-	I return, give back	1	g	verb
+tangō 3 tetig- tāct-	I touch, lay hands on	1	g	verb
+certē	without doubt	1	g	other
+certō	for a fact	1	g	other
+amīca ae	mistress	2	a	noun
+astūtia ae	astuteness; (pl.) tricks	2	a	noun
+cēra ae	wax	2	a	noun
+lūna ae	moon	2	a	noun
+tabellae ārum	writing tablets	2	a	noun
+uia ae	way, road	2	a	noun
+nummus ī	coin; (pl.) money	2	a	noun
+officium ī	duty, job	2	a	noun
+oppidum ī	town	2	a	noun
+stilus ī	stylus	2	a	noun
+nox noctis f	night	2	a	noun
+sōl sōlis m	sun	2	a	noun
+alter altera alterum	one, another (of two)	2	a	adjective
+ducentī ae a	200	2	a	adjective
+noster nostra nostrum	our(s)	2	a	adjective
+uester uestra uestrum	your(s) (pl.)	2	a	adjective
+difficilis e	difficult	2	a	adjective
+mendāx mendācis	lying, untruthful	2	a	adjective
+adiuuō 1	I help	2	a	verb
+adseruō 1 	I keep, guard	2	a	verb
+obsecrō 1	I beseech, beg	2	a	verb
+adscrībō 3	I write in addition	2	a	verb
+scrībō 3 scrīps- scrīpt-	I write	2	a	verb
+uinciō 4 uīnx- uīnct-	I bind	2	a	verb
+capiō 3/4 cēp- capt-	I take, capture	2	a	verb
+dēcipiō 3/4	I deceive	2	a	verb
+adferō 3 attul- allāt-	I bring to	2	a	verb
+ac (atque)	and	2	a	other
+bene	good! fine! (well, thoroughly, rightly)	2	a (1e)	other
+cum (+ abl.)	(in company) with	2	a	other
+dē (+ abl.)	about, concerning	2	a	other
+dum	while	2	a	other
+iterum	again	2	a	other
+modo	now	2	a	other
+manus ūs f	hand	2	a	noun
+sūmptus ūs	expense(s)	2	a	noun
+celer celeris celere	swift	2	a	adjective
+mālō mālle	I prefer	2	a	verb
+nōlō nōlle	I refuse, am unwilling	2	a	verb
+possum posse	I am able, can	2	a	verb
+litterae ārum	letter	2	b	noun
+sapientia ae	wisdom	2	b	noun
+lectus ī	couch, bed	2	b	noun
+uerbum ī	word	2	b	noun
+opus operis	job, work, task	2	b	noun
+nescius a um	ignorant of	2	b	adjective
+saeuus a um	wild, angry	2	b	adjective
+stultus a um	stupid	2	b	adjective
+caueō 2	I am wary	2	b	verb
+respondeō 2	I reply	2	b	verb
+agō 3 ēg- āct-	I do, act	2	b	verb
+cognōscō 3 cognōu- cognit-	I get to know, examine	2	b	verb
+dīligō 3	I love	2	b	verb
+legō 3	I read	2	b	verb
+pergō 3	I go on, go ahead, continue	2	b	verb
+nesciō 4	I do not know	2	b	verb
+īnspiciō 3/4 īnspex- īnspect-	I look into; inspect, examine	2	b	verb
+perficiō 3/4 perfēc- perfect-	I finish, complete; carry out	2	b	verb
+at	but	2	b	other
+domō	from the home	2	b	other
+ecce	look!	2	b	other
+intrō	(to) inside	2	b	other
+mēcum	with/to myself	2	b	other
+mox	soon	2	b	other
+quia	because	2	b	other
+sīc	thus, in this way, so	2	b	other
+tam	so	2	b	other
+caput capitis n	head; source	2	b	noun
+rēs rēī	thing, matter, business, property, affair	2	b	noun
+diēs diēī (m or f)	day	2	b	noun
+minor 1	I threaten	2	b	verb
+opīnor 1	I think	2	b	verb
+precor 1	I beg, pray	2	b	verb
+recordor 1	I remember	2	b	verb
+polliceor 2	I promise	2	b	verb
+loquor 3 locūt-	I talk, speak, say	2	b	verb
+oblīuīscor 3	I forget	2	b	verb
+sequor 3 secūt-	I follow	2	b	verb
+mentior 4	I lie	2	b	verb
+adgredior 3/4 adgress-	I approach	2	b	verb
+ēgredior 3/4 ēgress-	I go/come out	2	b	verb
+prōgredior 3/4 prōgress-	I advance	2	b	verb
+meretrīx meretrīcis	prostitute	2	c	noun
+mīles mīlitis	soldier	2	c	noun
+mōs mōris m	way, habit, custom; (pl.) character	2	c	noun
+mulier mulieris	woman; wife	2	c	noun
+aureus a um	golden	2	c	adjective
+īrātus a um	angry	2	c	adjective
+scelestus a um	criminal, wicked	2	c	adjective
+necō 1	I kill	2	c	verb
+dēfendō 3	I defend	2	c	verb
+opprimō 3 oppress-	I surprise, catch; crush	2	c	verb
+arbitror 1	I think consider; give judgement	2	c	verb
+cōnor 1	I try	2	c	verb
+uideor 2 uīs-	I seem	2	c	verb
+īrāscor 3 īrāt-	I grow angry	2	c	verb
+citō	quickly	2	c	other
+ergō	therefore	2	c	other
+haud	not	2	c	other
+iam	now, by now, already; presently	2	c	other
+per (+ acc.)	through, by	2	c	other
+plānē	clearly	2	c	other
+quam	how!	2	c	other
+hic haec hoc	this; this person/thing; (pl.) these	2	c	adjective
+ille illa illud	that; that person/thing; (pl.) those	2	c	adjective
+hōra ae	hour	2	d	noun
+praeda ae	booty	2	d	noun
+annus ī	year	2	d	noun
+equus ī	horse	2	d	noun
+forum ī	forum	2	d	noun
+signum ī	seal; signal, sign	2	d	noun
+tempus temporis	time	2	d	noun
+urbs urbis	city	2	d	noun
+exercitus ūs	army	2	d	noun
+tacitus a um	silent	2	d	adjective
+pugnō 1	I fight	2	d	verb
+suspicor 1	I suspect	2	d	verb
+dēbeō 2	I ought; owe	2	d	verb
+dēleō 2	I destroy (perf. dēlēuī)	2	d	verb
+gerō 3 gessī gest-	I do, conduct	2	d	verb
+soluō 3 soluī	I release, undo	2	d	verb
+uincō 3 uīcī uict-	I conquer	2	d	verb
+adsum adesse adfuī	I am present, am at hand	2	d	verb
+fīō fierī fact-	I become, am done, am made	2	d	verb
+ante (+ acc.)	before, in front of	2	d	other
+hīc	here	2	d	other
+immō	more precisely	2	d	other
+in (+ acc.)	against (into, onto)	2	d (1a)	other
+post	later, afterwards	2	d	other
+sine (+ abl.)	without	2	d	other
+uērō	indeed	2	d	other
+uērum	but	2	d	other
+uīta ae	life	2	e	noun
+malum ī	trouble; evil	2	e	noun
+foris foris f	door	2	e	noun
+mors mortis f	death	2	e	noun
+ouis ouis f	sheep	2	e	noun
+uōx uōcis f	voice	2	e	noun
+ambō ae	both	2	e	adjective
+pūtidus a um	rotten	2	e	adjective
+similis e	alike, similar; like x (gen.)	2	e	adjective
+castīgō 1	I rebuke	2	e	verb
+sollicitō 1	I bother, worry	2	e	verb
+amplexor 1	I embrace	2	e	verb
+cōnspicor 1	I catch sight of	2	e	verb
+audeō 2 aus-	I dare	2	e	verb
+accipiō 3/4 accēpī accept-	I receive, welcome, learn, obtain	2	e	verb
+ingredior 3/4 ingress-	I enter	2	e	verb
+patior 3/4 pass-	I endure, suffer; allow	2	e	verb
+hāc	this way	2	e	other
+hūc	(to) here	2	e	other
+ibi	there	2	e	other
+nisi	unless, if … not; except	2	e	other
+prō (+ abl.)	for, in return for; on behalf of; in front of	2	e	other
+propter (+ acc.)	on account of	2	e	other
+quamquam	although	2	e	other
+uictōria ae	victory, triumph	3	a	noun
+bellum ī	war, conflict	3	a	noun
+imperium ī	order, command	3	a	noun
+dux ducis	leader, general	3	a	noun
+Iuppiter Iouis	Jupiter, Jove	3	a	noun
+rēx rēgis	king, monarch	3	a	noun
+longus a um	long	3	a	adjective
+līber lībera um	free	3	a	adjective
+niger nigra um	black	3	a	adjective
+fortis e	brave, courageous	3	a	adjective
+is ea id	that; he, she, it	3	a	adjective
+ambulō 1	I walk	3	a	verb
+nūntiō 1	I announce, proclaim	3	a	verb
+meditor 1	I think on, reflect, ponder; practise	3	a	verb
+bellum gerō 3 gessī gest-	I wage war	3	a	verb
+ueniō 4 uēnī uent-	I come, arrive	3	a	verb
+ob (+ acc.)	on account of, because of	3	a	other
+quam	than; (how!)	3	a (2c)	other
+umquam	ever	3	a	other
+cōpiae ārum	troops	3	b	noun
+ferōcia ae	fierceness	3	b	noun
+terra ae	land	3	b	noun
+lēgātus ī	ambassador	3	b	noun
+ager agrī	land, field, territory	3	b	noun
+castra ōrum	camp	3	b	noun
+ōtium ī	cessation of conflict, leisure; inactivity	3	b	noun
+proelium ī	battle	3	b	noun
+eques equitis m	horseman; (pl.) cavalry	3	b	noun
+hostis hostis m	enemy	3	b	noun
+legiō legiōnis f	legion	3	b	noun
+nāuis nāuis f	ship	3	b	noun
+pāx pācis f	peace	3	b	noun
+manus ūs f	band; (hand)	3	b (2a)	noun
+illūstris e	famous	3	b	adjective
+suus a um	his, her(s), their(s)	3	b	adjective
+oppugnō 1	I attack	3	b	verb
+superō 1	I conquer, overcome, get the upper hand	3	b	verb
+hortor 1 hortātus	I urge, encourage	3	b	verb
+dēdō 3 dēdidī dēdit-	I surrender, hand over	3	b	verb
+dēdūcō 3 dēdūxī dēduct-	I lead away, lead down	3	b	verb
+ēdūcō 3 ēdūxī ēduct-	I lead out	3	b	verb
+redūcō 3 redūxī reduct-	I lead back	3	b	verb
+adipīscor 3 adeptus	I get, gain, acquire	3	b	verb
+adloquor (alloquor) 3 adlocūtus (allocūtus)	I address	3	b	verb
+proficīscor 3 profectus	I set out	3	b	verb
+mē ferō ferre tulī lāt-	I charge, attack	3	b	verb
+celeriter	quickly	3	b	other
+ferōciter	fiercely	3	b	other
+fortiter	bravely	3	b	other
+utrimque	on both sides	3	b	other
+fōrma ae	shape, looks; beauty	3	c	noun
+dolus ī	trick	3	c	noun
+pugnus ī	fist	3	c	noun
+nēmo nēminis	no-one, nobody	3	c	noun
+pēs pedis m	foot	3	c	noun
+uērus a um	true	3	c	adjective
+fortis e	strong; (brave, courageous)	3	c (3a)	adjective
+īdem eadem idem	the same	3	c	adjective
+interrogō 1	I ask, question	3	c	verb
+placet 2 placuit / placitum est	it is pleasing; x (dat.) votes (to)	3	c	verb
+sinō 3 sīuī situs	I allow	3	c	verb
+etiam	still, even, as well; yes, indeed	3	c	other
+nōnne	surely?	3	c	other
+quandō	since, when	3	c	other
+tēcum (pl. uōbīscum)	with you, yourself; (pl. with yourselves)	3	c	other
+grātia ae	thanks, recompense	3	d	noun
+auxilium ī	help	3	d	noun
+impedīmentum ī	hindrance	3	d	noun
+uoluptās uoluptātis f	desire, love, passion	3	d	noun
+breuis e	short, brief	3	d	adjective
+imperō 1	I give orders (to), command	3	d	verb
+obstō 1 obstitī (+ dat.)	I stand in the way of, obstruct	3	d	verb
+operam dō 1 dedī datus (+ dat.)	I pay attention to	3	d	verb
+faueō 2 fāuī fautum (+ dat.)	I do service to, favour	3	d	verb
+pāreō 2 (+ dat.)	I obey	3	d	verb
+teneō 2	I hold	3	d	verb
+licet 2 licuit / licitum est	it is permitted to x (dat.) to y (infin.)	3	d	verb
+grātiās agō (+ dat.)	I thank	3	d	verb
+praesum praeesse praefuī praefutūrus (+ dat.)	I am in charge of, at the head of	3	d	verb
+inquit (1st s. inquam, 2nd s. inquīs, 3rd pl. inquiunt)	(he) says	3	d	verb
+necesse est	it is necessary	3	d	other
+subitō	suddenly	3	d	other
+Agrigentīnus ī	person from Agrigentum	4	a(i)	noun
+custōs custōdis (m or f)	guard	4	a(i)	noun
+fāma ae	rumour, report; reputation	4	a(i)	noun
+impetus ūs	attack	4	a(i)	noun
+nūntius ī	messenger	4	a(i)	noun
+simulācrum ī	image, copy	4	a(i)	noun
+templum ī	temple	4	a(i)	noun
+Verrēs Verris	Verres	4	a(i)	noun
+uīs (acc. uim, abl. uī; pl. uīrēs, uīrium) f	force, violence; (pl.) strength, military forces	4	a(i)	noun
+quīdam quaedam quoddam	a, a certain, some	4	a(i)	adjective
+tōtus a um (gen. s. totīus)	whole, complete	4	a(i)	adjective
+expugnō 1	I storm	4	a(i)	verb
+impetum faciō 3/4 fēcī factus	I make an attack	4	a(i)	verb
+perueniō 4 peruēnī peruentum (ad)	I reach, arrive at, come to	4	a(i)	verb
+repellō 3 reppulī repulsus	I drive back, drive out	4	a(i)	verb
+apud (+ acc.)	among; (at the house of, in the hands of, in the works of)	4	a(i) (1f)	other
+intereā	meanwhile	4	a(i)	other
+repente	suddenly	4	a(i)	other
+iūdex iūdicis	judge	4	a(ii)	noun
+negōtium ī	business	4	a(ii)	noun
+religiōsus a um	sacred, revered, holy, awesome	4	a(ii)	adjective
+colō 3 coluī cultus	I worship; cultivate, till; inhabit	4	a(ii)	verb
+pōnō 3 posuī positus	I place, position, put	4	a(ii)	verb
+relinquō 3 relīquī relictus	I leave, abandon	4	a(ii)	verb
+sentiō 4 sēnsī sēnsus	I feel, understand, perceive, realise	4	a(ii)	verb
+posteā	afterwards	4	a(ii)	other
+quid	why?	4	a(ii) (1c)	other
+amīcus ī	friend, ally	4	a(iii)	noun
+iste a ud	that over there / of yours	4	a(iii)	noun
+locus ī (pl. loca)	place	4	a(iii)	noun
+magistrātus ūs	magistrate, state official	4	a(iii)	noun
+sacerdōs sacerdōtis	priest(ess)	4	a(iii)	noun
+sacra ōrum	rites	4	a(iii)	noun
+senātus ūs	senate	4	a(iii)	noun
+signum ī	statue; (seal; signal, sign)	4	a(iii) (2d)	noun
+uirgō uirginis	young girl, virgin	4	a(iii)	noun
+innocēns innocentis	guiltless	4	a(iii)	adjective
+sacer sacra um	holy, sacred	4	a(iii)	adjective
+accūsō 1	I accuse x (acc.) of y (gen.)	4	a(iii)	verb
+affirmō 1	I state strongly, assert	4	a(iii)	verb
+cōnfirmō 1	I state clearly, confirm	4	a(iii)	verb
+dēferō dēferre dētulī dēlātus	I report, bring news of; accuse, denounce; transfer	4	a(iii)	verb
+iūdicō 1	I judge	4	a(iii)	verb
+negō 1	I deny, say that x is not the case	4	a(iii)	verb
+putō 1	I think	4	a(iii)	verb
+reperiō 4 repperī repertus	I find	4	a(iii)	verb
+soleō 2 solitus	I am accustomed, used	4	a(iii)	verb
+tollō 3 sustulī sublātus	I lift; remove, take away	4	a(iii)	verb
+clāmor clāmōris m	shout; outcry; noise	4	a(iv)	noun
+lēx lēgis f	law	4	a(iv)	noun
+Syrācūsānus ī	person from Syracuse, Syracusan	4	a(iv)	noun
+laetus a um	happy	4	a(iv)	adjective
+coniciō 3 coniēcī coniectus	I throw	4	a(iv)	verb
+uetō 1 uetuī uetitus	I forbid	4	a(iv)	verb
+prīmō	at first	4	a(iv)	other
+praetereā	besides, moreover	4	a(iv)	other
+Asia ae	Asia Minor	4	b(i)	noun
+calamitās calamitātis f	disaster, calamity	4	b(i)	noun
+comes comitis m	companion, friend; (pl.) retinue	4	b(i)	noun
+hospes hospitis m	host; friend; guest; connection	4	b(i)	noun
+Lampasacēnus ī	person from Lampsacum	4	b(i)	noun
+cēterī ae a	the rest; the others	4	b(i)	adjective
+clārus a um	famous, well-known	4	b(i)	adjective
+Graecus a um	Greek	4	b(i)	adjective
+nōbilis e	renowned, distinguished; well-born, noble	4	b(i)	adjective
+turpis e	disgusting, filthy, outrageous; ugly	4	b(i)	adjective
+ūllus a um (gen. ūllīus, dat. ūllī)	any	4	b(i)	adjective
+cupiō 3/4 cupīuī cupītus	I desire, yearn for, want desperately	4	b(i)	verb
+fruor 3 frūctus (+ abl.)	I enjoy	4	b(i)	verb
+ūtor 3 ūsus (+ abl.)	I use, make use of; adopt	4	b(i)	verb
+prope	almost; (+ acc.) near	4	b(i)	other
+cōnsul cōnsulis	consul	4	b(ii)	noun
+cupiditās cupiditātis f	lust, greed, desire	4	b(ii)	noun
+coepī	I began	4	b(ii)	verb
+neglegō 3 neglēxī neglēctus	I ignore, overlook, neglect	4	b(ii)	verb
+recipiō 3/4 recēpī receptus	I welcome, receive, take in	4	b(ii)	verb
+retineō 2 retinuī retentus	I hold back, detain, restrain; maintain	4	b(ii)	verb
+conuīuium ī	party	4	b(iii)	noun
+grauitās grauitātis f	seriousness, solemnity; importance, authority	4	b(iii)	noun
+iānua ae	door	4	b(iii)	noun
+laetitia ae	merriment, festivity, joy	4	b(iii)	noun
+sermō sermōnis m	conversation, discussion	4	b(iii)	noun
+alius a ud	other	4	b(iii)	adjective
+sōlus a um (gen. sōlīus, dat. sōlī)	alone	4	b(iii)	adjective
+tantus a um	so much; so great; so important	4	b(iii)	adjective
+bibō 3 bibī	I drink	4	b(iii)	verb
+comparō 1	I prepare, provide, get ready; get	4	b(iii)	verb
+conueniō 4 conuēnī conuentum (ad)	I meet (at)	4	b(iii)	verb
+effugiō 3/4 effūgī	I escape	4	b(iii)	verb
+festīnō 1	I hurry	4	b(iii)	verb
+intellegō 3 intellēxī intellēctus	I perceive, understand, comprehend, grasp	4	b(iii)	verb
+inuītō 1	I invite	4	b(iii)	verb
+oportet 2 oportuit	x (acc.) ought (to + inf.); it is right, fitting for x (acc.) to y (inf.)	4	b(iii)	verb
+inter (+ acc.)	among, between	4	b(iii)	other
+simul	at the same time	4	b(iii)	other
+sōlum	only	4	b(iii)	other
+celeritās celeritātis f	speed	4	b(iv)	noun
+praetor praetōris	praetor	4	b(iv)	noun
+Rōmānus a um	Roman	4	b(iv)	adjective
+caedō 3 cecīdī caesus	I cut (down); flog, beat; kill	4	b(iv)	verb
+concurrō 3 concurrī concursum	I run together	4	b(iv)	verb
+ōrō 1	I beg, pray	4	b(iv)	verb
+parcō 3 pepercī parsūrus	I spare (+ dat.)	4	b(iv)	verb
+multō	(by) much, (by) far	4	b(iv)	other
+argentum ī	silver; silver-plate; money	4	c(i)	noun
+genus generis	family, stock; tribe	4	c(i)	noun
+pōculum ī	cup	4	c(i)	noun
+īnflammātus a um	inflamed, on fire	4	c(i)	adjective
+nātus a um	born of, from (+ abl.)	4	c(i)	adjective
+absum abesse āfuī āfutūrus	I am away from, I am absent	4	c(i)	verb
+cōnstituō 3 cōnstituī cōnstitūtus	I decide	4	c(i)	verb
+perlegō 3 perlēgī perlēctus	I read through, peruse	4	c(i)	verb
+seruō 1	I keep safe, preserve	4	c(i) (1c)	verb
+potius quam	rather than	4	c(i)	other
+modus ī	way, fashion, manner	4	c(ii)	noun
+prōuincia ae	province	4	c(ii)	noun
+ratiō ratiōnis f	plan, method; reason; count, list; calculation	4	c(ii)	noun
+Rōma ae	Rome	4	c(ii)	noun
+Sicilia ae	Sicily	4	c(ii)	noun
+absēns absentis	absent, away	4	c(ii)	adjective
+prīmus a um	first	4	c(ii)	adjective
+circumeō circumīre circumiī circumitum	I go around, come around	4	c(ii)	verb
+colligō 3 collēgī collēctus	I collect, gather; gain, acquire	4	c(ii)	verb
+commoueō 2 commōuī commōtus	I move; remove; excite, disturb	4	c(ii)	verb
+excōgitō 1	I think up, devise	4	c(ii)	verb
+reuocō 1	I call back	4	c(ii)	verb
+circum (+ acc.)	around	4	c(ii)	other
+postrēmō	finally	4	c(ii)	other
+stultē	stupidly	4	c(ii) (2b)	other
+classis classis f	fleet	4	d(i)	noun
+cohors cohortis f	governor’s retinue; cohort	4	d(i)	noun
+nauta ae m	sailor	4	d(i)	noun
+pīrāta ae m	pirate	4	d(i)	noun
+portus ūs	harbour	4	d(i)	noun
+praedō praedōnis	pirate; robber	4	d(i)	noun
+praefectus ī	captain, prefect; (adj.) in charge of (+ dat.)	4	d(i)	noun
+ēbrius a um	drunk	4	d(i)	adjective
+exspectō 1	I await, wait for	4	d(i)	verb
+iaceō 2	I lie	4	d(i)	verb
+līberō 1	I free, release	4	d(i)	verb
+ā, ab 	by (after passive verb); (away from)	4	d(i) (1d)	other
+numerus ī	number	4	d(ii)	noun
+secūris secūris f	axe	4	d(ii)	noun
+uestis uestis f	clothes, clothing, dress	4	d(ii)	noun
+fōrmōsus a um	handsome, graceful, shapely	4	d(ii)	adjective
+nefārius a um	wicked, vile, criminal	4	d(ii)	adjective
+praeclārus a um	very famous, outstanding, brilliant	4	d(ii)	adjective
+dēsum dēesse dēfuī dēfutūrus	I am missing, lacking; fail; abandon (+ dat.)	4	d(ii)	verb
+feriō 4 percussī percussus	I strike, beat; kill (3rd and 4th principal parts supplied from percutiō)	4	d(ii)	verb
+aut … aut	either … or	4	d(ii)	other
+cotidiē	daily	4	d(ii)	other
+cibus ī	food	4	e(i)	noun
+Cleomenēs Cleomenis	Cleomenes	4	e(i)	noun
+imperātor imperātōris	leader, general, commander	4	e(i)	noun
+lītus lītoris	shore	4	e(i)	noun
+populus ī	people	4	e(i)	noun
+prīnceps prīncipis	leader, chieftain; (adj.) first	4	e(i)	noun
+postrēmus a um	last	4	e(i)	adjective
+quīntus a um	fifth	4	e(i)	adjective
+aggredior 3/4 agressus	I attack (go up to)	4	e(i)	verb
+egeō 2 eguī	I lack, need, am in want of (+ abl. or gen.)	4	e(i)	verb
+nāuigō 1	I sail	4	e(i)	verb
+nītor 3 nīsus or nīxus	I lean on (+ abl.); I strive, exert myself	4	e(i)	verb
+occīdō 3 occīdī occīsus	I kill	4	e(i)	verb
+dēnique	finally; in a word	4	e(i)	other
+paulō	slightly	4	e(i)	other
+incendium ī	fire	4	e(ii)	noun
+mare maris n	sea (marī (abl. s.) on the sea)	4	e(ii)	noun
+multitūdō multitūdinis f	mob, crowd, number	4	e(ii)	noun
+nēquitia ae	wickedness	4	e(ii)	noun
+grauis e	serious, important, weighty	4	e(ii)	adjective
+reliquus a um	remaining, left	4	e(ii)	adjective
+tardus a um	slow	4	e(ii)	adjective
+accipiō 3/4 accēpī acceptus	I sustain, meet with; (receive, welcome; learn; obtain)	4	e(ii) (2e)	verb
+cōnflagrō 1	I burn (intrans.)	4	e(ii)	verb
+incendō 3 incendī incēnsus	I set fire to, burn (trans.)	4	e(ii)	verb
+ante	earlier, before; ((+ acc.) before, in front of)	4	e(ii) (2d)	other
+quō	to where, whither (in direct q. = whither? to where?)	4	e(ii) (1e)	other
+glōria ae	glory, renown, fame	4	e(iii)	noun
+mentiō mentiōnis f	mention	4	e(iii)	noun
+metus ūs	fear, terror	4	e(iii)	noun
+moenia moenium	walls, fortifications	4	e(iii)	noun
+tot	so many	4	e(iii)	adjective
+accēdō 3 accessī accessum	I approach, reach	4	e(iii)	verb
+commoror 1	I delay, wait	4	e(iii)	verb
+possum posse potuī	I am powerful, have power; (am able, can)	4	e(iii) (2a)	verb
+cum	(+ subj.) when; since; although; (+ abl. with)	4	e(iii) (2a)	other
+saepe	often	4	e(iii)	other
+causa ae	case; reason	4	f(i)	noun
+līctor līctōris	magistrate’s attendant, lictor	4	f(i)	noun
+salūs salūtis f	safety	4	f(i)	noun
+sanguis sanguinis m	blood	4	f(i)	noun
+testis testis	witness	4	f(i)	noun
+uerber uerberis n	blow; whip	4	f(i)	noun
+proximus a um	nearest; next	4	f(i)	adjective
+abiciō abicere abiēcī abiectus	I throw down / away	4	f(i)	verb
+accidit 3 accidit	(ut / ut nōn + subj.) it happens (that / that not)	4	f(i)	verb
+concidō 3 concidī	I fall, collapse; am killed	4	f(i)	verb
+morior 3/4 mortuus	I die, am dying	4	f(i)	verb
+persuādeō 2 persuāsī persuāsum	I persuade x (dat.) (ut / nē + subj.)	4	f(i)	verb
+ad (+ acc.)	for the purpose of (towards; at)	4	f(i) (1a)	other
+dē (+ abl.)	from, down from, (about, concerning)	4	f(i) (2a)	other
+nēue	and (that x should) not, and not to	4	f(i)	other
+uehementer	strongly	4	f(i)	other
+ut	(+ subj.) to, that … should (neg. nē)	4	f(i)	other
+furor furōris m	rage, fury; madness	4	f(ii)	noun
+ōs ōris n	face; mouth	4	f(ii)	noun
+uinc(u)lum ī	chain, bond	4	f(ii)	noun
+medius a um	middle (of)	4	f(ii)	adjective
+agō 3 ēgī āctus	I drive, lead, direct (do, act)	4	f(ii) (2b)	verb
+nūdō 1	I strip	4	f(ii)	verb
+perficiō 3/4 perfēcī perfectus	(ut / ut nōn + subj.) I bring it about that / that not; (finish, complete, carry out)	4	f(ii) (2b)	verb
+profugiō 3/4 profūgī	I escape, flee away	4	f(ii)	verb
+modo	only	4	f(ii) (2a)	other
+nōn modo … sed etiam	not only … but also (also nōn sōlum … sed etiam)	4	f(ii)	other
+lībertās lībertātis f	freedom, liberty	4	g(i)	noun
+mora ae	delay	4	g(i)	noun
+neglegentia ae	carelessness	4	g(i)	noun
+praesidium ī	protection, defense, guard	4	g(i)	noun
+immortālis e	immortal	4	g(i)	adjective
+tūtus a um	safe	4	g(i)	adjective
+clāmitō 1	I keep on shouting	4	g(i)	verb
+cōnfiteor 2 cōnfessus	I confess, acknowledge	4	g(i)	verb
+ignōscō 3 ignōuī ignōtum	I forgive (+ dat.)	4	g(i)	verb
+petō 3 petīuī petītus	I seek	4	g(i)	verb
+quaerō 3 quaesīuī quaesītus	I seek, look for; ask	4	g(i)	verb
+anteā	before	4	g(i)	other
+per (+ acc.)	in the name of (through, by)	4	g(i) (2c)	other
+causa ae	cause; (case, reason)	4	g(ii) (4f(i))	noun
+cīuitās cīuitātis f	state	4	g(ii)	noun
+eques equitis	“knight”; (member of Roman business class) (horseman; pl. cavalry)	4	g(ii)	noun
+iūs iūris n	law, justice	4	g(ii)	noun
+supplicium ī	punishment; (summum supplicium, the death penalty)	4	g(ii)	noun
+inimīcus a um	hostile, enemy	4	g(ii)	adjective
+nouus a um	new	4	g(ii)	adjective
+arma ōrum	arms; armed men	5	a(i)	noun
+coniūrātiō coniūrātiōnis f	conspiracy	5	a(i)	noun
+coniūrātor coniūrātōris	conspirator	5	a(i)	noun
+cōnsulātus ūs	consulship	5	a(i)	noun
+mōns montis m	mountain	5	a(i)	noun
+rēs pūblica rēī pūblicae	state, republic	5	a(i)	noun
+grātus a um	pleasing (to, + dat.)	5	a(i)	adjective
+uetus ueteris	old, long-established	5	a(i)	adjective
+agitō 1	I stir up, incite	5	a(i)	verb
+efficiō 3/4 effēcī effectus	I bring about (ut + subj.); cause, make; complete	5	a(i)	verb
+īnsum inesse īnfuī	I am in (+ dat.)	5	a(i)	verb
+mandō 1	I entrust (x acc. to y dat.)	5	a(i)	verb
+moueō 2 mōuī mōtus	I remove; move; cause, begin	5	a(i)	verb
+nārrō 1	I tell, relate (x acc. to y dat.)	5	a(i)	verb
+parō 1	I prepare, get ready; provide; obtain	5	a(i)	verb
+adeō	to such an extent	5	a(i)	verb
+in diēs	day by day	5	a(i)	other
+in prīmīs	especially	5	a(i)	other
+quamuīs	however, ever such a	5	a(i)	other
+aes aliēnum aeris aliēnī	debt	5	a(ii)	noun
+aetās aetātis f	age; lifetime; generation	5	a(ii)	noun
+līberī ōrum	children	5	a(ii)	noun
+libīdō libīdinis f	lust	5	a(ii)	noun
+litterae ārum	literature; (letter)	5	a(ii) (2b)	noun
+mātrōna ae	wife, mother; lady	5	a(ii)	noun
+uersus ūs	verse; (pl.) poetry	5	a(ii)	noun
+doctus a um	skilled (in x, abl.), learned	5	a(ii)	adjective
+fortūnātus a um	fortunate, lucky (in x, abl.)	5	a(ii)	adjective
+Latīnus a um	Latin	5	a(ii)	adjective
+modestus a um	chaste, modest, discreet	5	a(ii)	adjective
+adiungō 3 adiūnxī adiūnctus	I join (x acc. to y dat.)	5	a(ii)	verb
+interficiō 3/4 interfēcī interfectus	I kill	5	a(ii)	verb
+petō 3 petīuī petītus	I proposition, court; (beg; seek); attack, make for	5	a(ii) (4g(i))	verb
+aliquot	several	5	a(ii)	other
+uel … uel	either … or	5	a(ii)	other
+īnsidiae ārum	trap, ambush	5	a(iii)	noun
+Ītalia ae	Italy	5	a(iii)	noun
+opera ae	service (attention)	5	a(iii) (3d)	noun
+pars partis f	part	5	a(iii)	noun
+socius ī	ally, friend	5	a(iii)	noun
+tēlum ī	weapon	5	a(iii)	noun
+armātus a um	armed	5	a(iii)	adjective
+dīuersus a um	different	5	a(iii)	adjective
+opportūnus a um	strategic, suitable, favourable	5	a(iii)	adjective
+collocō 1	I place, station	5	a(iii)	verb
+conuocō 1	I summon, call together	5	a(iii)	verb
+impediō 4	I prevent, impede, hinder	5	a(iii)	verb
+petō 3 petīuī petītus	I stand for (public office); (beg; seek; proposition, court; make for, attack)	5	a(iii) (4g(i), 5a(ii))	verb
+prohibeō 2	I prevent, hinder, keep x (acc.) away from y (abl., or ā + abl.)	5	a(iii)	verb
+frūstrā	in vain	5	a(iii)	other
+itaque	and so, therefore	5	a(iii)	other
+postquam	after	5	a(iii)	other
+prius	before, previously, first	5	a(iii)	other
+auctōritās auctōritātis f	weight, authority	5	b(i)	noun
+gēns gentis f	tribe; race; family; people	5	b(i)	noun
+nātūra ae	nature	5	b(i)	noun
+spēs spēī	hope(s); expectation	5	b(i)	noun
+amplus a um	large, great	5	b(i)	adjective
+idōneus a um	suitable (for), qualified (for) (+ dat.)	5	b(i)	adjective
+nōtus a um	known, well-known	5	b(i)	adjective
+paucī ae a	a few, a small number of	5	b(i)	adjective
+plērīque plēraeque plēraque	the majority of	5	b(i)	adjective
+aperiō 4 aperuī apertus	I open; reveal	5	b(i)	verb
+dīmittō 3 dīmīsī dīmissus	I send away	5	b(i)	verb
+exīstimō 1	I think, consider	5	b(i)	verb
+nōscō 3 nōuī nōtus	I get to know (perfect = I know)	5	b(i)	verb
+queror 3 questus	I complain	5	b(i)	verb
+requīrō 3 requīsīuī requīsītus	I seek out; ask for	5	b(i)	verb
+sollicitō 1	I stir up, arouse; incite to revolt	5	b(i) (2e)	verb
+ubi prīmum	as soon as (with perfect indicative)	5	b(i)	other
+fortūna ae	fortune, luck; (pl.) wealth	5	b(ii)	noun
+opēs opum f	resources; wealth	5	b(ii)	noun
+praemium ī	prize, reward	5	b(ii)	noun
+studium ī	enthusiasm, zeal	5	b(ii)	noun
+certus a um	sure, certain	5	b(ii)	adjective
+manifestus a um	in the open; obvious, clear; caught in the act	5	b(ii)	adjective
+cōnsīderō 1	I consider, ponder	5	b(ii)	verb
+praecipiō 3/4 praecēpī praeceptus	I instruct, give orders to (x dat. to do y: ut + subj.)	5	b(ii)	verb
+simulō 1	I feign	5	b(ii)	verb
+diū	for a long time	5	b(ii)	other
+nōndum	not yet	5	b(ii)	other
+prō (+ abl.)	instead of (for, in return for; on behalf of; in front of)	5	b(ii) (2e)	other
+quam	(+ superlative) as … as possible	5	b(ii)	other
+utī	= ut	5	b(ii)	other
+caedēs caedis f	slaughter, carnage	5	b(iii)	noun
+parēns parentis	m. father, parent; f. mother	5	b(iii)	noun
+duodecim	twelve	5	b(iii)	adjective
+frangō 3 frēgī frāctus	I break	5	b(iii)	verb
+obsideō 2 obsēdī obsessus	I besiege	5	b(iii)	verb
+exemplum ī	copy; example	5	c(i)	noun
+iūs iūrandum iūris iūrandī	oath	5	c(i)	noun
+cunctor 1	I delay, hesitate (+ inf.)	5	c(i)	verb
+breuī	shortly, soon	5	c(i)	other
+eō	to that place	5	c(i)	other
+item	likewise	5	c(i)	other
+propius	nearer	5	c(i)	other
+gladius ī	sword	5	c(ii)	noun
+pōns pontis f	bridge	5	c(ii)	noun
+sēsē	= sē	5	c(ii)	pronoun
+mīlitāris e	military	5	c(ii)	adjective
+timidus a um	frightened, fearful	5	c(ii)	adjective
+cohortor 1	I encourage, exhort	5	c(ii)	verb
+exorior 4 exortus	I arise	5	c(ii)	verb
+trādō 3 trādidī trāditus	I hand over; hand down, relate	5	c(ii)	verb
+sīcutī, sīcut	(just) as	5	c(ii)	other
+uelut	as, just as	5	c(ii)	other
+poena ae	penalty	5	c(iii)	noun
+sententia ae	opinion; judgement; sentence; maxim	5	c(iii)	noun
+committō 3 commīsī commissus	I commit	5	c(iii)	verb
+cōnficiō 3/4 cōnfēcī cōnfectus	I finish	5	c(iii)	verb
+ēripiō 3/4 ēripuī ēreptus	I snatch away, rescue (x acc. from y dat.)	5	c(iii)	verb
+noceō 2	I harm (+ dat.)	5	c(iii)	verb
+occupō 1	I seize	5	c(iii)	verb
+patefaciō 3/4 patefēcī patefactus	I reveal, expose, throw open	5	c(iii)	verb
+praebeō 2	I show, display (myself to be x: mē + acc.)	5	c(iii)	verb
+pūniō 4	I punish	5	c(iii)	verb
+iussū	by the order (of x: gen.)	5	c(iii)	other
+nihilōminus	nevertheless	5	c(iii)	other
+porrō	besides, moreover	5	c(iii)	other
+dēdecorī est	it is a disgrace (for x: dat.)	5	c(iii)	pred. dat.
+onerī est	it is a burden (to x: dat.)	5	c(iii)	pred. dat.
+arx arcis f	citadel	5	d(i)	noun
+dolor dolōris m	pain, anguish	5	d(i)	noun
+fuga ae	flight	5	d(i)	noun
+lūx lūcis f	light	5	d(i)	noun
+crūdēlis e	cruel	5	d(i)	adjective
+miserandus a um	to be pitied	5	d(i)	adjective
+misericors misericordis	compassionate	5	d(i)	adjective
+seuērus a um	strict, stern	5	d(i)	adjective
+uehemēns uehementis	impetuous, violent	5	d(i)	adjective
+Vestālis e	Vestal	5	d(i)	adjective
+arcessō 3 arcessīuī arcessītus	I summon	5	d(i)	verb
+attribuō 3 attribuī attribūtus	I assign, give	5	d(i)	verb
+prōpōnō 3 prōposuī prōpositus	I set before; imagine; offer	5	d(i)	verb
+sūmō 3 sūmpsī sūmptus	I take, put on, eat; supplicium sūmere dē (+abl.) to exact the penalty from x	5	d(i)	verb
+contrā (+ acc.)	against	5	d(i)	other
+idcircō	for this/that reason, therefore	5	d(i)	other
+utrum … an	= double question, i.e. A or B? (neg. annōn, or not?)	5	d(i)	other
+genus generis	type, kind (family; stock; tribe)	5	d(ii) (4c(i))	noun
+imperium ī	power, authority, dominion (order, command)	5	d(ii) (3a)	noun
+ōrdō ōrdinis m	rank (section of society, line of soldiers)	5	d(ii)	noun
+patrēs cōnscrīptī	senators	5	d(ii)	noun
+patria ae	fatherland	5	d(ii)	noun
+uoluntās uoluntātis f	will, wish	5	d(ii)	noun
+acerbus a um	bitter	5	d(ii)	adjective
+commūnis e	shared in, common, universal	5	d(ii)	adjective
+cōnseruō 1	I keep safe, preserve	5	d(ii)	verb
+prōuideō 2 prōuīdī prōuīsus	I take care (often with nē + subj.)	5	d(ii)	verb
+uereor 2 ueritus	I fear, am afraid (usually with ut/nē + subj.)	5	d(ii)	verb
+cum … tum	both … and	5	d(ii)	other
+concordia ae	harmony	5	d(iii)	noun
+dignitās dignitātis f	distinction, position; honour; rank, high office	5	d(iii)	noun
+dīligentia ae	care, diligence	5	d(iii)	noun
+dulcis e	sweet	5	d(iii)	adjective
+iūcundus a um	pleasant	5	d(iii)	adjective
+quantum	as much as	5	d(iii)	other
+āra ae	altar	5	d(iv)	noun
+labor labōris m	toil, hard work; trouble	5	d(iv)	noun
+impius a um	with no respect for gods, parents or fatherland	5	d(iv)	adjective
+memor memoris	remembering (x: gen.); mindful of (x: gen.)	5	d(iv)	adjective
+supplex supplicis	suppliant	5	d(iv)	adjective, noun
+augeō 2 auxī auctus	I increase (trans.)	5	d(iv)	verb
+oblīuīscor 3 oblītus	I forget (+ gen. of person)	5	d(iv) (2b)	verb
+tendō 3 tetendī tēnsus / tentus	I stretch (out); offer; direct; travel	5	d(iv)	verb
+paene	almost	5	d(iv)	other
+uel	even (either … or)	5	d(iv) (5a(ii))	other
+carcer carceris m	prison; barrier	5	e(i)	noun
+faciēs faciēī	appearance; face	5	e(i)	noun
+factum ī	deed	5	e(i)	noun
+humus ī f	ground (humum (acc.) to the ground; humī (locative) on or in the ground)	5	e(i)	noun
+dignus a um	worthy; worthy of (x: abl.)	5	e(i)	adjective
+terribilis e	dreadful, frightening	5	e(i)	adjective
+discēdō 3 discessī discessum	I depart; (in sententiam + gen.) I go over to x’s view	5	e(i)	verb
+dispōnō 3 disposuī dispositus	I set, place (in different places)	5	e(i)	verb
+agmen agminis n	column	5	e(ii)	noun
+iter itineris n	journey; route	5	e(ii)	noun
+occāsiō occāsiōnis f	opportunity	5	e(ii)	noun
+pugna ae	battle, fight	5	e(ii)	noun
+aequus a um	level (fair, balanced, equal)	5	e(ii) (1g)	adjective
+asper aspera um	rough	5	e(ii)	adjective
+absum abesse āfuī	I am distant (am absent, away)	5	e(ii) (4c(i))	verb
+cōnsīdō 3 cōnsēdī cōnsessum	I settle down; encamp	5	e(ii)	verb
+īnstruō 3 īnstrūxī īnstrūctus	I draw up; prepare, equip	5	e(ii)	verb
+properō 1	I hurry, make haste	5	e(ii)	verb
+spērō 1	I hope, expect	5	e(ii)	verb
+temptō 1	I try, test, attempt; attack	5	e(ii)	verb
+circiter	about	5	e(ii)	other
+modo … modo	at one time … at another	5	e(ii)	other
+quam prīmum	as soon as possible	5	e(ii)	other
+cōntiō cōntiōnis f	meeting, assembly	5	f(i)	noun
+decus decoris	honor; beauty	5	f(i)	noun
+dextra ae	right hand	5	f(i)	noun
+dīuitiae ārum	riches	5	f(i)	noun
+ferrum ī	sword; iron	5	f(i)	noun
+frūmentum ī	corn	5	f(i)	noun
+ignāuia ae	laziness; cowardice	5	f(i)	noun
+ōrātiō ōrātiōnis f	speech	5	f(i)	noun
+potentia ae	power	5	f(i)	noun
+aduersus a um	hostile; opposite; unfavourable	5	f(i)	adjective
+ignāuus a um	lazy; cowardly	5	f(i)	adjective
+quantus a um	how much, how great	5	f(i)	adjective
+addō 3 addidī additus	I add; increase	5	f(i)	verb
+aduocō 1	I summon	5	f(i)	verb
+cēdō 3 cessī cessum	I yield; go	5	f(i)	verb
+certō 1	I struggle, fight; vie	5	f(i)	verb
+meminī meminisse	I remember (perfect only)	5	f(i)	verb
+persequor 3 persecūtus	I pursue, follow after	5	f(i)	verb
+ōrātiōnem habēre	to make a speech	5	f(i)	other
+quōcumque	(to) wherever	5	f(i)	other
+quot	how many	5	f(i)	other
+bona ōrum	goods	5	f(ii)	noun
+exsilium ī	exile	5	f(ii)	noun
+necessitūdō necessitūdinis f	necessity	5	f(ii)	noun
+agō 3 ēgī āctus	I spend, pass (do, act; drive, lead, direct)	5	f(ii) (2b, 4f(ii))	verb
+cōgō 3 coēgī coāctus	I force, compel; gather	5	f(ii)	verb
+inuideō 2 inuīdī inuīsum	I envy, begrudge (+ dat.)	5	f(ii)	verb
+trucīdō 1	I butcher, slaughter	5	f(ii)	verb
+mōre	in the manner of, like (x: gen.)	5	f(ii)	other
+opus est	there is need of (x: abl.)	5	f(ii)	other
+aeger aegra um	ill	5	g(i)	adjective
+dexter dextra um	right, favourable	5	g(i)	adjective
+sinister sinistra um	left; unfavourable	5	g(i)	adjective
+appellō 1	I name, call; address	5	g(i)	verb
+cūrō 1	I am in command (look after, care for)	5	g(i) (1b)	verb
+nōminō 1	I name	5	g(i)	verb
+praeficiō 3/4 praefēcī praefectus	I put x (acc.) in charge of y (dat.)	5	g(i) (4d(i))	verb
+amplius	more than	5	g(i)	other
+post (+ acc.)	behind; after (adv. afterwards, later; behind)	5	g(i) (2d)	other
+prō (+ abl.)	in accordance with (for, in return for; on behalf of; in front of; instead of)	5	g(i) (2e, 5b(ii))	other
+latus lateris n	side; flank	5	g(ii)	noun
+pīlum ī	heavy javelin	5	g(ii)	noun
+integer integra um	whole, untouched	5	g(ii)	adjective
+prīstinus a um	former; original	5	g(ii)	adjective
+saucius a um	wounded	5	g(ii)	adjective
+cadō 3 cecidī cāsum	I fall, die	5	g(ii)	verb
+īnstō 1 īnstitī	I press upon; urge; pursue; am at hand, approach; strive after	5	g(ii)	verb
+omittō 3 omīsī omissus	I give up; let fall; omit, leave aside	5	g(ii)	verb
+reor 2 ratus	I think, believe, suppose	5	g(ii)	verb
+resistō 3 restitī (+ dat.)	I resist; stand back, halt; pause	5	g(ii)	verb
+succurrō 3 succurrī succursum	I run to help, assist (+ dat.)	5	g(ii)	verb
+tendō 3 tetendī tēnsus / tentus	I strive, fight; (stretch (out); offer; direct; (intrans.) travel)	5	g(ii) (5d(iv))	verb
+uersor 1	I am occupied; stay, dwell; am in a certain condition	5	g(ii)	verb
+alibī	somewhere else	5	g(ii)	other
+paulātim	little by little, gradually	5	g(ii)	other
+unde	from where, whence	5	g(ii)	other
+anima ae	soul, life, breath	5	g(iii)	noun
+corpus corporis	body	5	g(iii)	noun
+gaudium ī	joy	5	g(iii)	noun
+lūctus ūs	mourning	5	g(iii)	noun
+uulnus uulneris	wound	5	g(iii)	noun
+uultus ūs	face, expression	5	g(iii)	noun
+aduersus a um	in front (i.e. facing the enemy) (hostile; opposite; unfavourable)	5	g(iii) (5f(i))	adjective
+uīuus a um	alive, living	5	g(iii)	adjective
+occidō 3 occidī occāsum	I fall, die	5	g(iii) (1e)	verb
+tegō 3 tēxī tēctus	I cover	5	g(iii)	verb
+uoluō 3 uoluī uolūtus	I roll, turn (over) (trans.)	5	g(iii)	verb
+uulnerō 1	I wound	5	g(iii)	verb
+amor amōris m	love; (pl.) girl-friend; sexual intercourse	6	a(i)	noun
+uīnum ī	wine	6	a(i)	noun
+merus a um	unmixed, pure	6	a(i)	adjective
+dōnō 1	I give	6	a(i)	verb
+facētiae ārum	wit	6	a(ii)	noun
+iocus ī	joke, joking, fun	6	a(ii)	noun
+lepōs lepōris m	charm	6	a(ii)	noun
+mūnus mūneris n	gift; duty	6	a(ii)	noun
+sodālis sodālis m	friend	6	a(ii)	noun
+mūtō 1	I change, alter, exchange (trans.)	6	a(ii)	verb
+quārē	therefore	6	a(ii) (1b)	other
+membrum ī	limb	6	a(iii)	noun
+quiēs quiētis f	sleep, rest	6	a(iii)	noun
+somnus ī	sleep	6	a(iii)	noun
+ōtiōsus a um	at leisure	6	a(iii)	adjective
+iuuat 1 iūuit	it pleases	6	a(iii)	verb
+laedō 3 laesī laesus	I harm	6	a(iii)	verb
+lūdō 3 lūsī lūsum	I play	6	a(iii)	verb
+rūmor rūmōris m	rumour, (piece of) gossip, unfavourable report	6	a(iv)	noun
+aestimō 1	I value; estimate	6	a(iv)	verb
+occidō 3 occidī occāsum	I set (intrans.); (I fall; die)	6	a(iv) (1e, 5g(iii))	verb
+dein	= deinde: then, next	6	a(iv)	other
+mī	= mihi	6	a(iv)	other
+semel	once (cum semel, as soon as)	6	a(iv)	other
+usque	continually, without a break (usque ad, right up to)	6	a(iv)	other
+harēna ae	sand	6	a(v)	noun
+lingua ae	tongue; language	6	a(v)	noun
+ōrāc(u)lum ī	oracle	6	a(v)	noun
+sepulc(h)rum ī	tomb	6	a(v)	noun
+sīdus sīderis n	star	6	a(v)	noun
+super	more than enough; above, over; (+ acc./abl.) over, above; (+ abl.) about	6	a(v)	other
+candidus a um	white; bright, beautiful	6	a(vi)	adjective
+inuītus a um	unwilling	6	a(vi)	adjective
+doleō 2	I suffer pain, grieve	6	a(vi)	verb
+dūcō 3 dūxī ductus	I think, consider (lead)	6	a(vi) (1d)	verb
+fulgeō 2 fulsī	I shine	6	a(vi)	verb
+obdūrō 1	I am firm, hold out, persist	6	a(vi)	verb
+pereō perīre periī peritum	I perish, die; (periī, I am lost)	6	a(vi) (1e)	verb
+perferō perferre pertulī perlātus	I endure (to the end); complete; carry to; announce	6	a(vi)	verb
+aequor aequoris n	plain; sea	6	a(vii)	noun
+culpa ae	fault; blame	6	a(vii)	noun
+altus a um	high; deep	6	a(vii)	adjective
+extrēmus a um	furthest	6	a(vii)	adjective
+quīcumque quaecumque quodcumque	whoever, whatever	6	a(vii)	adjective
+ultimus a um	furthest; last; greatest	6	a(vii)	adjective
+gradior 3/4 gressus	I step, walk, go	6	a(vii)	verb
+praetereō praeterīre praeteriī praeteritum	I pass by; neglect, omit	6	a(vii)	verb
+ualeō 2	I am strong; am well; am powerful; am able	6	a(vii) (1d)	verb
+simul	together (at the same time)	6	a(vii) (4b(iii))	other
+sīue (seu) … sīue (seu)	whether … or	6	a(vii)	other
+trāns (+ acc.)	across	6	a(vii)	other
+-ue	or	6	a(vii)	other
+commodus a um	satisfactory, convenient	6	b(i)	adjective
+dīligens dīligentis	careful, diligent	6	b(i)	adjective
+suāuis e	sweet, pleasant, delightful	6	b(i)	adjective
+animaduertō 3 animaduertī animaduersus	I observe, take note of	6	b(i)	verb
+condemnō 1	I condemn (x acc. for y gen.)	6	b(i)	verb
+excūsō 1	I excuse	6	b(i)	verb
+perscrībō 3 perscrīpsī perscrīptus	I write in detail	6	b(i)	verb
+certiōrem faciō	I inform x (acc.)	6	b(i)	verb
+certior fīō	I am informed	6	b(i)	verb
+salūtem dicit	he greets (+ dat., abbr. S. or S.D. in letters)	6	b(i)	verb
+forte	by chance, perchance	6	b(i)	other
+omnīnō	altogether, completely	6	b(i)	other
+quem ad modum	how	6	b(i)	other
+bellus a um	beautiful, pretty	6	b(ii)	adjective
+crēber crēbra um	frequent; thick, close	6	b(ii)	adjective
+incertus a um	uncertain	6	b(ii)	adjective
+circumsedeō 2 circumsēdī circumsessus	I besiege, blockade	6	b(ii)	verb
+fingō 3 fīnxī fīctus	I make up, fabricate	6	b(ii)	verb
+iactō 1	I discuss; throw; boast; toss about	6	b(ii)	verb
+offendō 3 offendī offēnsus	I meet with; offend	6	b(ii)	verb
+perdō 3 perdidī perditus	I lose; destroy	6	b(ii)	verb
+adhūc	up to now	6	b(ii)	other
+palam	openly	6	b(ii)	other
+complūrēs a	several	6	b(iii)	adjective
+ēgregius a um	outstanding, excellent	6	b(iii)	adjective
+praesēns praesentis	present	6	b(iii)	adjective
+quālis e	what sort of	6	b(iii)	adjective
+complector 3 complexus	I embrace	6	b(iii)	verb
+mandō 1	I order (x dat. to y ut + subj.); (entrust x acc. to y dat.)	6	b(iii) (5a(i))	verb
+nē … quidem	not even	6	b(iii)	other
+collēga ae m	colleague	6	b(iv)	noun
+aiō [irregular]	I say	6	b(iv)	verb
+alō 3 aluī al(i)tus	I feed, nourish, rear; support; strengthen	6	b(iv)	verb
+ferē	almost	6	b(iv)	other
+simulatque	as soon as (also simulac or simul)	6	b(iv)	other
+mīrus a um	amazing, wonderful	6	b(v)	adjective
+quisquis quicquid	whoever, whatever	6	b(v)	adjective
+ualdē	very much, strongly	6	b(v)	other
+condiciō condiciōnis f	condition, term; condiciōnem facere, to make terms	6	b(vi)	noun
+discordia ae	strife, quarrel	6	b(vi)	noun
+pars partis f	side; (part)	6	b(vi) (5a(iii))	noun
+spatium ī	space; time	6	b(vi)	noun
+timor timōris m	fear	6	b(vi)	noun
+clārus a um	clear (famous, well-known)	6	b(vi) (4b(i))	adjective
+dīmicō 1	I fight	6	b(vi)	verb
+dubitō 1	I doubt; hesitate (+ inf.)	6	b(vi)	verb
+potior 4	I control (+ gen.)	6	b(vi)	verb
+quō … eō	(+ comparatives) the more … the more	6	b(vi)	other
+amīcitia ae	friendship	6	b(vii)	noun
+atrōx atrōcis	fierce, unyielding	6	b(vii)	noun
+nōn nūllī ae a	some	6	b(vii)	adjective
+uacuus a um	empty; free (from) (+ abl. or ā + abl.)	6	b(vii)	adjective
+errō 1	I am wrong; wander	6	b(vii)	verb
+pariō 3/4 peperī partus	I bring forth, bear, produce; obtain, acquire	6	b(vii)	verb
+etiam atque etiam	again and again	6	b(vii)	other
+quod sī	but if	6	b(vii)	other
+saltem	at least	6	b(vii)	other
+ubicumque	wherever	6	b(vii)	other
+adulēscēns adulēscentis	youth	6	b(viii)	noun
+cāsus ūs	outcome; event, occurrence; disaster, death; cāsū by accident, by chance	6	b(viii)	noun
+fidēs fidēī	loyalty, honour; trust, faith; promise; protection	6	b(viii)	noun
+fīdus a um	faithful, loyal	6	b(viii)	adjective
+imitor 1	I imitate	6	b(viii)	verb
+terreō 2	I frighten	6	b(viii)	verb
+tueor 2	I look after, protect; look at	6	b(viii)	verb
+aliquandō	at some time	6	b(viii)	other
+fortasse	perhaps	6	b(viii)	other
+quidem	indeed	6	b(viii)	other
+sīn	but if	6	b(viii)	other
+ārdeō 2 ārsī ārsūrus	I burn; am in love	6	c(i)	verb
+faciō ut	(+ subj) I bring it about that	6	c(i)	verb
+prōcurrō 3 prōcucurrī prōcursum	I run forward, advance	6	c(i)	verb
+respiciō 3/4 respexī respectus	I look round (back) at, turn my gaze upon; reflect upon; care for	6	c(i)	verb
+cursus ūs	running; course; direction; voyage	6	c(ii)	noun
+equitatus ūs	cavalry	6	c(ii)	noun
+tergum ī	back	6	c(ii)	noun
+inermis e	unarmed	6	c(ii)	adjective
+īnfestus a um	hostile; at the ready; indicating attack	6	c(ii)	adjective
+ūniuersus a um	all together, whole, entire	6	c(ii)	adjective
+adorior 4 adortus	I attack, rise up against	6	c(ii)	verb
+animum aduertō	= animaduertō	6	c(ii)	verb
+appropinquō 1	I approach	6	c(ii)	verb
+cōnsistō 3 cōnstitī	I stop, stand my ground	6	c(ii)	verb
+excēdō 3 excessī excessum	I depart, go out; surpass	6	c(ii)	verb
+excipiō 3/4 excēpī exceptus	I sustain, receive, welcome; catch; make an exception	6	c(ii)	verb
+mittō 3 mīsī missus	I throw; (send)	6	c(ii) (1f)	verb
+reprimō 3 repressī repressus	I hold back, check	6	c(ii)	verb
+sustineō 2 sustinuī sustentus	I withstand; support	6	c(ii)	verb
+uertō 3 uertī uersus	I turn (trans.)	6	c(ii)	verb
+flūmen flūminis n	river	6	c(iii)	noun
+opus operis	fortification; (job, work, task)	6	c(iii) (2b)	noun
+agō 3 ēgī āctus	I discuss; (do, act; drive, lead; spend, pass; direct)	6	c(iii) (2b, 4f(ii), 5f(ii))	verb
+cōnficiō 3/4 cōnfēcī cōnfectus	I weaken; (finish)	6	c(iii) (5c(iii))	verb
+diffīdō 3 diffīsus	I distrust (+ dat.)	6	c(iii)	verb
+impetrō 1	I obtain by request	6	c(iii)	verb
+īnstituō 3 īnstituī īnstitūtus	I begin; construct; resolve	6	c(iii)	verb
+potior 4	I gain control of (+ abl.); (control (+ gen.))	6	c(iii) (6b(vi))	verb
+mē recipiō 3/4	I retreat; (welcome, receive, take in)	6	c(iii)	verb
+remaneō 2 remānsī remānsum	I remain	6	c(iii)	verb
+remittō 3 remīsī remissus	I send back; remit	6	c(iii)	verb
+etsī	although, even though, even if	6	c(iii)	other
+noctū	by night	6	c(iii)	other
+superior superius (gen. superiōris)	higher; earlier	6	c(iv)	adjective
+dēscendō 3 dēscendī dēscēnsum	I descend	6	c(iv)	verb
+fleō 2 flēuī flētum	I weep	6	c(iv)	verb
+occurrō 3 occurrī occursum	I run to meet, meet; attack (+ dat.)	6	c(iv)	verb
+prōiciō 3/4 prōiēcī prōiectus	I throw down	6	c(iv)	verb
+reuertor 3 reuersus	I return	6	c(iv)	verb
+neu	= nēue	6	c(iv)	other
+caelum ī	sky, heaven	6	d(i)	noun
+dīuus ī	god	6	d(i)	noun
+flamma ae	flame	6	d(i)	noun
+mēns mentis f	mind	6	d(i)	noun
+nix niuis f	snow	6	d(i)	noun
+ōrdō ōrdinis m	order (rank)	6	d(i) (5d(ii))	noun
+pietās pietātis f	respect for the gods (also for one’s family, home and native land)	6	d(i)	noun
+uentus ī	wind	6	d(i)	noun
+uotum ī	vow, prayer	6	d(i)	noun
+uarius a um	diverse, various	6	d(i)	adjective
+pandō 3 pandī passus	spread out, extend; throw open, disclose	6	d(i)	verb
+ars artis f	skill, art, accomplishment	6	d(ii)	noun
+autumnus ī	autumn, fall	6	d(ii)	noun
+frīgus frīgoris	cold; (pl.) cold spells	6	d(ii)	noun
+lūmen lūminis n	light; (pl.) eyes	6	d(ii)	noun
+rīpa ae	bank	6	d(ii)	noun
+silua ae	wood	6	d(ii)	noun
+umbra ae	shadow, darkness; shade, ghost	6	d(ii)	noun
+umerus ī	shoulder	6	d(ii)	noun
+unda ae	water, wave	6	d(ii)	noun
+obscūrus a um	dark; obscure; mean, ignoble	6	d(ii)	adjective
+sōlus a um	lonely (alone)	6	d(ii) 4b(iii)	adjective
+superbus a um	proud, haughty, arrogant	6	d(ii)	adjective
+fugō 1	I put to flight	6	d(ii)	verb
+impōnō 3 imposuī impositus	I put x (acc.) on y (dat.)	6	d(ii)	verb
+lābor 3 lāpsus	I slip, glide, fall down; make a mistake	6	d(ii)	verb
+surgō 3 surrēxī surrēctum	I rise, arise, get up	6	d(ii)	verb
+arbor arboris f	tree	6	d(iii)	noun
+campus ī	field, plain	6	d(iii)	noun
+coma ae	hair; foliage	6	d(iii)	noun
+tenebrae ārum	shadows, darkness	6	d(iii)	noun
+caelestis e	in the heavens	6	d(iii)	adjective
+cūnctus a um	all, the whole of	6	d(iii)	adjective
+nūdus a um	naked	6	d(iii)	adjective
+rapiō 3/4 rapuī raptus	I snatch, seize, carry off, plunder	6	d(iii)	verb
+an	whether (in indirect questions, + subj.); = -ne (in direct question)	6	d(iii)	other
+collum ī	neck	6	d(iv)	noun
+lacertus ī	arm, upper arm	6	d(iv)	noun
+latebrae ārum	hiding-place, lair	6	d(iv)	noun
+pudor pudōris m	modesty, sense of shame	6	d(iv)	noun
+thalamus ī	chamber, bedchamber	6	d(iv)	noun
+torus ī	couch; bed	6	d(iv)	noun
+tunica ae	tunic	6	d(iv)	noun
+plānus a um	level, flat; plain, distinct	6	d(iv)	adjective
+singulī ae a	individual, one by one	6	d(iv)	adjective
+orior 4 ortus	I rise; spring from, originate	6	d(iv)	verb
+pōnō 3 posuī positus	I lay aside; (place, position, put)	6	d(iv) (4a(ii))	verb
+praebeō 2	I provide, offer; (show, display)	6	d(iv) (5c(iii))	verb
+premō 3 pressī pressus	I press; oppress	6	d(iv)	verb
+aegrē	with difficulty	6	d(iv)	other

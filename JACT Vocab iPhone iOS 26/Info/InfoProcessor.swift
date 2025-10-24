@@ -15,7 +15,7 @@ final class InfoProcessor: Processor {
         case .done:
             await coordinator?.dismiss()
         case .initialInterface:
-            if let path = services.bundle.path(forResource: "jactVocabHelp", ofType: "html"),
+            if let path = services.bundle.path(forResource: "jsVocabHelp", ofType: "html"),
                let content = try? String(contentsOfFile: path, encoding: .utf8) {
                 state.url = URL(fileURLWithPath: path)
                 state.content = content

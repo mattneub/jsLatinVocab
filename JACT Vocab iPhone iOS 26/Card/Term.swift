@@ -77,7 +77,7 @@ extension Term {
         result = result.decomposedStringWithCompatibilityMapping.lowercased() // decompose; lowercase
         result = result.components(separatedBy: .nonBaseCharacters).joined() // remove the diacritics
         result = result.components(separatedBy: .punctuationCharacters).joined() // remove punctuation
-        // result = result.replacingOccurrences(of: "v", with: "u") // Latin only
+        result = result.replacingOccurrences(of: "v", with: "u") // Latin only
         result = result.trimmingCharacters(in: CharacterSet(charactersIn: " ")) // trim spaces
         return result
     }

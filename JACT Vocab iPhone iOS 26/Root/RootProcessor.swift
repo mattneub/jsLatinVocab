@@ -24,6 +24,8 @@ final class RootProcessor: Processor {
             await presenter?.present(state)
             let englishHidden = services.persistence.isEnglishHidden()
             await presenter?.receive(.englishHidden(englishHidden))
+            let extraShowing = services.persistence.isExtraShowing()
+            await presenter?.receive(.extraShowing(extraShowing))
             await presenter?.receive(.navigateTo(index: initialIndex, style: .noAnimation))
         case .navigated(let indexOrig):
             services.persistence.setCurrentTermIndex(indexOrig)
@@ -56,6 +58,10 @@ final class RootProcessor: Processor {
                 await presenter?.receive(.navigateTo(index: index, style: .forward))
                 return
             }
+        case .toggleExtra:
+            let showing = !services.persistence.isExtraShowing()
+            services.persistence.setExtraShowing(showing)
+            await presenter?.receive(.extraShowing(showing))
         case .toggleEnglish:
             let hidden = !services.persistence.isEnglishHidden()
             services.persistence.setEnglishHidden(hidden)
@@ -67,7 +73,7 @@ final class RootProcessor: Processor {
     /// them, and return them.
     /// - Returns: The array of Terms, ready for display in the interface.
     func prepareTerms() -> [Term] {
-        guard let path = services.bundle.path(forResource: "JactVocabUnicode", ofType: "txt"),
+        guard let path = services.bundle.path(forResource: "latinoutput", ofType: "txt"),
               let vocab = try? String(contentsOfFile: path, encoding: .utf8) else {
             return []
         }

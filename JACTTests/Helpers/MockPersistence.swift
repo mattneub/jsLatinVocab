@@ -5,6 +5,8 @@ final class MockPersistence: PersistenceType {
     var methodsCalled = [String]()
     var hidden: Bool?
     var hiddenToReturn = false
+    var showing: Bool?
+    var showingToReturn = false
     var termIndex: Int?
     var termIndexToReturn: Int?
 
@@ -16,6 +18,16 @@ final class MockPersistence: PersistenceType {
     func isEnglishHidden() -> Bool {
         methodsCalled.append(#function)
         return hiddenToReturn
+    }
+
+    func setExtraShowing(_ showing: Bool) {
+        methodsCalled.append(#function)
+        self.showing = showing
+    }
+
+    func isExtraShowing() -> Bool {
+        methodsCalled.append(#function)
+        return showingToReturn
     }
 
     func setCurrentTermIndex(_ index: Int) {

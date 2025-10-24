@@ -35,10 +35,12 @@ struct RootProcessorTests {
         // and it has been presented
         #expect(presenter.statesPresented.last == subject.state)
         // and we pass persistence english hidden to presenter
-        #expect(persistence.methodsCalled == ["currentTermIndex()", "isEnglishHidden()"])
-        #expect(presenter.thingsReceived.first == .englishHidden(true))
+        #expect(persistence.methodsCalled == ["currentTermIndex()", "isEnglishHidden()", "isExtraShowing()"])
+        #expect(presenter.thingsReceived.count == 3)
+        #expect(presenter.thingsReceived[0] == .englishHidden(true))
+        #expect(presenter.thingsReceived[1] == .extraShowing(false))
         // and we navigate
-        #expect(presenter.thingsReceived.last == .navigateTo(index: 0, style: .noAnimation))
+        #expect(presenter.thingsReceived[2] == .navigateTo(index: 0, style: .noAnimation))
     }
 
     @Test("initialInterface: if it gets a current term index from persistence, it converts and uses it")
