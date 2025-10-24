@@ -8,7 +8,7 @@ struct AllTermsIndexedDatasourceTests {
         let tableView = UITableView()
         let subject = AllTermsIndexedDatasource(tableView: tableView) { _, _, _ in return nil }
         var snapshot = subject.snapshot()
-        snapshot.appendSections(["Q", "E", "D", "A", "B", "C"])
+        snapshot.appendSections(["Q", "E", "D"])
         await subject.apply(snapshot, animatingDifferences: false)
         do {
             let result = subject.sectionIndexTitles(for: tableView)
@@ -19,12 +19,11 @@ struct AllTermsIndexedDatasourceTests {
         await subject.apply(snapshot, animatingDifferences: false)
         do {
             let result = subject.sectionIndexTitles(for: tableView)
-            // result is hard coded
-            #expect(result == ["Α Β Γ", "•", "Δ Ε Ζ", "•", "Η Θ Ι", "•", "Κ Λ Μ", "•", "Ν Ξ Ο", "•", "Π Ρ Σ", "•", "Τ Υ Φ", "•", "Χ Ψ Ω"])
+            #expect(result == ["Q\u{2800}", "E\u{2800}", "D\u{2800}"])
         }
         do {
-            let result = subject.tableView(tableView, sectionForSectionIndexTitle: "ABC", at: 1)
-            #expect(result == 3) // where "A" is
+            let result = subject.tableView(tableView, sectionForSectionIndexTitle: "E\u{2800}", at: 1)
+            #expect(result == 1) // where "E" is
         }
         do {
             let result = subject.tableView(tableView, sectionForSectionIndexTitle: "yoho", at: 1)
