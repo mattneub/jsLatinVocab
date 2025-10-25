@@ -106,38 +106,18 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
         guard snapshot.itemIdentifiers.isEmpty else {
             return
         }
-        let terms = terms.sorted { $0.lessonSection < $1.lessonSection }
-        // A Group is a section of the collection view. A group's name is the lesson name,
-        // and its items are sectionFirstWords within that lesson, preceded by the lesson name.
-        class Group {
-            init(lesson: String, sections: [String]) {
-                self.lesson = lesson
-                self.sections = sections
-            }
-            var lesson: String
-            var sections: [String]
-        }
-        var groups = [Group]()
-        var currentLesson = "&&&"
-        var currentSection = "&&&"
-        for term in terms {
-            let lesson = term.lesson
-            if lesson != currentLesson {
-                currentLesson = lesson
-                currentSection = term.sectionFirstWord
-                groups.append(Group(lesson: currentLesson, sections: [currentLesson + currentSection]))
-            } else {
-                let section = term.sectionFirstWord
-                if section != currentSection {
-                    currentSection = section
-                    groups.last?.sections.append(currentLesson + currentSection)
-                }
-            }
-        }
+        // Okay, here goes.
+        let dictionary = Dictionary(grouping: terms, by: { $0.lesson })
+            .mapValues { Set($0.map { $0.sectionFirstWord }) }
+        let sections = Array(dictionary)
+            .sorted { (Int($0.key) ?? 0) < (Int($1.key) ?? 0) }
         snapshot.deleteAllItems()
-        for group in groups {
-            snapshot.appendSections([group.lesson])
-            snapshot.appendItems(group.sections)
+        for section in sections {
+            snapshot.appendSections([section.key])
+            snapshot.appendItems(section.value
+                .sorted { $0 < $1 }
+                .map { section.key + $0 }
+            )
         }
         datasource.apply(snapshot, animatingDifferences: false)
     }

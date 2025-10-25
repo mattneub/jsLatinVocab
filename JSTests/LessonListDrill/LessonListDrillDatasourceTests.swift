@@ -30,16 +30,18 @@ struct LessonListDrillDatasourceTests {
 
     @Test("present: constructs datasource data")
     func present() async throws {
+        let string0 = "latin\tenglish\t10\tc\tpart"
         let string1 = "latin\tenglish\t2\ta\tpart"
         let string2 = "latin\tenglish\t1\tb\tpart"
         let string3 = "latin\tenglish\t1\tb another word\tpart"
         let string4 = "latin\tenglish\t1\tc\tpart"
-        let terms = [string1, string2, string3, string4].map { Term(tabbedString: $0, index: 0)}
+        let terms = [string0, string1, string2, string3, string4].map { Term(tabbedString: $0, index: 0)}
         await subject.present(.init(terms: terms))
         let snapshot = subject.datasource.snapshot()
-        #expect(snapshot.sectionIdentifiers == ["1", "2"])
-        #expect(snapshot.itemIdentifiers(inSection: "1") == ["1b", "1c"])
+        #expect(snapshot.sectionIdentifiers == ["1", "2", "10"]) // numeric order
+        #expect(snapshot.itemIdentifiers(inSection: "1") == ["1b", "1c"]) // sections clumped by first word
         #expect(snapshot.itemIdentifiers(inSection: "2") == ["2a"])
+        #expect(snapshot.itemIdentifiers(inSection: "10") == ["10c"])
     }
 
     @Test("clear: deselects all items")

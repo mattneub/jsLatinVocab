@@ -66,7 +66,6 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
         let sortFunctions = SwiftSortDescriptor<Term>.combine([betaSorter, lessonSorter])
         let terms = terms.sorted(by: sortFunctions)
         self.data = terms
-        // TODO: wouldn't this work for lesson list too? no?
         let dictionary = Dictionary(grouping: terms, by: { $0.beta.prefix(1).uppercased() })
         let sections = Array(dictionary).sorted { $0.key < $1.key }
         for section in sections {
