@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "959DFFF3-E3F2-48C3-991D-C5CB319B27ED",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:JS Latin Vocab iOS 26.xcodeproj",
+      "identifier" : "3F741C542EAC4CC100F1B91F",
+      "name" : "JS Latin Vocab iOS 26"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:JS Latin Vocab iOS 26.xcodeproj",
+        "identifier" : "3F741E0D2EAC504100F1B91F",
+        "name" : "JSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
