@@ -27,7 +27,7 @@ struct InfoControllerTests {
         let rightButton = try #require(subject.navigationItem.rightBarButtonItem)
         #expect(rightButton.target === subject)
         #expect(rightButton.action == #selector(subject.doDone))
-        let expectedTitle = AttributedString("JACT Vocab Info", attributes: AttributeContainer()
+        let expectedTitle = AttributedString("J&S Latin Vocab Info", attributes: AttributeContainer()
             .font(UIFont(name: "Arial Rounded MT Bold", size: 20)!)
         )
         #expect(subject.navigationItem.attributedTitle == expectedTitle)

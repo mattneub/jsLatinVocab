@@ -18,7 +18,7 @@ final class InfoViewController: UIViewController, ReceiverPresenter {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doDone))
         navigationItem.rightBarButtonItem = doneButton
 
-        navigationItem.attributedTitle = .init("JACT Vocab Info", attributes: AttributeContainer()
+        navigationItem.attributedTitle = .init("J&S Latin Vocab Info", attributes: AttributeContainer()
             .font(UIFont(name: "Arial Rounded MT Bold", size: 20) ?? UIFont.systemFont(ofSize: 20))
         )
         navigationItem.style = .editor

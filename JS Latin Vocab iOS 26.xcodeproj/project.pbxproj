@@ -26,7 +26,7 @@
 		3F741C552EAC4CC100F1B91F /* JS Latin Vocab iOS 26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JS Latin Vocab iOS 26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F741E0E2EAC504100F1B91F /* JSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F741F072EAC51A100F1B91F /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		3FE54F622EAC527600E4133A /* JS Latin Vocab iOS 26.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JS Latin Vocab iOS 26.xctestplan"; sourceTree = "<group>"; };
+		3FE54F622EAC527600E4133A /* JS Latin Vocab iOS 26.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "JS Latin Vocab iOS 26.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -240,7 +240,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W3LHX5RGV2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JS Latin Vocab iOS 26/Info.plist";
@@ -276,7 +276,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W3LHX5RGV2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JS Latin Vocab iOS 26/Info.plist";

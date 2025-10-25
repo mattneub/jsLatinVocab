@@ -18,7 +18,7 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:JS Latin Vocab iOS 26.xcodeproj",
         "identifier" : "3F741E0D2EAC504100F1B91F",
