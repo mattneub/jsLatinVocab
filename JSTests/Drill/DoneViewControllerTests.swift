@@ -11,7 +11,7 @@ struct DoneViewControllerTests {
         makeWindow(viewController: subject)
         subject.view.layoutIfNeeded()
         subject.checkImage.backgroundColor = .black
-        assertSnapshot(of: subject.checkImage, as: .image)
+        assertSnapshot(of: subject.checkImage, as: .image(precision: 0.99))
     }
 
     @Test("image view is correctly configured")

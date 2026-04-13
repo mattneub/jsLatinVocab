@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct AllTermsViewControllerTests {
     let subject = AllTermsViewController()
@@ -14,19 +13,18 @@ struct AllTermsViewControllerTests {
     }
 
     @Test("initialize: sets tableview style, background color")
-    func initialize() {
+    func initialize() throws {
         #expect(subject.tableView.style == .plain)
         #expect(subject.tableView.backgroundColor == .myGolden.withAlphaComponent(1))
         #expect(subject.tableView.sectionIndexColor == .black)
-    }
-
-    @Test("viewDidLoad: configures left bar button item, sends initialInterface")
-    func viewDidLoad() async throws {
-        subject.loadViewIfNeeded()
         let button = try #require(subject.navigationItem.leftBarButtonItem)
         #expect(button.target === subject)
         #expect(button.action == #selector(subject.cancel))
-        await #while (processor.thingsReceived.isEmpty)
+    }
+
+    @Test("viewWillAppear: sends initialInterface")
+    func viewWillAppear() {
+        subject.viewWillAppear(false)
         #expect(processor.thingsReceived == [.initialInterface])
     }
 
@@ -39,9 +37,8 @@ struct AllTermsViewControllerTests {
     }
 
     @Test("cancel: sends .cancel")
-    func cancel() async {
+    func cancel() {
         subject.cancel()
-        await #while (processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.last == .cancel)
     }
 

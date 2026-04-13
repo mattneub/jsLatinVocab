@@ -240,7 +240,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W3LHX5RGV2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JS Latin Vocab iOS 26/Info.plist";
@@ -254,7 +254,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jslatvocabiphone;
 				PRODUCT_MODULE_NAME = JSLatin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,7 +276,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W3LHX5RGV2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JS Latin Vocab iOS 26/Info.plist";
@@ -290,7 +290,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neuburg.matt.jslatvocabiphone;
 				PRODUCT_MODULE_NAME = JSLatin;
 				PRODUCT_NAME = "$(TARGET_NAME)";

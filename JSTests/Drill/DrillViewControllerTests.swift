@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct DrillViewControllerTests {
     let subject = DrillViewController()
@@ -10,6 +9,7 @@ struct DrillViewControllerTests {
     init() {
         subject.processor = processor
     }
+
     @Test("image view is correctly prepared")
     func imageView() {
         let imageView = subject.imageView
@@ -60,7 +60,7 @@ struct DrillViewControllerTests {
     }
 
     @Test("viewDidLoad: adds subviews, toolbar items; calls processor .initialInterface")
-    func viewDidLoad() async throws {
+    func viewDidLoad() throws {
         makeWindow(viewController: subject)
         subject.view.layoutIfNeeded()
         #expect(subject.imageView.superview == subject.view)
@@ -84,7 +84,6 @@ struct DrillViewControllerTests {
         #expect(items[2].image == UIImage(named: "arrowup"))
         #expect(items[2].target === subject)
         #expect(items[2].action == #selector(subject.showEnglish))
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .initialInterface)
     }
 
@@ -122,7 +121,7 @@ struct DrillViewControllerTests {
     }
 
     @Test("receive progress: sets progress, passes effect to datasource")
-    func progress() async throws {
+    func progress() async {
         let datasource = MockPageViewControllerDatasource(pageViewController: UIPageViewController(), processor: processor)
         subject.datasource = datasource
         await subject.receive(.progress(0.5))
@@ -161,30 +160,26 @@ struct DrillViewControllerTests {
     }
 
     @Test("showEnglish: sends showEnglish")
-    func showEnglishMethod() async {
+    func showEnglishMethod() {
         subject.showEnglish()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showEnglish])
     }
 
     @Test("cancel: sends cancel")
-    func cancelMethod() async {
+    func cancelMethod() {
         subject.cancel()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.cancel])
     }
 
     @Test("right: sends right")
-    func rightMethod() async {
+    func rightMethod() {
         subject.right()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.right])
     }
 
     @Test("wrong: sends wrong")
-    func wrongMethod() async {
+    func wrongMethod() {
         subject.wrong()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.wrong])
     }
 

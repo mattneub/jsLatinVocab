@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct LessonListViewControllerTests {
     let subject = LessonListViewController()
@@ -19,7 +18,7 @@ struct LessonListViewControllerTests {
     }
 
     @Test("viewDidLoad: sets up cancel button, collection view, interface style, sends initialData")
-    func viewDidLoad() async throws {
+    func viewDidLoad() throws {
         subject.loadViewIfNeeded()
         let cancelButton = try #require(subject.navigationItem.leftBarButtonItem)
         #expect(cancelButton.target === subject)
@@ -28,7 +27,6 @@ struct LessonListViewControllerTests {
         #expect(subject.collectionView.contentInsetAdjustmentBehavior == .always)
         #expect(subject.collectionView.topEdgeEffect.isHidden == true)
         #expect(subject.overrideUserInterfaceStyle == .light)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .initialData)
     }
 
@@ -46,9 +44,8 @@ struct LessonListViewControllerTests {
     }
 
     @Test("cancel: sends cancel")
-    func cancel() async {
+    func cancel() {
         subject.cancel(self)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .cancel)
     }
 

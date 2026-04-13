@@ -2,7 +2,6 @@
 import Testing
 import UIKit
 import WebKit
-import WaitWhile
 
 struct InfoControllerTests {
     let subject = InfoViewController()
@@ -20,7 +19,7 @@ struct InfoControllerTests {
     }
 
     @Test("viewDidLoad: configures background color, navigation item, adds web view to interface, sends initialInterface")
-    func viewDidLoad() async throws {
+    func viewDidLoad() throws {
         let window = makeWindow(viewController: subject)
         window.layoutIfNeeded()
         #expect(subject.view.backgroundColor == .systemBackground)
@@ -34,7 +33,6 @@ struct InfoControllerTests {
         #expect(subject.navigationItem.style == .editor)
         #expect(subject.webView.isDescendant(of: subject.view))
         #expect(subject.webView.frame == subject.view.bounds)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.initialInterface])
     }
 
@@ -53,6 +51,12 @@ struct InfoControllerTests {
     func supported() {
         let result = subject.navigationControllerSupportedInterfaceOrientations(UINavigationController())
         #expect(result == [.landscape])
+    }
+
+    @Test("doDone: sends done")
+    func doDone() {
+        subject.doDone()
+        #expect(processor.thingsReceived == [.done])
     }
 
     // no delegate tests, not worth it; can just test in running app

@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct LessonListDatasourceTests {
     let layout = UICollectionViewFlowLayout()
@@ -99,7 +98,6 @@ struct LessonListDatasourceTests {
         #expect(collectionView.indexPathsForSelectedItems?.first == IndexPath(item: 0, section: 0))
         // that was prep, this is the test
         subject.collectionView(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-        await #while(collectionView.indexPathsForSelectedItems?.first == IndexPath(item: 0, section: 0))
         #expect(collectionView.indexPathsForSelectedItems?.first == nil)
         #expect(processor.thingsReceived.first == .selectedLessonSection("1b"))
     }

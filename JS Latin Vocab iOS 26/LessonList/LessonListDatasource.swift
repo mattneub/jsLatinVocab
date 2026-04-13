@@ -156,7 +156,7 @@ final class LessonListDatasource: NSObject, LessonListDatasourceType {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Task {
+        Task.immediate {
             try? await unlessTesting {
                 try? await Task.sleep(for: .seconds(0.1))
             }

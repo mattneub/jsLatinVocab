@@ -134,7 +134,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
         transitionCompleted completed: Bool
     ) {
         if let card = pageViewController.viewControllers?.first as? CardViewController {
-            Task {
+            Task.immediate {
                 await processor?.receive(.navigated(indexOrig: card.term.indexOrig))
             }
         }

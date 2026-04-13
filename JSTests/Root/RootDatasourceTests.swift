@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct RootDatasourceTests {
     var subject: RootDatasource!
@@ -187,7 +186,6 @@ struct RootDatasourceTests {
         let card = MockCardViewController(term: term1)
         await pageViewController.setViewControllers([card], direction: .forward, animated: false)
         subject.pageViewController(pageViewController, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: true)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.navigated(indexOrig: 1)])
     }
 }

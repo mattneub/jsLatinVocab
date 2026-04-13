@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct CardViewControllerTests {
     @Test("initialize plus view did load sets the Term, populates the interface")
@@ -75,7 +74,7 @@ struct CardViewControllerTests {
     }
 
     @Test("tappedLabel: translates label into enum, sends tappedLabel with enum and term index")
-    func tappedLabelLesson() async throws {
+    func tappedLabelLesson() throws {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
@@ -87,12 +86,11 @@ struct CardViewControllerTests {
         subject.loadViewIfNeeded()
         let tapper = try #require(subject.lesson.gestureRecognizers?.first as? UITapGestureRecognizer)
         subject.tappedLabel(tapper)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.last == .tappedLabel(.lesson, currentTerm: 1))
     }
 
     @Test("tappedLabel: translates other label into enum, sends tappedLabel with enum and term index")
-    func tappedLabelSection() async throws {
+    func tappedLabelSection() throws {
         let term = Term(
             latin: "latin", latinFirstWord: "", beta: "", english: "english", lesson: "lesson",
             section: "section", sectionFirstWord: "", lessonSection: "", part: "part",
@@ -104,7 +102,6 @@ struct CardViewControllerTests {
         subject.loadViewIfNeeded()
         let tapper = try #require(subject.section.gestureRecognizers?.first as? UITapGestureRecognizer)
         subject.tappedLabel(tapper)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.last == .tappedLabel(.section, currentTerm: 1))
     }
 }

@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct RootViewControllerTests {
     let subject = RootViewController()
@@ -43,7 +42,7 @@ struct RootViewControllerTests {
     }
 
     @Test("viewDidLoad: adds image view, page view controller, toolbar; calls processor .initialInterface")
-    func viewDidLoad() async throws {
+    func viewDidLoad() throws {
         makeWindow(viewController: subject)
         subject.view.layoutIfNeeded()
         #expect(subject.imageView.superview == subject.view)
@@ -83,7 +82,6 @@ struct RootViewControllerTests {
         #expect(items[10].image == UIImage(named: "help"))
         #expect(items[10].target === subject)
         #expect(items[10].action == #selector(subject.showInfo))
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .initialInterface)
     }
 
@@ -120,37 +118,32 @@ struct RootViewControllerTests {
     }
 
     @Test("showInfo: sends showInfo")
-    func showInfo() async {
+    func showInfo() {
         subject.showInfo()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showInfo])
     }
 
     @Test("showLessonList: sends showLessonList")
-    func showLessonList() async {
+    func showLessonList() {
         subject.showLessonList()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showLessonList])
     }
 
     @Test("showLessonListDrill: sends showLessonListDrill")
-    func showLessonListDrill() async {
+    func showLessonListDrill() {
         subject.showLessonListDrill()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showLessonListDrill])
     }
 
     @Test("showAllTermsList: sends showAllTerms")
-    func showAllTermsList() async {
+    func showAllTermsList() {
         subject.showAllTermsList()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.showAllTerms])
     }
 
     @Test("toggleEnglish: sends toggleEnglish")
-    func toggleEnglish() async {
+    func toggleEnglish() {
         subject.toggleEnglish()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.toggleEnglish])
     }
 

@@ -54,7 +54,7 @@ final class RootViewController: UIViewController, ReceiverPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        Task {
+        Task.immediate {
             await processor?.receive(.initialInterface)
         }
     }
@@ -123,37 +123,37 @@ final class RootViewController: UIViewController, ReceiverPresenter {
 
     /// The user has tapped the hider button (key image).
     @objc func toggleEnglish() {
-        Task {
+        Task.immediate {
             await processor?.receive(.toggleEnglish)
         }
     }
 
     @objc func toggleExtraInfo() {
-        Task {
+        Task.immediate {
             await processor?.receive(.toggleExtra)
         }
     }
 
     @objc func showLessonList() {
-        Task {
+        Task.immediate {
             await processor?.receive(.showLessonList)
         }
     }
 
     @objc func showAllTermsList() {
-        Task {
+        Task.immediate {
             await processor?.receive(.showAllTerms)
         }
     }
 
     @objc func showInfo() {
-        Task {
+        Task.immediate {
             await processor?.receive(.showInfo)
         }
     }
 
     @objc func showLessonListDrill() {
-        Task {
+        Task.immediate {
             await processor?.receive(.showLessonListDrill)
         }
     }

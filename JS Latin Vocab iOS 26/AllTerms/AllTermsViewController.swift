@@ -16,20 +16,20 @@ final class AllTermsViewController: UITableViewController, ReceiverPresenter {
         super.init(style: .plain)
         tableView.backgroundColor = .myGolden.withAlphaComponent(1) // picked up by nav bar and headers
         tableView.sectionIndexColor = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(cancel)
+        )
     }
 
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .cancel,
-            target: self,
-            action: #selector(cancel)
-        )
-        Task {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task.immediate {
             await processor?.receive(.initialInterface)
         }
     }
@@ -39,7 +39,7 @@ final class AllTermsViewController: UITableViewController, ReceiverPresenter {
     }
 
     @objc func cancel() {
-        Task {
+        Task.immediate {
             await processor?.receive(.cancel)
         }
     }

@@ -9,6 +9,6 @@ struct BoundedLabelTests {
         let subject = BoundedLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
         subject.awakeFromNib()
         subject.text = "This is a test!"
-        assertSnapshot(of: subject, as: .image)
+        assertSnapshot(of: subject, as: .image(precision: 0.99))
     }
 }

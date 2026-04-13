@@ -36,7 +36,7 @@ class LessonListDrillViewController: UICollectionViewController, ReceiverPresent
         collectionView.topEdgeEffect.isHidden = true
         overrideUserInterfaceStyle = .light
 
-        Task {
+        Task.immediate {
             await processor?.receive(.initialData)
         }
     }
@@ -50,19 +50,19 @@ class LessonListDrillViewController: UICollectionViewController, ReceiverPresent
     }
 
     @objc func cancel() {
-        Task {
+        Task.immediate {
             await processor?.receive(.cancel)
         }
     }
 
     @objc func clear() {
-        Task {
+        Task.immediate {
             await processor?.receive(.clear)
         }
     }
 
     @objc func drill() {
-        Task {
+        Task.immediate {
             await processor?.receive(.drill)
         }
     }

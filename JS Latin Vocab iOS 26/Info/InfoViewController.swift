@@ -30,7 +30,7 @@ final class InfoViewController: UIViewController, ReceiverPresenter {
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        Task {
+        Task.immediate {
             await processor?.receive(.initialInterface)
         }
     }
@@ -47,7 +47,7 @@ final class InfoViewController: UIViewController, ReceiverPresenter {
     }
 
     @objc func doDone() {
-        Task {
+        Task.immediate {
             await processor?.receive(.done)
         }
     }
@@ -57,7 +57,7 @@ extension InfoViewController: WKNavigationDelegate, MFMailComposeViewControllerD
     func webView(
         _ webView: WKWebView,
         decidePolicyFor navigationAction: WKNavigationAction,
-        decisionHandler: @escaping @MainActor @Sendable (WKNavigationActionPolicy) -> Void
+        decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void
     ) {
         if navigationAction.navigationType == .linkActivated, let url = navigationAction.request.url {
             if url.absoluteString == "mailto:matt@tidbits.com" && MFMailComposeViewController.canSendMail() {
@@ -80,7 +80,7 @@ extension InfoViewController: WKNavigationDelegate, MFMailComposeViewControllerD
         didFinishWith result: MFMailComposeResult,
         error: Error?
     ) {
-        Task {
+        Task.immediate {
             await processor?.receive(.done)
         }
     }

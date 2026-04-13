@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct AllTermsDatasourceTests {
     let subject: AllTermsDatasource!
@@ -92,7 +91,6 @@ struct AllTermsDatasourceTests {
         #expect(tableView.indexPathForSelectedRow == IndexPath(row: 0, section: 0))
         // that was prep, this is the test
         subject.tableView(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
-        await #while(tableView.indexPathForSelectedRow == IndexPath(row: 0, section: 0))
         #expect(tableView.indexPathForSelectedRow == nil)
         #expect(processor.thingsReceived.first == .termChosen(3))
     }

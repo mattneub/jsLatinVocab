@@ -70,7 +70,7 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        Task {
+        Task.immediate {
             await processor?.receive(.initialInterface)
         }
     }
@@ -172,25 +172,25 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
     }
 
     @objc func showEnglish() {
-        Task {
+        Task.immediate {
             await processor?.receive(.showEnglish)
         }
     }
 
     @objc func cancel() {
-        Task {
+        Task.immediate {
             await processor?.receive(.cancel)
         }
     }
 
     @objc func right() {
-        Task {
+        Task.immediate {
             await processor?.receive(.right)
         }
     }
 
     @objc func wrong() {
-        Task {
+        Task.immediate {
             await processor?.receive(.wrong)
         }
     }

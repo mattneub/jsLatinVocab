@@ -32,7 +32,7 @@ class LessonListViewController: UICollectionViewController, ReceiverPresenter {
         collectionView.topEdgeEffect.isHidden = true
         overrideUserInterfaceStyle = .light
 
-        Task {
+        Task.immediate {
             await processor?.receive(.initialData)
         }
     }
@@ -43,7 +43,7 @@ class LessonListViewController: UICollectionViewController, ReceiverPresenter {
 
     // from bar button item created earlier
     @objc func cancel(_ sender: Any?) {
-        Task {
+        Task.immediate {
             await processor?.receive(.cancel)
         }
     }

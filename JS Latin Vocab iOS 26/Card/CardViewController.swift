@@ -101,7 +101,7 @@ class CardViewController: UIViewController {
         case section: .section
         default: .lesson // shouldn't happen
         }
-        Task {
+        Task .immediate{
             await processor?.receive(.tappedLabel(tappedLabel, currentTerm: term.index))
         }
     }

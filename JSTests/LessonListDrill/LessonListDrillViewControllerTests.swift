@@ -1,7 +1,6 @@
 @testable import JSLatin
 import Testing
 import UIKit
-import WaitWhile
 
 struct LessonListDrillViewControllerTests {
     let subject = LessonListDrillViewController()
@@ -19,7 +18,7 @@ struct LessonListDrillViewControllerTests {
     }
 
     @Test("viewDidLoad: sets up cancel button, collection view, interface style, sends initialData")
-    func viewDidLoad() async throws {
+    func viewDidLoad() throws {
         subject.loadViewIfNeeded()
         let cancelButton = try #require(subject.navigationItem.leftBarButtonItem)
         #expect(cancelButton.target === subject)
@@ -34,7 +33,6 @@ struct LessonListDrillViewControllerTests {
         #expect(subject.collectionView.contentInsetAdjustmentBehavior == .always)
         #expect(subject.collectionView.topEdgeEffect.isHidden == true)
         #expect(subject.overrideUserInterfaceStyle == .light)
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .initialData)
     }
 
@@ -58,23 +56,20 @@ struct LessonListDrillViewControllerTests {
     }
 
     @Test("cancel: sends cancel")
-    func cancel() async {
+    func cancel() {
         subject.cancel()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .cancel)
     }
 
     @Test("clear: sends clear")
-    func clear() async {
+    func clear() {
         subject.clear()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived.first == .clear)
     }
 
     @Test("drill: sends drill")
-    func drill() async {
+    func drill() {
         subject.drill()
-        await #while(processor.thingsReceived.isEmpty)
         #expect(processor.thingsReceived == [.drill])
     }
 

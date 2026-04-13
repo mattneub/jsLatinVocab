@@ -120,7 +120,7 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
         guard let identifier = datasource.itemIdentifier(for: indexPath) else {
             return
         }
-        Task {
+        Task.immediate {
             try? await unlessTesting {
                 try? await Task.sleep(for: .seconds(0.1))
             }
