@@ -8,7 +8,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     weak var pageViewController: UIPageViewController?
 
     /// Reference to the processor, so we can send actions and/or configure card controllers to send actions.
-    weak var processor: (any Receiver<RootAction>)?
+    weak var processor: any Receiver<RootAction>?
 
     /// Type of the card view controller that we will use as the child of the page view controller.
     /// This is so that a test can inject a mock version.
@@ -18,7 +18,7 @@ final class RootDatasource: NSObject, PageViewControllerDatasourceType {
     /// - Parameters:
     ///   - pageViewController: Our page view controller.
     ///   - processor: Our processor.
-    init(pageViewController: UIPageViewController, processor: (any Receiver<RootAction>)?) {
+    init(pageViewController: UIPageViewController, processor: any Receiver<RootAction>?) {
         self.pageViewController = pageViewController
         self.processor = processor
     }

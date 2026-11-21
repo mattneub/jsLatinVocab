@@ -18,7 +18,7 @@ struct RootProcessorTests {
 
     @Test("initialInterface: fetches string file from bundle, creates and sorts Terms, sets state, presents, navigates")
     func initialInterface() async {
-        let path = Bundle(for: MockBundle.self).path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
+        let path = #bundle.path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
         bundle.pathToReturn = path
         persistence.hiddenToReturn = true
         await subject.receive(.initialInterface)
@@ -45,7 +45,7 @@ struct RootProcessorTests {
 
     @Test("initialInterface: if it gets a current term index from persistence, it converts and uses it")
     func initialInterfacePersistence() async {
-        let path = Bundle(for: MockBundle.self).path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
+        let path = #bundle.path(forResource: "dataUnsorted", ofType: "txt") // see Fixtures
         bundle.pathToReturn = path
         persistence.hiddenToReturn = true
         persistence.termIndexToReturn = 2
@@ -105,7 +105,7 @@ struct RootProcessorTests {
 
     @Test("tappedLabel: correctly sends navigate to correct index")
     func tappedLabel() async {
-        let path = Bundle(for: MockBundle.self).path(forResource: "dataSorted", ofType: "txt")! // see Fixtures
+        let path = #bundle.path(forResource: "dataSorted", ofType: "txt")! // see Fixtures
         var terms = try! String(contentsOfFile: path, encoding: .utf8)
             .components(separatedBy: "\n")
             .filter { $0.count > 5 }

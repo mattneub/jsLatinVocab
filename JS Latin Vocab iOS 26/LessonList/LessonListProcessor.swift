@@ -3,13 +3,13 @@ import Foundation
 /// The basic logic for the lesson list module.
 final class LessonListProcessor: Processor {
     /// Reference to the coordinator, set by the coordinator at module creation time.
-    weak var coordinator: (any RootCoordinatorType)?
+    weak var coordinator: any RootCoordinatorType?
 
     /// Reference to the presenter, set by the coordinator at module creation time.
-    weak var presenter: (any ReceiverPresenter<Void, LessonListState>)?
+    weak var presenter: any ReceiverPresenter<Void, LessonListState>?
 
     /// Reference to the delegate, set by the coordinator at module creation time.
-    weak var delegate: (any LessonListDelegate)?
+    weak var delegate: any LessonListDelegate?
 
     /// State to be presented by the presenter.
     var state = LessonListState()

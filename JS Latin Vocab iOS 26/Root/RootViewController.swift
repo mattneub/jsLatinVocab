@@ -3,7 +3,7 @@ import UIKit
 /// Chief presenter for the root module.
 final class RootViewController: UIViewController, ReceiverPresenter {
     /// Reference to the processor, set by the coordinator at module creation time.
-    weak var processor: (any Receiver<RootAction>)?
+    weak var processor: any Receiver<RootAction>?
 
     var interfaceOrientations: UIInterfaceOrientationMask = [.landscape] { // see footnote
         didSet {
@@ -160,7 +160,7 @@ final class RootViewController: UIViewController, ReceiverPresenter {
 }
 
 extension RootViewController: UIToolbarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
+    func position(for bar: any UIBarPositioning) -> UIBarPosition {
         return .bottom
     }
 }

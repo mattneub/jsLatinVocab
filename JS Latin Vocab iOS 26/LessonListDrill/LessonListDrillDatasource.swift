@@ -13,7 +13,7 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
     typealias Received = LessonListDrillEffect
 
     /// Processor to whom we can send action messages.
-    weak var processor: (any Receiver<LessonListDrillAction>)?
+    weak var processor: any Receiver<LessonListDrillAction>?
 
     /// Reference to the collection view.
     weak var collectionView: UICollectionView?
@@ -22,7 +22,7 @@ final class LessonListDrillDatasource: NSObject, LessonListDrillDatasourceType {
     private let reuseIdentifier = "reuseIdentifier"
     private let supplementaryIdentifier = "supplementaryIdentifier"
 
-    init(collectionView: UICollectionView, processor: (any Receiver<LessonListDrillAction>)?) {
+    init(collectionView: UICollectionView, processor: any Receiver<LessonListDrillAction>?) {
         self.processor = processor
         self.collectionView = collectionView
         super.init()

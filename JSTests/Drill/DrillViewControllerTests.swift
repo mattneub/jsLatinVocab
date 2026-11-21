@@ -193,9 +193,9 @@ struct DrillViewControllerTests {
 fileprivate final class MockPageViewControllerDatasource: NSObject, PageViewControllerDatasourceType {
     var thingsReceived = [DrillEffect]()
     var pageViewController: UIPageViewController?
-    var processor: (any Receiver<DrillAction>)?
+    var processor: any Receiver<DrillAction>?
 
-    init(pageViewController: UIPageViewController, processor: (any Receiver<DrillAction>)?) {
+    init(pageViewController: UIPageViewController, processor: any Receiver<DrillAction>?) {
         self.pageViewController = pageViewController
         self.processor = processor
     }

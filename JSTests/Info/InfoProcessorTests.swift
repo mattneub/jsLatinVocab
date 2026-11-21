@@ -22,7 +22,7 @@ struct InfoProcessorTests {
 
     @Test("receive initialInterface: fetches resource from bundle, configures state, presents")
     func initialInterface() async {
-        let path = Bundle(for: MockBundle.self).path(forResource: "content", ofType: "html")! // see Fixtures
+        let path = #bundle.path(forResource: "content", ofType: "html")! // see Fixtures
         bundle.pathToReturn = path
         await subject.receive(.initialInterface)
         #expect(bundle.methodsCalled == ["path(forResource:ofType:)"])

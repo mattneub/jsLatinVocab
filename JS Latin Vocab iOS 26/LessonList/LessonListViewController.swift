@@ -4,7 +4,7 @@ import UIKit
 class LessonListViewController: UICollectionViewController, ReceiverPresenter {
 
     /// Reference to the processor, set by the coordinator at module creation time.
-    weak var processor: (any Receiver<LessonListAction>)?
+    weak var processor: any Receiver<LessonListAction>?
 
     /// Our data source object. It is lazily created when we receive our first `present` call.
     lazy var datasource: any LessonListDatasourceType<LessonListState> = LessonListDatasource(

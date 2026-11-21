@@ -18,12 +18,12 @@ final class RootCoordinator: RootCoordinatorType {
     weak var rootViewController: UIViewController?
 
     /// Place where processors are rooted so that they don't vanish in a puff of smoke.
-    var rootProcessor: (any Processor<RootAction, RootState, RootEffect>)?
-    var infoProcessor: (any Processor<InfoAction, InfoState, Void>)?
-    var lessonListProcessor: (any Processor<LessonListAction, LessonListState, Void>)?
-    var lessonListDrillProcessor: (any Processor<LessonListDrillAction, LessonListDrillState, LessonListDrillEffect>)?
-    var allTermsProcessor: (any Processor<AllTermsAction, AllTermsState, Void>)?
-    var drillProcessor: (any Processor<DrillAction, DrillState, DrillEffect>)?
+    var rootProcessor: any Processor<RootAction, RootState, RootEffect>?
+    var infoProcessor: any Processor<InfoAction, InfoState, Void>?
+    var lessonListProcessor: any Processor<LessonListAction, LessonListState, Void>?
+    var lessonListDrillProcessor: any Processor<LessonListDrillAction, LessonListDrillState, LessonListDrillEffect>?
+    var allTermsProcessor: any Processor<AllTermsAction, AllTermsState, Void>?
+    var drillProcessor: any Processor<DrillAction, DrillState, DrillEffect>?
 
     func createInterface(window: UIWindow) {
         let rootViewController = RootViewController()
@@ -59,7 +59,7 @@ final class RootCoordinator: RootCoordinatorType {
         viewController.processor = processor
         processor.presenter = viewController
         processor.state.terms = terms
-        processor.delegate = rootProcessor as? LessonListDelegate
+        processor.delegate = rootProcessor as? any LessonListDelegate
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.delegate = viewController
@@ -88,7 +88,7 @@ final class RootCoordinator: RootCoordinatorType {
         viewController.processor = processor
         processor.presenter = viewController
         processor.state.terms = terms
-        processor.delegate = rootProcessor as? AllTermsDelegate
+        processor.delegate = rootProcessor as? any AllTermsDelegate
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .overFullScreen
         navigationController.delegate = viewController

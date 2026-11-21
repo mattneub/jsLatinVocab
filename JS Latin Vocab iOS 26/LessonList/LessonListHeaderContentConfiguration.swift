@@ -7,11 +7,11 @@ struct LessonListHeaderContentConfiguration: UIContentConfiguration, Hashable {
 
     // The rest is boilerplate.
 
-    func makeContentView() -> UIView & UIContentView {
+    func makeContentView() -> any UIContentView & UIView {
         return LessonListHeaderContentView(configuration: self)
     }
 
-    func updated(for state: UIConfigurationState) -> Self {
+    func updated(for state: any UIConfigurationState) -> Self {
         return self
     }
 }
@@ -39,7 +39,7 @@ class LessonListHeaderContentView: UIView, UIContentView {
 
     var appliedConfiguration: LessonListHeaderContentConfiguration!
 
-    var configuration: UIContentConfiguration {
+    var configuration: any UIContentConfiguration {
         get { appliedConfiguration }
         set {
             guard let newConfig = newValue as? LessonListHeaderContentConfiguration else { return }

@@ -11,7 +11,7 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
     typealias State = AllTermsState
 
     /// Processor to whom we can send action messages.
-    weak var processor: (any Receiver<AllTermsAction>)?
+    weak var processor: any Receiver<AllTermsAction>?
 
     /// Weak reference to the table view.
     weak var tableView: UITableView?
@@ -20,7 +20,7 @@ final class AllTermsDatasource: NSObject, AllTermsDatasourceType {
     private let reuseIdentifier = "reuseIdentifier"
     private let headerReuseIdentifier = "headerReuseIdentifier"
 
-    init(tableView: UITableView, processor: (any Receiver<AllTermsAction>)?) {
+    init(tableView: UITableView, processor: any Receiver<AllTermsAction>?) {
         self.tableView = tableView
         self.processor = processor
         super.init()

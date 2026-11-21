@@ -8,7 +8,7 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
     weak var pageViewController: UIPageViewController?
 
     /// Reference to the processor, so we can send actions. (But it happens that we never do.)
-    weak var processor: (any Receiver<DrillAction>)?
+    weak var processor: any Receiver<DrillAction>?
 
     /// Type of the card view controller that we will use as the child of the page view controller.
     /// This is so that a test can inject a mock version.
@@ -18,7 +18,7 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
     /// - Parameters:
     ///   - pageViewController: Our page view controller.
     ///   - processor: Our processor.
-    init(pageViewController: UIPageViewController, processor: (any Receiver<DrillAction>)?) {
+    init(pageViewController: UIPageViewController, processor: any Receiver<DrillAction>?) {
         self.pageViewController = pageViewController
         self.processor = processor
     }

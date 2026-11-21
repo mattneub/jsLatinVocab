@@ -3,7 +3,7 @@ import MessageUI
 import WebKit
 
 final class InfoViewController: UIViewController, ReceiverPresenter {
-    weak var processor: (any Receiver<InfoAction>)?
+    weak var processor: any Receiver<InfoAction>?
 
     lazy var webView = WKWebView().applying {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +78,7 @@ extension InfoViewController: WKNavigationDelegate, MFMailComposeViewControllerD
     func mailComposeController(
         _ controller: MFMailComposeViewController,
         didFinishWith result: MFMailComposeResult,
-        error: Error?
+        error: any Error?
     ) {
         Task.immediate {
             await processor?.receive(.done)

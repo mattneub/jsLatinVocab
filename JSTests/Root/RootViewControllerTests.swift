@@ -158,9 +158,9 @@ struct RootViewControllerTests {
 fileprivate final class MockPageViewControllerDatasource: NSObject, PageViewControllerDatasourceType {
     var thingsReceived = [RootEffect]()
     var pageViewController: UIPageViewController?
-    var processor: (any Receiver<RootAction>)?
+    var processor: any Receiver<RootAction>?
 
-    init(pageViewController: UIPageViewController, processor: (any Receiver<RootAction>)?) {
+    init(pageViewController: UIPageViewController, processor: any Receiver<RootAction>?) {
         self.pageViewController = pageViewController
         self.processor = processor
     }

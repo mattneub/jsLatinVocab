@@ -3,13 +3,13 @@ import Foundation
 /// The basic logic for the all terms module.
 final class AllTermsProcessor: Processor {
     /// Reference to the coordinator, set by the coordinator at module creation time.
-    weak var coordinator: (any RootCoordinatorType)?
+    weak var coordinator: any RootCoordinatorType?
 
     /// Reference to the presenter, set by the coordinator at module creation time.
-    weak var presenter: (any ReceiverPresenter<Void, AllTermsState>)?
+    weak var presenter: any ReceiverPresenter<Void, AllTermsState>?
 
     /// Reference to the delegate, set by the coordinator at module creation time.
-    weak var delegate: (any AllTermsDelegate)?
+    weak var delegate: any AllTermsDelegate?
 
     /// State to be presented by the presenter.
     var state = AllTermsState()

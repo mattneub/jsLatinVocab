@@ -2,8 +2,8 @@ import UIKit
 
 /// Class whose single instance provides access to externalities.
 final class Services {
-    var bundle: BundleType = Bundle.main
-    var persistence: PersistenceType = Persistence()
-    var sceneSizeRestrictor: SceneSizeRestrictorType = SceneSizeRestrictor()
-    var userDefaults: UserDefaultsType = UserDefaults.standard
+    var bundle: any BundleType = #bundle
+    var persistence: any PersistenceType = Persistence()
+    var sceneSizeRestrictor: any SceneSizeRestrictorType = SceneSizeRestrictor()
+    var userDefaults: any UserDefaultsType = UserDefaults.standard
 }

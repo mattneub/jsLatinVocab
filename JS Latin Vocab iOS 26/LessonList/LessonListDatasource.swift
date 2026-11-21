@@ -11,13 +11,13 @@ final class LessonListDatasource: NSObject, LessonListDatasourceType {
     typealias State = LessonListState
 
     /// Processor to whom we can send action messages.
-    weak var processor: (any Receiver<LessonListAction>)?
+    weak var processor: any Receiver<LessonListAction>?
 
     /// Reuse identifier for the table view cells we will be creating.
     private let reuseIdentifier = "reuseIdentifier"
     private let supplementaryIdentifier = "supplementaryIdentifier"
 
-    init(collectionView: UICollectionView, processor: (any Receiver<LessonListAction>)?) {
+    init(collectionView: UICollectionView, processor: any Receiver<LessonListAction>?) {
         self.processor = processor
         super.init()
         // We're going to use a diffable data source. Register the cell types, make the

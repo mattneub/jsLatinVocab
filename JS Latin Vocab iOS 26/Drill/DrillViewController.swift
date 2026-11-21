@@ -3,7 +3,7 @@ import UIKit
 /// Chief presenter for the drill module.
 final class DrillViewController: UIViewController, ReceiverPresenter {
     /// Reference to the processor, set by the coordinator at module creation time.
-    weak var processor: (any Receiver<DrillAction>)?
+    weak var processor: any Receiver<DrillAction>?
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask { .landscape }
 
@@ -197,7 +197,7 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
 }
 
 extension DrillViewController: UIToolbarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
+    func position(for bar: any UIBarPositioning) -> UIBarPosition {
         return .bottom
     }
 }

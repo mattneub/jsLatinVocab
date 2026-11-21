@@ -4,7 +4,7 @@ import UIKit
 class CardViewController: UIViewController {
 
     /// Reference to the processor, so that we can inform it of taps on labels.
-    weak var processor: (any Receiver<RootAction>)?
+    weak var processor: any Receiver<RootAction>?
 
     /// The Term with which we were initialized. We need to hold this because (1) we cannot
     /// configure the labels until later (`viewDidLoad`), and (2) we need a way of asking this

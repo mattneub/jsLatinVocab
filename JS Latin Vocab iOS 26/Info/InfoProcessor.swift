@@ -2,10 +2,10 @@ import Foundation
 
 final class InfoProcessor: Processor {
     /// Reference to the coordinator, set by the coordinator at module creation time.
-    weak var coordinator: (any RootCoordinatorType)?
+    weak var coordinator: any RootCoordinatorType?
 
     /// Reference to the presenter, set by the coordinator at module creation time.
-    weak var presenter: (any ReceiverPresenter<Void, InfoState>)?
+    weak var presenter: any ReceiverPresenter<Void, InfoState>?
 
     /// State to be presented by the presenter.
     var state = InfoState()

@@ -13,9 +13,9 @@ protocol PageViewControllerDatasourceType<ProcessorActionType, EffectType, DataT
     associatedtype EffectType
     associatedtype DataType
 
-    var processor: (any Receiver<ProcessorActionType>)? { get set }
+    var processor: any Receiver<ProcessorActionType>? { get set }
 
-    init(pageViewController: UIPageViewController, processor: (any Receiver<ProcessorActionType>)?)
+    init(pageViewController: UIPageViewController, processor: any Receiver<ProcessorActionType>?)
 
     var data: [DataType] { get set }
 

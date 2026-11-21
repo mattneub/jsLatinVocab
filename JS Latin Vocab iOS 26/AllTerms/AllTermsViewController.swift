@@ -4,7 +4,7 @@ import UIKit
 /// The user can choose one to navigate to it.
 final class AllTermsViewController: UITableViewController, ReceiverPresenter {
     /// Reference to the processor, set by the coordinator at module creation time.
-    weak var processor: (any Receiver<AllTermsAction>)?
+    weak var processor: any Receiver<AllTermsAction>?
 
     /// Our data source object. It is lazily created when we receive our first `present` call.
     lazy var datasource: any AllTermsDatasourceType<AllTermsState> = AllTermsDatasource(
