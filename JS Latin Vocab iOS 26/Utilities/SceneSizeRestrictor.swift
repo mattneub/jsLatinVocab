@@ -1,5 +1,7 @@
 import UIKit
 
+/// Protocol that expresses the public fact of our SceneSizeRestrictor, so we can mock it
+/// for test.
 protocol SceneSizeRestrictorType {
     func restrict(scene: UIWindowScene, minimumSize: CGSize?, maximumSize: CGSize?)
 }

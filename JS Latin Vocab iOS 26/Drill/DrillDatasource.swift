@@ -65,14 +65,14 @@ final class DrillDatasource: NSObject, PageViewControllerDatasourceType {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
-        return nil
+        return nil // no user navigation
     }
 
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
-        return nil
+        return nil // no user navigation
     }
 
     func pageViewControllerSupportedInterfaceOrientations(

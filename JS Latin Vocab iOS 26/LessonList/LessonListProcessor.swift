@@ -19,7 +19,7 @@ final class LessonListProcessor: Processor {
         case .cancel:
             await coordinator?.dismiss()
         case .initialData:
-            await presenter?.present(state) // State has been configured by the coordinator.
+            await presenter?.present(state)
         case .selectedLessonSection(let lessonSection):
             await coordinator?.dismiss()
             if let index = state.terms.firstIndex(where: { $0.lesson + $0.sectionFirstWord == lessonSection }) {

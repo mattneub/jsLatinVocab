@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIImage {
+    /// Checkmark image signifying that a lesson cell is selected.
     static func checkmark(ofSize size: CGSize) -> UIImage {
         imageOfSize(size) {
             let context = UIGraphicsGetCurrentContext()
@@ -14,6 +15,7 @@ extension UIImage {
         }
     }
 
+    /// Convenience function for drawing an image by hand.
     static func imageOfSize(_ size: CGSize, opaque: Bool = false, closure: () -> ()) -> UIImage {
         let renderer = UIGraphicsImageRenderer(
             size: size,

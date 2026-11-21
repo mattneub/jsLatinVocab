@@ -2,7 +2,7 @@
 /// from http://chris.eidhof.nl/post/sort-descriptors-in-swift/
 ///
 /// This has the advantage that we don't have to use NSSortDescriptor and we don't have to
-/// grapple with Swift SortComparator and key paths with are not sendable.
+/// grapple with Swift SortComparator and key paths which are not sendable.
 struct SwiftSortDescriptor<Value> {
     typealias SortFunction = (Value, Value) -> Bool
 

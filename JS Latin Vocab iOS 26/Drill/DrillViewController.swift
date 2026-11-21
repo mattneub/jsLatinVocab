@@ -134,6 +134,7 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
         ])
     }
 
+    /// Display the toolbar while posing a query (the user can show the answer).
     func populateToolbar1() {
         let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -141,6 +142,7 @@ final class DrillViewController: UIViewController, ReceiverPresenter {
         self.toolbar.setItems([cancel, spacer, up], animated:true)
     }
 
+    /// Display the toolbar while showing the answer (the user can say got it right/wrong).
     func populateToolbar2() {
         let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

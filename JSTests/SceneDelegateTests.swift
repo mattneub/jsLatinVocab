@@ -19,4 +19,12 @@ struct SceneDelegateTests {
         #expect(restrictor.minimumSize == .init(width: 844, height: 390))
         #expect(restrictor.maximumSize == .init(width: 1000, height: 450))
     }
+
+    @Test("supportedInterfaceOrientations replies correctly")
+    func supported() throws {
+        let scene = try #require(UIApplication.shared.connectedScenes.first as? UIWindowScene)
+        let subject = SceneDelegate()
+        let orientations = subject.supportedInterfaceOrientations(for: scene)
+        #expect(orientations == [.portrait, .landscape])
+    }
 }

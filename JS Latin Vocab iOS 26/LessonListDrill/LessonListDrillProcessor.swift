@@ -16,7 +16,7 @@ final class LessonListDrillProcessor: Processor {
         case .cancel:
             await coordinator?.dismiss()
         case .initialData:
-            await presenter?.present(state) // State has been configured by the coordinator.
+            await presenter?.present(state)
         case .clear:
             await presenter?.receive(.clear)
         case .drill:

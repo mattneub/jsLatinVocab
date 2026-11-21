@@ -1,6 +1,9 @@
 import UIKit
 
+/// View controller that displays its view as a red checkmark on a black background.
 final class DoneViewController: UIViewController {
+
+    /// Utility that draws the checkmark as an image view.
     lazy var checkImage = UIImageView().applying {
         $0.contentMode = .center
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -18,6 +21,7 @@ final class DoneViewController: UIViewController {
             check.draw(in: CGRect(x: 0, y: 0, width: 200, height: 200))
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black

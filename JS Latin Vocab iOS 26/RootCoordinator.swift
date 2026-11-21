@@ -110,13 +110,19 @@ final class RootCoordinator: RootCoordinatorType {
         rootViewController?.presentedViewController?.present(viewController, animated: unlessTesting(true))
     }
 
+    /// https://forums.swift.org/t/cant-convert-from-checkedcontinuation-to-continuation/90899/2
     func dismiss() async {
-        await withCheckedContinuation { continuation in
+        await withContinuation(of: Void.self) { continuation in
+            var continuation = Optional(continuation)
+            guard let presented = rootViewController?.presentedViewController else {
+                continuation.take()?.resume()
+                return
+            }
             // we only present to the level of 2, so this covers all bases:
             // if there is just one level presented, this dismisses it, and if there are
             // two levels presented, it dismisses the second level but keeps the first level
-            rootViewController?.presentedViewController?.dismiss(animated: unlessTesting(true)) {
-                continuation.resume(returning: ())
+            presented.dismiss(animated: unlessTesting(true)) {
+                continuation.take()?.resume()
             }
         }
     }
