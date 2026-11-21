@@ -52,10 +52,10 @@ extension AllTermsViewController: UINavigationControllerDelegate {
         [.portrait, .landscape]
     }
 
-    // Unfortunately this is having no effect: we are not automatically rotating to portrait.
-    func navigationControllerPreferredInterfaceOrientationForPresentation(
-        _ navigationController: UINavigationController
-    ) -> UIInterfaceOrientation {
-        .portrait
-    }
+//    // Unfortunately this is having no effect: we are not automatically rotating to portrait.
+//    func navigationControllerPreferredInterfaceOrientationForPresentation(
+//        _ navigationController: UINavigationController
+//    ) -> UIInterfaceOrientation {
+//        .portrait
+//    }
 }

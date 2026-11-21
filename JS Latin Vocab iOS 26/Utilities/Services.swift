@@ -4,5 +4,6 @@ import UIKit
 final class Services {
     var bundle: BundleType = Bundle.main
     var persistence: PersistenceType = Persistence()
+    var sceneSizeRestrictor: SceneSizeRestrictorType = SceneSizeRestrictor()
     var userDefaults: UserDefaultsType = UserDefaults.standard
 }
